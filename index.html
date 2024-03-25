@@ -1,80 +1,152 @@
+<div class="card-container">
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 1</h2>
+            <p>This is a sample blog post. It can contain some information about the topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 2</h2>
+            <p>This is another sample blog post. It can contain some information about a different topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 3</h2>
+            <p>This is yet another sample blog post. It can contain some information about another topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 4</h2>
+            <p>This is a new sample blog post. It can contain some information about a new topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-image" style="background-image: url('nature.jpg');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 5</h2>
+            <p>This is another new sample blog post. It can contain some information about another new topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+</div>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Card List</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Card</title>
+<style>
+    /* Styles for the menu bar */
+    .menu-bar {
+        background-color: #333;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    /* Styles for the menu items */
+    .menu-item {
+        display: inline-block;
+        margin: 0 20px;
+        color: #fff;
+        font-size: 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .menu-item:hover {
+        color: #ff9900; /* Change to your desired hover color */
+    }
+
+    /* Styles for the card container */
+    .card-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    /* Styles for the card */
+    .card {
+        width: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+        margin-bottom: 20px;
+    }
+
     .card:hover {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transform: translateY(-5px);
+        transform: translateY(-10px);
     }
 
-    .card-body:hover {
-      background-color: #f8f9fa; /* Light gray */
+    /* Styles for the card content */
+    .card-content {
+        padding: 20px;
     }
 
-    .btn-primary:hover {
-      background-color: #007bff; /* Blue */
+    .card-content h2 {
+        margin-top: 0;
+        font-size: 20px;
+        color: #333;
     }
-  </style>
+
+    .card-content p {
+        font-size: 14px;
+        color: #666;
+    }
+
+    /* Styles for the card image */
+    .card-image {
+        width: 100%;
+        height: 200px; /* Adjust the height as needed */
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Styles for the read more button */
+    .read-more {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .read-more:hover {
+        background-color: #ff9900; /* Change to your desired hover background color */
+        color: #fff; /* Change to your desired hover text color */
+    }
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="card-columns">
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 1</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 2</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 3</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <!-- Additional Blog Cards -->
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 4</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 5</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 6</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+
 </body>
 </html>
+
+
