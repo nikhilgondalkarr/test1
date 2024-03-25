@@ -1,0 +1,145 @@
+To ensure the blog cards fit well in a mobile app, you need to adjust the layout to be responsive. Here's the modified HTML and CSS to achieve that:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Card</title>
+<style>
+     /* Styles for the card container */
+     .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Styles for the card */
+    .card {
+        width: calc(50% - 20px); /* Adjust the width as needed */
+        max-width: 300px; /* Maximum width for larger screens */
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+        margin-bottom: 20px;
+        margin-right: 20px; /* Add margin between cards */
+        margin-left: 20px; /* Add margin between cards */
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+    }
+
+    /* Styles for the card content */
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h2 {
+        margin-top: 0;
+        font-size: 18px; /* Adjust the font size for smaller screens */
+        color: #333;
+    }
+
+    .card-content p {
+        font-size: 14px;
+        color: #666;
+    }
+
+    /* Styles for the card image */
+    .card-image {
+        width: 100%;
+        height: 150px; /* Adjust the height as needed */
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Styles for the read more button */
+    .read-more {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .read-more:hover {
+        background-color: #ff9900; /* Change to your desired hover background color */
+        color: #fff; /* Change to your desired hover text color */
+    }
+
+    /* Media query for smaller screens */
+    @media screen and (max-width: 600px) {
+        .card {
+            width: calc(100% - 40px); /* Full width for smaller screens */
+            margin-right: 0; /* Remove margin for smaller screens */
+            margin-left: 0; /* Remove margin for smaller screens */
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="card-container">
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 1</h2>
+            <p>This is a sample blog post. It can contain some information about the topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <!-- Add more cards here -->
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 2</h2>
+            <p>This is another sample blog post. It can contain some information about a different topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 3</h2>
+            <p>This is yet another sample blog post. It can contain some information about another topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 4</h2>
+            <p>This is a new sample blog post. It can contain some information about a new topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-image" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+        <div class="card-content">
+            <h2>Blog Post Title 5</h2>
+            <p>This is another new sample blog post. It can contain some information about another new topic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <!-- Add more cards as needed -->
+
+</div>
+
+</body>
+</html>
+```
+
+This code ensures that the blog cards adjust their width and spacing appropriately for mobile screens. Adjustments are made through CSS media queries to ensure optimal display on smaller devices.
