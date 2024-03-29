@@ -246,83 +246,144 @@
   
   
    
-  To add a hover effect to the blog cards, you can use CSS to change the appearance of the card when hovered over. Here's how you can do it:
-
-```html
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Card List</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>Small Size Rectangular Blog Cards</title>
   <style>
-    .card:hover {
+    .small-rectangle-card {
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transform: translateY(-5px);
+      float: left;
+    }
+    
+    .small-rectangle-card img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .small-rectangle-card-content {
+      padding: 10px;
+    }
+    
+    .small-rectangle-card-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .small-rectangle-card-description {
+      font-size: 0.8rem;
+      line-height: 1.3;
+      color: #666;
+    }
+    
+    .small-rectangle-card-footer {
+      padding: 8px 10px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    
+    .small-rectangle-card-footer a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 4px 8px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .small-rectangle-card-footer a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card-columns">
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 1</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 2</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 3</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <!-- Additional Blog Cards -->
-      <div class="card mb-4">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 4</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <img src="nature copy.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 5</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <img src="Indian.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Blog Post Title 6</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
+
+<!-- First Small Card -->
+<div class="small-rectangle-card">
+  <img src="https://via.placeholder.com/200x150" alt="Placeholder Image">
+  <div class="small-rectangle-card-content">
+    <h2 class="small-rectangle-card-title">Blog Title 1</h2>
+    <p class="small-rectangle-card-description">Short description of the blog post.</p>
   </div>
+  <div class="small-rectangle-card-footer">
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+<!-- Second Small Card -->
+<div class="small-rectangle-card">
+  <img src="https://via.placeholder.com/200x150" alt="Placeholder Image">
+  <div class="small-rectangle-card-content">
+    <h2 class="small-rectangle-card-title">Blog Title 2</h2>
+    <p class="small-rectangle-card-description">Short description of the blog post.</p>
+  </div>
+  <div class="small-rectangle-card-footer">
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+<!-- Third Small Card -->
+<div class="small-rectangle-card">
+  <img src="https://via.placeholder.com/200x150" alt="Placeholder Image">
+  <div class="small-rectangle-card-content">
+    <h2 class="small-rectangle-card-title">Blog Title 3</h2>
+    <p class="small-rectangle-card-description">Short description of the blog post.</p>
+  </div>
+  <div class="small-rectangle-card-footer">
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+<!-- Fourth Small Card -->
+<div class="small-rectangle-card">
+  <img src="https://via.placeholder.com/200x150" alt="Placeholder Image">
+  <div class="small-rectangle-card-content">
+    <h2 class="small-rectangle-card-title">Blog Title 4</h2>
+    <p class="small-rectangle-card-description">Short description of the blog post.</p>
+  </div>
+  <div class="small-rectangle-card-footer">
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+<!-- Fifth Small Card -->
+<div class="small-rectangle-card">
+  <img src="https://via.placeholder.com/200x150" alt="Placeholder Image">
+  <div class="small-rectangle-card-content">
+    <h2 class="small-rectangle-card-title">Blog Title 5</h2>
+    <p class="small-rectangle-card-description">Short description of the blog post.</p>
+  </div>
+  <div class="small-rectangle-card-footer">
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
 </body>
 </html>
-```
 
-In the added CSS style block, I've defined a hover effect for the `.card` class. When hovering over a card, it will apply a box-shadow and a translateY transformation to give it a lifted appearance. You can adjust the values to achieve the desired effect.
+   
+      
+   
+
 
   
   
