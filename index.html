@@ -256,7 +256,11 @@
 
 
 
-Sure, here's the HTML code with additional cards added:
+
+
+ 
+  
+Here's the updated code with additional small-sized cards:
 
 ```html
 <!DOCTYPE html>
@@ -267,10 +271,10 @@ Sure, here's the HTML code with additional cards added:
 <title>News Article Cards</title>
 <style>
   .card {
-    width: 300px;
-    border-radius: 5px;
+    width: 200px; /* Reduced width for smaller card */
+    border-radius: 0; /* Set border-radius to 0 for rectangular shape */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 10px;
     margin: 20px;
     background-color: #f9f9f9;
     transition: background-color 0.3s ease;
@@ -280,26 +284,28 @@ Sure, here's the HTML code with additional cards added:
   }
   .card img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 5px; /* Keep border-radius for image */
     margin-bottom: 10px;
   }
   .card h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #333; /* Ensure title color remains consistent */
+    font-size: 0.9rem; /* Reduced font size for smaller card */
+    margin-bottom: 5px; /* Reduced margin for smaller card */
+    color: #333;
   }
   .card p {
-    font-size: 1rem;
+    font-size: 0.8rem; /* Reduced font size for smaller card */
     color: #555;
+    margin-bottom: 10px; /* Reduced margin for smaller card */
   }
   .read-more {
     display: inline-block;
     background-color: #007bff;
     color: white;
-    padding: 8px 16px;
+    padding: 6px 12px; /* Reduced padding for smaller button */
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.8rem; /* Reduced font size for smaller button */
   }
   .read-more:hover {
     background-color: #0056b3;
@@ -310,36 +316,29 @@ Sure, here's the HTML code with additional cards added:
 
 <div class="card">
   <img src="nature copy.jpg" alt="Article Image">
-  <h2>Example News Article Title 1</h2>
-  <p>This is a brief summary of the first news article. It can contain important details or highlights of the story.</p>
+  <h2>News Title 1</h2>
+  <p>Summary of the first news article.</p>
+  <a href="#" class="read-more">Read more</a>
+</div>
+
+<div class="card">
+  <img src="https://via.placeholder.com/300" alt="Article Image">
+  <h2>News Title 2</h2>
+  <p>Summary of the second news article.</p>
   <a href="#" class="read-more">Read more</a>
 </div>
 
 <div class="card">
   <img src="Indian.jpg" alt="Article Image">
-  <h2>Example News Article Title 2</h2>
-  <p>This is a brief summary of the second news article. It can contain important details or highlights of the story.</p>
+  <h2>News Title 3</h2>
+  <p>Summary of the third news article.</p>
   <a href="#" class="read-more">Read more</a>
 </div>
 
 <div class="card">
-  <img src="nature copy.jpg" alt="Article Image">
-  <h2>Example News Article Title 3</h2>
-  <p>This is a brief summary of the third news article. It can contain important details or highlights of the story.</p>
-  <a href="#" class="read-more">Read more</a>
-</div>
-
-<div class="card">
-  <img src="https://via.placeholder.com/300" alt="Article Image">
-  <h2>Example News Article Title 4</h2>
-  <p>This is a brief summary of the fourth news article. It can contain important details or highlights of the story.</p>
-  <a href="#" class="read-more">Read more</a>
-</div>
-
-<div class="card">
-  <img src="https://via.placeholder.com/300" alt="Article Image">
-  <h2>Example News Article Title 5</h2>
-  <p>This is a brief summary of the fifth news article. It can contain important details or highlights of the story.</p>
+  <img src="Indian.jpg" alt="Article Image">
+  <h2>News Title 4</h2>
+  <p>Summary of the fourth news article.</p>
   <a href="#" class="read-more">Read more</a>
 </div>
 
@@ -347,9 +346,7 @@ Sure, here's the HTML code with additional cards added:
 </html>
 ```
 
-This code now includes five cards, each with unique content. You can continue to add more cards by duplicating the card structure as needed.
-
-
+In this version, I've reduced the width of the card to `200px`, along with adjusting the font sizes and padding to create a smaller card body. Adjustments have been made to both the text content and the "Read more" button to maintain a visually consistent design. You can continue to add more cards or customize the styles further as needed.
   
   
    
