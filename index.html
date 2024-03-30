@@ -284,37 +284,41 @@ In this code, the `.navbar` class is styled to have a background image set to `m
 
   
   
+To create a smaller icon card, you can adjust the size of the columns within the Bootstrap grid system. Here's the modified code to create smaller icon cards with smaller columns:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Horizontal Icons</title>
+  <title>Small Icon Card Example</title>
   <!-- Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    /* Custom CSS for horizontal icons */
-    .horizontal-icons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background-color: #f8f9fa;
+    .icon-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     .icon {
-      font-size: 32px; /* Increased font size */
-      margin-right: 10px; /* Decreased margin */
+      margin-bottom: 10px;
     }
 
-    .icon-img {
-      width: 32px; /* Increased width */
-      height: 32px; /* Increased height */
-      margin-right: 10px; /* Decreased margin */
+    .icon img {
+      width: 50px; /* Adjust image size as needed */
+      height: 50px; /* Adjust image size as needed */
     }
 
-    .icon-label {
-      font-size: 14px; /* Adjust label font size */
+    .icon h3 {
+      font-size: 14px; /* Adjust font size as needed */
+    }
+
+    .icon p {
+      font-size: 12px; /* Adjust font size as needed */
     }
   </style>
 </head>
@@ -322,39 +326,41 @@ In this code, the `.navbar` class is styled to have a background image set to `m
 
 <div class="container">
   <div class="row">
-    <div class="col">
-      <div class="horizontal-icons">
-        <!-- Font Awesome Icons -->
-        <i class="icon fas fa-home"></i>
-        <span class="icon-label">Home</span>
-        <i class="icon fas fa-envelope"></i>
-        <span class="icon-label">Email</span>
-        <i class="icon fas fa-bell"></i>
-        <span class="icon-label">Notifications</span>
-        
-        <!-- Image Icons -->
-        <img class="icon-img" src="house.png" alt="Icon 1">
-        <span class="icon-label">Icon 1</span>
-        <img class="icon-img" src="man.png" alt="Icon 2">
-        <span class="icon-label">Icon 2</span>
-        <img class="icon-img" src="categories.png" alt="Icon 3">
-        <span class="icon-label">Icon 3</span>
-        <img class="icon-img" src="about.png" alt="Icon 4">
-        <span class="icon-label">Icon 4</span>
-        <img class="icon-img" src="contact.png" alt="Icon 5">
-        <span class="icon-label">Icon 5</span>
-        <img class="icon-img" src="operator.png" alt="Icon 6">
-        <span class="icon-label">Icon 6</span>
+    <div class="col-md-3">
+      <div class="icon-card">
+        <div class="icon">
+          <img src="man.png" alt="User Icon">
+        </div>
+        <h3>User</h3>
+        <p>This is a user icon card.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="icon-card">
+        <div class="icon">
+          <img src="house.png" alt="Settings Icon">
+        </div>
+        <h3>Settings</h3>
+        <p>This is a settings icon card.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="icon-card">
+        <div class="icon">
+          <img src="operator.png" alt="Message Icon">
+        </div>
+        <h3>Message</h3>
+        <p>This is a message icon card.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Font Awesome Icons (You may need to add this link if you're using Font Awesome) -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
 ```
+
+In this example, I've changed the column size to `col-md-3`, which means each icon card will take up 3 out of 12 columns on medium-sized screens and larger. Adjust the column size as needed to fit your layout preferences.
 
 
 
