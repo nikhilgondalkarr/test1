@@ -306,92 +306,124 @@ In this code, the `.navbar` class is styled to have a background image set to `m
  
   
 
-  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>News Article Cards</title>
-<style>
-  .card {
-    width: 310px; /* Increased width for the card */
-    border-radius: 0; /* Set border-radius to 0 for rectangular shape */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin: 20px;
-    background-color: #f9f9f9;
-    transition: background-color 0.3s ease;
-  }
-  .card:hover {
-    background-color: #e8e8e8;
-  }
-  .card img {
-    width: 100%;
-    border-radius: 5px; /* Keep border-radius for image */
-    margin-bottom: 10px;
-  }
-  .card h2 {
-    font-size: 0.9rem; /* Reduced font size for smaller card */
-    margin-bottom: 5px; /* Reduced margin for smaller card */
-    color: #333;
-  }
-  .card p {
-    font-size: 0.8rem; /* Reduced font size for smaller card */
-    color: #555;
-    margin-bottom: 10px; /* Reduced margin for smaller card */
-  }
-  .read-more {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 6px 12px; /* Reduced padding for smaller button */
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.8rem; /* Reduced font size for smaller button */
-  }
-  .read-more:hover {
-    background-color: #0056b3;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Blog Card</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .blog-card {
+      display: flex;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .blog-card img {
+      max-width: 200px;
+      max-height: 150px;
+      width: auto;
+      height: auto;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .blog-card .card-body {
+      flex: 1;
+      padding: 10px; /* Adjusted padding */
+    }
+
+    .blog-card .card-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .blog-card .card-text {
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="card">
-  <img src="https://via.placeholder.com/300" alt="Article Image">
-  <h2>News Title 1</h2>
-  <p>Summary of the first news article.</p>
-  <a href="#" class="read-more">Read more</a>
-</div>
+<div class="container">
+  <div class="blog-card">
+    <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <h5 class="card-title">Blog Post Title 1</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
 
-<div class="card">
-  <img src="https://via.placeholder.com/300" alt="Article Image">
-  <h2>News Title 2</h2>
-  <p>Summary of the second news article.</p>
-  <a href="#" class="read-more">Read more</a>
-</div>
+  <div class="blog-card">
+    <img src="nature copy.jpg" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <h5 class="card-title">Blog Post Title 2</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
 
-<div class="card">
-  <img src="https://via.placeholder.com/300" alt="Article Image">
-  <h2>News Title 3</h2>
-  <p>Summary of the third news article.</p>
-  <a href="#" class="read-more">Read more</a>
-</div>
+  <div class="blog-card">
+    <img src="Indian.jpg" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <h5 class="card-title">Blog Post Title 3</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
 
-<div class="card">
-  <img src="https://via.placeholder.com/300" alt="Article Image">
-  <h2>News Title 4</h2>
-  <p>Summary of the fourth news article.</p>
-  <a href="#" class="read-more">Read more</a>
+  <div class="blog-card">
+    <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <h5 class="card-title">Blog Post Title 4</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <img src="nature.jpg" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <h5 class="card-title">Blog Post Title 5</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <h5 class="card-title">Blog Post Title 6</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <img src="008.jpg" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <h5 class="card-title">Blog Post Title 7</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <img src="bb.jpg" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <h5 class="card-title">Blog Post Title 8</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
 </div>
 
 </body>
 </html>
-```
-
-In this version, I've increased the width of the card to `350px`. You can adjust this value further as needed to fit your design requirements.
- 
 
    
 
