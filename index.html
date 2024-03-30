@@ -37,93 +37,118 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile App Menu</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Responsive Vertical Navigation Bar with Logo, Search Bar, and Hover Effect</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     /* Custom styles */
-    body {
-      padding-top: 56px; /* Adjusted for fixed navbar height */
+    .navbar-nav {
+      flex-direction: column;
     }
-    .navbar {
-      background-image: url('download (5).jpg'); /* Background image */
+    .navbar-collapse {
+      justify-content: flex-start;
+    }
+    .nav-link {
+      padding: .5rem 1rem;
+      color: #fff; /* Text color */
+      transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+    .navbar-custom {
+      background-image: url('008.jpg'); /* Replace 'your-image-url.jpg' with the URL of your background image */
       background-size: cover;
-      background-position: center;
     }
     .navbar-brand {
-      color: #fff; /* Brand color */
+      display: flex;
+      align-items: center;
     }
-    .navbar-nav .nav-item .nav-link {
-      color: #fff; /* Link color */
-      transition: color 0.3s ease; /* Smooth transition for color change */
+    .navbar-brand img {
+      max-height: 40px; /* Adjust as needed */
+      margin-right: 10px; /* Optional: Adjust spacing between logo image and text */
     }
-    .navbar-nav .nav-item .nav-link:hover {
-      color: #ffc107; /* Change color on hover */
+    .navbar-brand-text {
+      font-size: 1.25rem; /* Adjust font size as needed */
     }
-    .dropdown-menu .dropdown-item {
-      color: #000; /* Dropdown item color */
+    .nav-item:hover .nav-link {
+      background-color: rgba(255, 255, 255, 0.2); /* Change background color on hover */
+      border-radius: 5px; /* Optional: Add some rounded corners */
     }
-    .search-form {
-      margin-right: 15px; /* Adjust the margin as needed */
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.2); /* Search bar background color */
+      color: #fff; /* Search bar text color */
+      transition: background-color 0.3s; /* Smooth transition for background color */
     }
-    .menu-icon {
-      width: 24px; /* Adjust icon size */
-      height: 24px;
-      margin-right: 5px; /* Adjust spacing between icon and text */
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.5); /* Change background color on focus */
     }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-  <a class="navbar-brand" href="#">Your Blog/News</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-md navbar-light navbar-custom">
+  <div class="navbar-brand">
+    <img src="house.png" alt="Logo">
+    <span class="navbar-brand-text">Your Logo Name</span>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><img src="house.png" alt="Home" class="menu-icon"> Home</a>
+        <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="man.png" alt="Blog" class="menu-icon"> about</a>
+        <a class="nav-link" href="#">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="operator.png" alt="News" class="menu-icon"> contact</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="categories.png" alt="Categories" class="menu-icon"> Categories
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#"><img src="category1-icon.png" alt="Category 1" class="menu-icon"> Category 1</a>
-          <a class="dropdown-item" href="#"><img src="category2-icon.png" alt="Category 2" class="menu-icon"> Category 2</a>
-          <a class="dropdown-item" href="#"><img src="category3-icon.png" alt="Category 3" class="menu-icon"> Category 3</a>
-        </div>
+        <a class="nav-link" href="#">Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="operator.png" alt="Contact" class="menu-icon"> Contact</a>
+        <a class="nav-link" href="#">Contact</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0 search-form">
+    <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
