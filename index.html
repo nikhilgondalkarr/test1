@@ -37,85 +37,165 @@
 
 
 
+
+   
+   
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Vertical Navigation Bar with Logo, Search Bar, and Hover Effect</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Mobile App Menus</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
   <style>
-    /* Custom styles */
-    .navbar-nav {
-      flex-direction: column;
-    }
-    .navbar-collapse {
-      justify-content: flex-start;
-    }
-    .nav-link {
-      padding: .5rem 1rem;
-      color: #fff; /* Text color */
-      transition: background-color 0.3s; /* Smooth transition for background color */
-    }
-    .navbar-custom {
-      background-image: url('008.jpg'); /* Replace 'your-image-url.jpg' with the URL of your background image */
+    /* Custom Styles */
+    .app-menu {
+      background-image: url('bb.jpg'); /* Add your image URL here */
       background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid #dee2e6;
+      padding: 8px 0;
     }
-    .navbar-brand {
+    .logo {
       display: flex;
       align-items: center;
+      padding: 10px;
     }
-    .navbar-brand img {
-      max-height: 40px; /* Adjust as needed */
-      margin-right: 10px; /* Optional: Adjust spacing between logo image and text */
+    .logo img {
+      width: 30px; /* Adjust image width as needed */
+      height: auto;
+      margin-right: 10px;
     }
-    .navbar-brand-text {
-      font-size: 1.25rem; /* Adjust font size as needed */
+    .logo-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #343a40;
     }
-    .nav-item:hover .nav-link {
-      background-color: rgba(255, 255, 255, 0.2); /* Change background color on hover */
-      border-radius: 5px; /* Optional: Add some rounded corners */
+    .search-form {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px;
     }
-    .form-control {
-      background-color: rgba(255, 255, 255, 0.2); /* Search bar background color */
-      color: #fff; /* Search bar text color */
-      transition: background-color 0.3s; /* Smooth transition for background color */
+    .search-input {
+      flex-grow: 1;
+      padding: 8px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      margin-right: 10px;
     }
-    .form-control:focus {
-      background-color: rgba(255, 255, 255, 0.5); /* Change background color on focus */
+    .search-btn {
+      padding: 8px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .search-btn:hover {
+      background-color: #0056b3;
+    }
+    .app-menu-item {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .app-menu-item:last-child {
+      border-bottom: none;
+    }
+    .app-menu-item a {
+      color: #343a40;
+      text-decoration: none;
+      transition: background-color 0.3s ease; /* Smooth transition effect */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .app-menu-item a:hover {
+      background-color: rgba(0, 0, 0, 0.1); /* Change to desired hover background color */
+    }
+    .app-menu-item.active a {
+      font-weight: bold;
+    }
+    .menu-icon {
+      width: 24px; /* Adjust icon width as needed */
+      height: auto;
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
+  <!-- App Menu -->
+  <div class="app-menu">
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="drawing.png" alt="Logo"> <!-- Add your logo image URL here -->
+        <span class="logo-name">Your App Name</span> <!-- Add your app name here -->
+      </div>
+      
+    
 
-<nav class="navbar navbar-expand-md navbar-light navbar-custom">
-  <div class="navbar-brand">
-    <img src="house.png" alt="Logo">
-    <span class="navbar-brand-text">Your Logo Name</span>
+      <!-- Menu Items -->
+      <div class="row">
+        <div class="col">
+          <div class="app-menu-item active">
+            <a href="#">
+              <img src="house.png" alt="Home" class="menu-icon"> <!-- Add your home icon image URL here -->
+              Home
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="app-menu-item">
+            <a href="#">
+              <img src="operator.png" alt="Profile" class="menu-icon"> <!-- Add your profile icon image URL here -->
+              Profile
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="app-menu-item">
+            <a href="#">
+              <img src="about.png" alt="Messages" class="menu-icon"> <!-- Add your messages icon image URL here -->
+              Messages
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="app-menu-item">
+            <a href="#">
+              <img src="categories.png" alt="Settings" class="menu-icon"> <!-- Add your settings icon image URL here -->
+              Settings
+            </a>
+          </div>
+        </div>
+
+
+
+ <div class="search-form">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="search-btn">Search</button>
+      </div>
+
+
+
+
+      </div>
+    </div>
   </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
-  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Bootstrap JS (Optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+     
 
 
 
