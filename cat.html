@@ -41,105 +41,207 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile App Menu</title>
+  <title>Mobile App Menus</title>
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
   <style>
-    /* Custom styles */
-    body {
-      padding-top: 56px; /* Adjusted for fixed navbar height */
-    }
-    .navbar {
-      background-image: url('download (5).jpg'); /* Background image */
+    /* Custom Styles */
+    .app-menu {
+      background-image: url('bb.jpg'); /* Add your image URL here */
       background-size: cover;
       background-position: center;
+      border-bottom: 1px solid #dee2e6;
+      padding: 8px 0;
     }
-    .navbar-brand {
-      color: #fff; /* Brand color */
+    .logo {
+      display: flex;
+      align-items: center;
+      padding: 10px;
     }
-    .navbar-nav .nav-item .nav-link {
-      color: #fff; /* Link color */
-      transition: color 0.3s ease; /* Smooth transition for color change */
+    .logo img {
+      width: 30px; /* Adjust image width as needed */
+      height: auto;
+      margin-right: 10px;
     }
-    .navbar-nav .nav-item .nav-link:hover {
-      color: #ffc107; /* Change color on hover */
-    }
-    .dropdown-menu .dropdown-item {
-      color: #000; /* Dropdown item color */
+    .logo-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #343a40;
     }
     .search-form {
-      margin-right: 15px; /* Adjust the margin as needed */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px;
+    }
+    .search-input {
+      flex-grow: 1;
+      padding: 8px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+    .search-btn {
+      padding: 8px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .search-btn:hover {
+      background-color: #0056b3;
+    }
+    .app-menu-item {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .app-menu-item:last-child {
+      border-bottom: none;
+    }
+    .app-menu-item a {
+      color: #343a40;
+      text-decoration: none;
+      transition: background-color 0.3s ease; /* Smooth transition effect */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .app-menu-item a:hover {
+      background-color: rgba(0, 0, 0, 0.1); /* Change to desired hover background color */
+    }
+    .app-menu-item.active a {
+      font-weight: bold;
     }
     .menu-icon {
-      width: 24px; /* Adjust icon size */
-      height: 24px;
-      margin-right: 5px; /* Adjust spacing between icon and text */
+      width: 24px; /* Adjust icon width as needed */
+      height: auto;
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
+  <!-- App Menu -->
+  <div class="app-menu">
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="drawing.png" alt="Logo"> <!-- Add your logo image URL here -->
+        <span class="logo-name">Your App Name</span> <!-- Add your app name here -->
+      </div>
+      
+    
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-  <a class="navbar-brand" href="#">Your Blog/News</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"><img src="house.png" alt="Home" class="menu-icon"> Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="man.png" alt="Blog" class="menu-icon"> about</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="operator.png" alt="News" class="menu-icon"> contact</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="categories.png" alt="Categories" class="menu-icon"> Categories
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#"><img src="category1-icon.png" alt="Category 1" class="menu-icon"> Category 1</a>
-          <a class="dropdown-item" href="#"><img src="category2-icon.png" alt="Category 2" class="menu-icon"> Category 2</a>
-          <a class="dropdown-item" href="#"><img src="category3-icon.png" alt="Category 3" class="menu-icon"> Category 3</a>
+      <!-- Menu Items -->
+      <div class="row">
+        <div class="col">
+          <div class="app-menu-item active">
+            <a href="#">
+                <a href="cat.html">
+              <img src="house.png" alt="Home" class="menu-icon"> </a> <!-- Add your home icon image URL here -->
+              Home
+            </a>
+          </div>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="operator.png" alt="Contact" class="menu-icon"> Contact</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0 search-form">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-    </form>
+        <div class="col">
+          <div class="app-menu-item">
+            <a href="#">
+              <img src="operator.png" alt="Profile" class="menu-icon"> <!-- Add your profile icon image URL here -->
+              Profile
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="app-menu-item">
+            <a href="#">
+              <img src="about.png" alt="Messages" class="menu-icon"> <!-- Add your messages icon image URL here -->
+              Messages
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="app-menu-item">
+            <a href="#">
+              <img src="categories.png" alt="Settings" class="menu-icon"> <!-- Add your settings icon image URL here -->
+              Settings
+            </a>
+          </div>
+        </div>
+
+
+
+ <div class="search-form">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="search-btn">Search</button>
+      </div>
+
+
+
+
+      </div>
+    </div>
   </div>
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Bootstrap JS (Optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 
+
+<br>
+<br>
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+       
+   
 
 
 
