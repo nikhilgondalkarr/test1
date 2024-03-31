@@ -1,6 +1,180 @@
-To add more icon cards, you can simply replicate the existing structure for additional cards within the same row. Here's your code with 8 cards in total:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Example</title>
+    <style>
+        body {
+            background-image: url('bbc.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
+            background-size: cover; /* This ensures that the image covers the entire background */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            /* You can add more CSS properties here to style the background as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your webpage content goes here -->
+</body>
+</html>
 
-```html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile App Menu</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom styles */
+    body {
+      padding-top: 56px; /* Adjusted for fixed navbar height */
+    }
+    .navbar {
+      background-image: url('download (5).jpg'); /* Background image */
+      background-size: cover;
+      background-position: center;
+    }
+    .navbar-brand {
+      color: #fff; /* Brand color */
+    }
+    .navbar-nav .nav-item .nav-link {
+      color: #fff; /* Link color */
+      transition: color 0.3s ease; /* Smooth transition for color change */
+    }
+    .navbar-nav .nav-item .nav-link:hover {
+      color: #ffc107; /* Change color on hover */
+    }
+    .dropdown-menu .dropdown-item {
+      color: #000; /* Dropdown item color */
+    }
+    .search-form {
+      margin-right: 15px; /* Adjust the margin as needed */
+    }
+    .menu-icon {
+      width: 24px; /* Adjust icon size */
+      height: 24px;
+      margin-right: 5px; /* Adjust spacing between icon and text */
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <a class="navbar-brand" href="#">Your Blog/News</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><img src="house.png" alt="Home" class="menu-icon"> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><img src="man.png" alt="Blog" class="menu-icon"> about</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><img src="operator.png" alt="News" class="menu-icon"> contact</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="categories.png" alt="Categories" class="menu-icon"> Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#"><img src="category1-icon.png" alt="Category 1" class="menu-icon"> Category 1</a>
+          <a class="dropdown-item" href="#"><img src="category2-icon.png" alt="Category 2" class="menu-icon"> Category 2</a>
+          <a class="dropdown-item" href="#"><img src="category3-icon.png" alt="Category 3" class="menu-icon"> Category 3</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><img src="operator.png" alt="Contact" class="menu-icon"> Contact</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0 search-form">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,15 +185,31 @@ To add more icon cards, you can simply replicate the existing structure for addi
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .icon-card {
+      background-color: white; /* Add white background color */
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 10px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease; /* Add transition for smooth effect */
+    }
+
+    .icon-card:hover {
+      transform: scale(1.05); /* Scale up the icon card on hover */
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Change box-shadow on hover */
     }
 
     .icon {
       margin-bottom: 10px;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 50%;
+      padding: 10px;
+      width: 70px; /* Adjust icon container size */
+      height: 70px; /* Adjust icon container size */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .icon img {
@@ -43,37 +233,34 @@ To add more icon cards, you can simply replicate the existing structure for addi
     <div class="col-md-3">
       <div class="icon-card">
         <div class="icon">
-            <a href="final.html">
-          <img src="man.png" alt="User Icon"></a>
+          <img src="man.png" alt="User Icon">
         </div>
-        <a href="final.html">
-        <h3>User</h3> </a>
+        <h3>User</h3>
         <p>This is a user icon card.</p>
       </div>
     </div>
     <div class="col-md-3">
       <div class="icon-card">
         <div class="icon">
-            <a href="final.html"></a>
-          <img src="house.png" alt="Settings Icon">
+          <img src="house.png" alt="House Icon">
         </div>
-        <h3>Settings</h3>
-        <p>This is a settings icon card.</p>
+        <h3>House</h3>
+        <p>This is a house icon card.</p>
       </div>
     </div>
     <div class="col-md-3">
       <div class="icon-card">
         <div class="icon">
-          <img src="operator.png" alt="Message Icon">
+          <img src="operator.png" alt="Operator Icon">
         </div>
-        <h3>Message</h3>
-        <p>This is a message icon card.</p>
+        <h3>Operator</h3>
+        <p>This is an operator icon card.</p>
       </div>
     </div>
     <div class="col-md-3">
       <div class="icon-card">
         <div class="icon">
-          <img src="image.png" alt="Image Icon">
+          <img src="about.png" alt="Image Icon">
         </div>
         <h3>Image</h3>
         <p>This is an image icon card.</p>
@@ -82,7 +269,7 @@ To add more icon cards, you can simply replicate the existing structure for addi
     <div class="col-md-3">
       <div class="icon-card">
         <div class="icon">
-          <img src="video.png" alt="Video Icon">
+          <img src="categories.png" alt="Video Icon">
         </div>
         <h3>Video</h3>
         <p>This is a video icon card.</p>
@@ -91,7 +278,7 @@ To add more icon cards, you can simply replicate the existing structure for addi
     <div class="col-md-3">
       <div class="icon-card">
         <div class="icon">
-          <img src="music.png" alt="Music Icon">
+          <img src="man.png" alt="Music Icon">
         </div>
         <h3>Music</h3>
         <p>This is a music icon card.</p>
@@ -100,7 +287,7 @@ To add more icon cards, you can simply replicate the existing structure for addi
     <div class="col-md-3">
       <div class="icon-card">
         <div class="icon">
-          <img src="document.png" alt="Document Icon">
+          <img src="contact.png" alt="Document Icon">
         </div>
         <h3>Document</h3>
         <p>This is a document icon card.</p>
@@ -109,7 +296,7 @@ To add more icon cards, you can simply replicate the existing structure for addi
     <div class="col-md-3">
       <div class="icon-card">
         <div class="icon">
-          <img src="calendar.png" alt="Calendar Icon">
+          <img src="blog.png" alt="Calendar Icon">
         </div>
         <h3>Calendar</h3>
         <p>This is a calendar icon card.</p>
@@ -120,6 +307,3 @@ To add more icon cards, you can simply replicate the existing structure for addi
 
 </body>
 </html>
-```
-
-This will display a total of 8 icon cards, each with its own icon, title, and description. You can adjust the content, images, and styles as needed.
