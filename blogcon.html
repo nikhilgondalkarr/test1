@@ -1,4 +1,4 @@
-To set the carousel to slide every 1.5 seconds (1500 milliseconds), you can modify the `data-interval` attribute of the carousel to `1500`. Here's the updated code:
+Apologies for the misunderstanding. Let's set the carousel to slide every 2 seconds as requested. Here's the modified code:
 
 ```html
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ To set the carousel to slide every 1.5 seconds (1500 milliseconds), you can modi
 <body>
 
 <div class="container">
-  <div id="blogCarousel" class="carousel slide" data-ride="carousel" data-interval="1500"> <!-- Interval set to 1.5 seconds -->
+  <div id="blogCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="row">
@@ -104,15 +104,15 @@ To set the carousel to slide every 1.5 seconds (1500 milliseconds), you can modi
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
   // Set image sources dynamically
-  document.getElementById('image1').src = 'https://via.placeholder.com/300';
-  document.getElementById('image2').src = 'https://via.placeholder.com/300';
-  document.getElementById('image3').src = 'https://via.placeholder.com/300';
+  document.getElementById('image1').src = 'bbc.jpg';
+  document.getElementById('image2').src = 'bb.jpg';
+  document.getElementById('image3').src = 'Indian.jpg';
   document.getElementById('image4').src = 'https://via.placeholder.com/300';
-  document.getElementById('image5').src = 'https://via.placeholder.com/300';
-  document.getElementById('image6').src = 'https://via.placeholder.com/300';
+  document.getElementById('image5').src = '008.jpg';
+  document.getElementById('image6').src = 'nature.jpg';
 </script>
 </body>
 </html>
 ```
 
-With this adjustment, the carousel will now slide every 1.5 seconds (1500 milliseconds). Adjust the value as needed to achieve your desired slide speed.
+In this code, the `data-interval` attribute of the carousel is set to `2000`, which means the carousel will slide every 2 seconds. Adjust this value if you want to change the interval duration.
