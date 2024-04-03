@@ -1,0 +1,118 @@
+To set the carousel to slide every 1.5 seconds (1500 milliseconds), you can modify the `data-interval` attribute of the carousel to `1500`. Here's the updated code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Card Carousel</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for blog card */
+    .blog-card {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px;
+      transition: transform 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      border-radius: 8px;
+      margin-bottom: 15px;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="blogCarousel" class="carousel slide" data-ride="carousel" data-interval="1500"> <!-- Interval set to 1.5 seconds -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img id="image1" src="" alt="Blog Image">
+              <h3>Blog Title 1</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img id="image2" src="" alt="Blog Image">
+              <h3>Blog Title 2</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img id="image3" src="" alt="Blog Image">
+              <h3>Blog Title 3</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img id="image4" src="" alt="Blog Image">
+              <h3>Blog Title 4</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img id="image5" src="" alt="Blog Image">
+              <h3>Blog Title 5</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="blog-card">
+              <img id="image6" src="" alt="Blog Image">
+              <h3>Blog Title 6</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#blogCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#blogCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  // Set image sources dynamically
+  document.getElementById('image1').src = 'https://via.placeholder.com/300';
+  document.getElementById('image2').src = 'https://via.placeholder.com/300';
+  document.getElementById('image3').src = 'https://via.placeholder.com/300';
+  document.getElementById('image4').src = 'https://via.placeholder.com/300';
+  document.getElementById('image5').src = 'https://via.placeholder.com/300';
+  document.getElementById('image6').src = 'https://via.placeholder.com/300';
+</script>
+</body>
+</html>
+```
+
+With this adjustment, the carousel will now slide every 1.5 seconds (1500 milliseconds). Adjust the value as needed to achieve your desired slide speed.
