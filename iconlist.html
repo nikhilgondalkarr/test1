@@ -1,4 +1,4 @@
-Sure, here's the modified code with six icon cards arranged horizontally:
+Certainly! Here's the code with 6 icon cards:
 
 ```html
 <!DOCTYPE html>
@@ -6,40 +6,36 @@ Sure, here's the modified code with six icon cards arranged horizontally:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Horizontal Icon Cards</title>
+  <title>Reduced Height Icon Cards</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     .icon-card {
-      display: flex; /* Use flexbox for horizontal layout */
-      align-items: center; /* Center items vertically */
+      width: 120px; /* Keep width unchanged */
+      height: 120px; /* Decrease height to make the card shorter */
       background-color: #f8f9fa;
       border: 1px solid #dee2e6;
       border-radius: 8px;
       padding: 10px;
-      margin-bottom: 20px; /* Add margin between cards */
+      margin-bottom: 10px; /* Add margin between cards */
     }
     
     .icon {
-      flex: 0 0 auto; /* Don't allow icon to grow */
-      margin-right: 10px; /* Add space between icon and content */
+      margin-bottom: 5px; /* Decrease space between icon and title */
+      text-align: center;
     }
     
     .icon img {
-      max-width: 50px;
-    }
-    
-    .content {
-      flex: 1; /* Allow content to grow */
+      max-height: 60px; /* Decrease max-height to make the icon smaller */
     }
     
     .icon-title {
-      font-size: 16px;
+      font-size: 14px; /* Decrease font size to make the title smaller */
       font-weight: bold;
       margin-bottom: 5px;
     }
     
     .card-text {
-      font-size: 14px;
+      font-size: 12px; /* Decrease font size to make the text smaller */
     }
   </style>
 </head>
@@ -48,56 +44,44 @@ Sure, here's the modified code with six icon cards arranged horizontally:
     <div class="row">
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="icon-card">
-          <div class="icon"><img src="home.png" alt="Icon"></div>
-          <div class="content">
-            <div class="icon-title">Card 1</div>
-            <p class="card-text">This is card 1.</p>
-          </div>
+          <div class="icon"><img src="categories.png" alt="Icon"></div>
+          <div class="icon-title">Icon Card 1</div>
+          <p class="card-text">Travel</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="icon-card">
-          <div class="icon"><img src="house.png" alt="Icon"></div>
-          <div class="content">
-            <div class="icon-title">Card 2</div>
-            <p class="card-text">This is card 2.</p>
-          </div>
+          <div class="icon"><img src="home.png" alt="Icon"></div>
+          <div class="icon-title">Icon Card 2</div>
+          <p class="card-text">Youth</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="icon-card">
           <div class="icon"><img src="about.png" alt="Icon"></div>
-          <div class="content">
-            <div class="icon-title">Card 3</div>
-            <p class="card-text">This is card 3.</p>
-          </div>
+          <div class="icon-title">Icon Card 3</div>
+          <p class="card-text">politics</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="icon-card">
-          <div class="icon"><img src="categories.png" alt="Icon"></div>
-          <div class="content">
-            <div class="icon-title">Card 4</div>
-            <p class="card-text">This is card 4.</p>
-          </div>
+          <div class="icon"><img src="house.png" alt="Icon"></div>
+          <div class="icon-title">Icon Card 4</div>
+          <p class="card-text">This is icon card 4.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="icon-card">
           <div class="icon"><img src="operator.png" alt="Icon"></div>
-          <div class="content">
-            <div class="icon-title">Card 5</div>
-            <p class="card-text">This is card 5.</p>
-          </div>
+          <div class="icon-title">Icon Card 5</div>
+          <p class="card-text">This is icon card 5.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="icon-card">
           <div class="icon"><img src="man.png" alt="Icon"></div>
-          <div class="content">
-            <div class="icon-title">Card 6</div>
-            <p class="card-text">This is card 6.</p>
-          </div>
+          <div class="icon-title">Icon Card 6</div>
+          <p class="card-text">This is icon card 6.</p>
         </div>
       </div>
     </div>
@@ -106,4 +90,4 @@ Sure, here's the modified code with six icon cards arranged horizontally:
 </html>
 ```
 
-This code creates six icon cards, each with its own title and content, arranged horizontally within the grid system. Adjustments to margins and paddings ensure proper spacing between the cards.
+This code now includes six icon cards, each with its own title and content, all styled with reduced height and proportions as per the previous specifications. Adjustments to margins, font sizes, and image sizes have been applied uniformly across all cards.
