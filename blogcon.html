@@ -1,4 +1,4 @@
-Apologies for the misunderstanding. Let's set the carousel to slide every 2 seconds as requested. Here's the modified code:
+If you want the blog card images to fully fit within their containers without cropping, you can set the `object-fit` property to `contain`. This will make sure the entire image fits within the container while maintaining its aspect ratio. Here's the modified code:
 
 ```html
 <!DOCTYPE html>
@@ -27,7 +27,9 @@ Apologies for the misunderstanding. Let's set the carousel to slide every 2 seco
     .blog-card img {
       border-radius: 8px;
       margin-bottom: 15px;
-      max-width: 100%;
+      width: 100%;
+      height: 200px; /* Set a fixed height for the images */
+      object-fit: contain; /* Make the entire image fit within the container */
     }
   </style>
 </head>
@@ -105,14 +107,14 @@ Apologies for the misunderstanding. Let's set the carousel to slide every 2 seco
 <script>
   // Set image sources dynamically
   document.getElementById('image1').src = 'bbc.jpg';
-  document.getElementById('image2').src = 'bb.jpg';
-  document.getElementById('image3').src = 'Indian.jpg';
-  document.getElementById('image4').src = 'https://via.placeholder.com/300';
-  document.getElementById('image5').src = '008.jpg';
-  document.getElementById('image6').src = 'nature.jpg';
+  document.getElementById('image2').src = 'bbc.jpg';
+  document.getElementById('image3').src = 'https://via.placeholder.com/300';
+  document.getElementById('image4').src = 'bbc.jpg';
+  document.getElementById('image5').src = 'bbc.jpg';
+  document.getElementById('image6').src = 'bbc.jpg';
 </script>
 </body>
 </html>
 ```
 
-In this code, the `data-interval` attribute of the carousel is set to `2000`, which means the carousel will slide every 2 seconds. Adjust this value if you want to change the interval duration.
+With this change, the entire image will fit within the container, maintaining its aspect ratio, without being cropped. Adjust the `height` property in the `.blog-card img` class to control the height of the images as needed.
