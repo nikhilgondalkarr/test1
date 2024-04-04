@@ -1,4 +1,6 @@
+To create a carousel with blog card-style items, you can wrap each blog card inside a `<div class="item">` within the Owl Carousel. Here's how you can modify the code:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +15,28 @@
   <!-- Icomoon CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icomoon/1.0.0/icomoon.min.css">
   <style>
-    .owl-carousel .item img {
-      width: 200;
-      height: auto; /* Adjust this value as needed */
+    .owl-carousel .item {
+      margin: 0 10px;
+    }
+    .blog-card {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .blog-card img {
+      width: 100%;
+      height: 200px;
       object-fit: cover;
+    }
+    .blog-card .card-body {
+      padding: 20px;
+    }
+    .blog-card .card-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .blog-card .card-text {
+      font-size: 14px;
     }
   </style>
 </head>
@@ -27,13 +47,31 @@
     <div class="col-md-8 offset-md-2">
       <div class="owl-carousel owl-theme">
         <div class="item">
-          <img src="bbc.jpg" alt="Image 1">
+          <div class="blog-card">
+            <img src="https://via.placeholder.com/600x400" alt="Image 1">
+            <div class="card-body">
+              <h5 class="card-title">Blog Post 1</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            </div>
+          </div>
         </div>
         <div class="item">
-          <img src="bbc.jpg" alt="Image 2">
+          <div class="blog-card">
+            <img src="https://via.placeholder.com/600x400" alt="Image 2">
+            <div class="card-body">
+              <h5 class="card-title">Blog Post 2</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            </div>
+          </div>
         </div>
         <div class="item">
-          <img src="bbc.jpg" alt="Image 3">
+          <div class="blog-card">
+            <img src="https://via.placeholder.com/600x400" alt="Image 3">
+            <div class="card-body">
+              <h5 class="card-title">Blog Post 3</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+            </div>
+          </div>
         </div>
         <!-- Add more items as needed -->
       </div>
@@ -73,3 +111,6 @@
 </script>
 </body>
 </html>
+```
+
+This code creates a carousel with blog card-style items within each carousel item. You can adjust the styling of the blog cards and the carousel as needed to fit your design requirements.
