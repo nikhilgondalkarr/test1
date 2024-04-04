@@ -1,120 +1,75 @@
-If you want the blog card images to fully fit within their containers without cropping, you can set the `object-fit` property to `contain`. This will make sure the entire image fits within the container while maintaining its aspect ratio. Here's the modified code:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Card Carousel</title>
+  <title>Carousel v3</title>
   <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- Icomoon CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icomoon/1.0.0/icomoon.min.css">
   <style>
-    /* Custom CSS for blog card */
-    .blog-card {
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px;
-      transition: transform 0.3s;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .blog-card img {
-      border-radius: 8px;
-      margin-bottom: 15px;
-      width: 100%;
-      height: 200px; /* Set a fixed height for the images */
-      object-fit: contain; /* Make the entire image fit within the container */
+    .owl-carousel .item img {
+      width: 200;
+      height: auto; /* Adjust this value as needed */
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div id="blogCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="blog-card">
-              <img id="image1" src="" alt="Blog Image">
-              <h3>Blog Title 1</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="blog-card">
-              <img id="image2" src="" alt="Blog Image">
-              <h3>Blog Title 2</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="blog-card">
-              <img id="image3" src="" alt="Blog Image">
-              <h3>Blog Title 3</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <img src="bbc.jpg" alt="Image 1">
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="blog-card">
-              <img id="image4" src="" alt="Blog Image">
-              <h3>Blog Title 4</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="blog-card">
-              <img id="image5" src="" alt="Blog Image">
-              <h3>Blog Title 5</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="blog-card">
-              <img id="image6" src="" alt="Blog Image">
-              <h3>Blog Title 6</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
+        <div class="item">
+          <img src="bbc.jpg" alt="Image 2">
         </div>
+        <div class="item">
+          <img src="bbc.jpg" alt="Image 3">
+        </div>
+        <!-- Add more items as needed -->
       </div>
     </div>
-    <a class="carousel-control-prev" href="#blogCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#blogCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
 </div>
 
-<!-- Bootstrap JS -->
+<!-- jQuery and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
-  // Set image sources dynamically
-  document.getElementById('image1').src = 'bbc.jpg';
-  document.getElementById('image2').src = 'bbc.jpg';
-  document.getElementById('image3').src = 'https://via.placeholder.com/300';
-  document.getElementById('image4').src = 'bbc.jpg';
-  document.getElementById('image5').src = 'bbc.jpg';
-  document.getElementById('image6').src = 'bbc.jpg';
+  $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:true,
+      dots:false,
+      autoplay:true,
+      autoplayTimeout:1500, // 1.5 seconds
+      autoplayHoverPause:true,
+      responsive:{
+          0:{
+              items:1
+          },
+          600:{
+              items:3
+          },
+          1000:{
+              items:4
+          }
+      }
+    });
+  });
 </script>
 </body>
 </html>
-```
-
-With this change, the entire image will fit within the container, maintaining its aspect ratio, without being cropped. Adjust the `height` property in the `.blog-card img` class to control the height of the images as needed.
