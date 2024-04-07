@@ -1,6 +1,4 @@
-
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,28 +6,39 @@
 <title>Background Image Example</title>
 <style>
   body {
-    margin: 0;
-    padding: 0;
+    /* Set background image */
     background-image: url('download(3).jpg');
+    /* Set background image size */
     background-size: cover;
+    /* Optional: Center the background image */
     background-position: center;
-    font-family: Arial, sans-serif; /* Optional: set font-family */
-    color: #ffffff; /* Optional: set text color */
+    /* Optional: Fix the background image so it doesn't scroll */
+    background-attachment: fixed;
+    /* Optional: Add a background color if the image fails to load or isn't fully displayed */
+    background-color: #f8f8f8;
+    /* Optional: Specify background image repeat behavior */
+    background-repeat: no-repeat;
   }
-  
-  /* Add additional styling for other elements if needed */
-  
+  /* Optional: Style other elements as needed */
   .content {
+    /* Example styling for content */
+    color: #333;
+    padding: 20px;
+    font-family: Arial, sans-serif;
     text-align: center;
-    padding: 50px;
   }
 </style>
 </head>
 <body>
-
-
+  <div class="content">
+    <h1>Welcome to My Website</h1>
+    <p>This is some example content.</p>
+  </div>
 </body>
 </html>
+
+
+ 
 
 
 
