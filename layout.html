@@ -1,64 +1,135 @@
-If you're looking to create a horizontal menu bar instead of a vertical one, you can simply adjust the CSS to display the menu items horizontally. Here's how you can modify the menu bar to be horizontal:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>News Website Menu</title>
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Blog Cards</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .blog-card-horizontal {
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
     }
-    .menu-bar {
-        background-color: #333;
-        overflow: hidden;
-        padding: 8px;
+
+    .blog-card-horizontal img {
+      width: 200px;
+      height: auto;
     }
-    .menu-bar a {
-        display: inline-block;
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 12px 16px;
-        transition: background-color 0.3s;
+
+    .blog-card-horizontal .blog-card-body {
+      padding: 20px;
+      flex-grow: 1;
     }
-    .menu-bar a:hover {
-        background-color: #555;
+
+    .blog-card-horizontal .blog-card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
-    .menu-bar a.active {
-        background-color: #4CAF50;
+
+    .blog-card-horizontal .blog-card-text {
+      font-size: 1rem;
+      color: #666;
     }
-    .menu-bar a.logo {
-        font-weight: bold;
-        font-size: 24px;
-        margin-right: 20px; /* Add some space after the logo */
+
+    .blog-card-horizontal .blog-card-link {
+      display: inline-block;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
     }
-    .menu-bar .menu-right {
-        float: right;
-    }
-</style>
+  </style>
 </head>
 <body>
 
-<div class="menu-bar">
-    <a href="#" class="logo">News Today</a>
-    <a href="#" class="active">Home</a>
-    <a href="#">World</a>
-    <a href="#">Politics</a>
-    <a href="#">Business</a>
-    <a href="#">Technology</a>
-    <a href="#" class="menu-right">Opinion</a>
-    <a href="#" class="menu-right">About Us</a>
-    <a href="#" class="menu-right">Contact</a>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="blog-card-horizontal">
+        <img src="https://via.placeholder.com/300" alt="Blog Image">
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">Blog Title 1</h5>
+          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+          <a href="#" class="blog-card-link">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="blog-card-horizontal">
+        <img src="https://via.placeholder.com/300" alt="Blog Image">
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">Blog Title 2</h5>
+          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+          <a href="#" class="blog-card-link">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="blog-card-horizontal">
+        <img src="https://via.placeholder.com/300" alt="Blog Image">
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">Blog Title 3</h5>
+          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+          <a href="#" class="blog-card-link">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="blog-card-horizontal">
+        <img src="https://via.placeholder.com/300" alt="Blog Image">
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">Blog Title 4</h5>
+          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+          <a href="#" class="blog-card-link">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="blog-card-horizontal">
+        <img src="https://via.placeholder.com/300" alt="Blog Image">
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">Blog Title 5</h5>
+          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+          <a href="#" class="blog-card-link">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="blog-card-horizontal">
+        <img src="https://via.placeholder.com/300" alt="Blog Image">
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">Blog Title 6</h5>
+          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+          <a href="#" class="blog-card-link">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="blog-card-horizontal">
+        <img src="https://via.placeholder.com/300" alt="Blog Image">
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">Blog Title 7</h5>
+          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+          <a href="#" class="blog-card-link">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="blog-card-horizontal">
+        <img src="https://via.placeholder.com/300" alt="Blog Image">
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">Blog Title 8</h5>
+          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+          <a href="#" class="blog-card-link">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
 </html>
-```
-
-In this version, I've removed the `float: left;` property from the `.menu-bar a` selector, which makes the menu items display horizontally. Also, I've adjusted the styles accordingly to ensure proper spacing and alignment.
-
-This menu bar will display all menu items horizontally in a single row. Adjustments can be made to the styles as needed to fit your specific design preferences.
