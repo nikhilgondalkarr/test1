@@ -1,58 +1,75 @@
-Below is an example of a Bootstrap menu version 18 using Font Awesome icons, jQuery, Popper.js, and compatible with Chrome, Edge, Firefox, Opera, and Safari. This example assumes you have the necessary files (Bootstrap CSS and JS, Font Awesome CSS, jQuery, and Popper.js) properly linked in your HTML file.
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Menu V18</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    /* Custom styles for menu */
-    .navbar-brand {
-      font-size: 24px;
-      font-weight: bold;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News Website Menu</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
     }
-  </style>
+    .menu-bar {
+        background-color: #333;
+        overflow: hidden;
+        padding: 8px;
+    }
+    .menu-bar a {
+        float: left;
+        display: flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        transition: background-color 0.3s;
+    }
+    .menu-bar a:hover {
+        background-color: #555;
+    }
+    .menu-bar a.active {
+        background-color: #4CAF50;
+    }
+    .menu-bar a.logo {
+        font-weight: bold;
+        font-size: 24px;
+    }
+    .menu-bar .menu-right {
+        float: right;
+    }
+    .menu-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+    @media screen and (max-width: 600px) {
+        .menu-bar a {
+            float: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .menu-bar .menu-right {
+            float: none;
+        }
+    }
+</style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Menu V18</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-cogs"></i> Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Popper.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<div class="menu-bar">
+    <a href="#" class="logo">News Today</a>
+    <a href="#" class="active"><img src="house.png" alt="Home" class="menu-icon"> Home</a>
+    <a href="#"><img src="operator.png" alt="World" class="menu-icon"> World</a>
+    <a href="#"><img src="categories.png" alt="Politics" class="menu-icon"> Politics</a>
+    <a href="#"><img src="about.png" alt="Business" class="menu-icon"> Business</a>
+    <a href="#"><img src="contact.png" alt="Technology" class="menu-icon"> Technology</a>
+    <a href="#" class="menu-right"><img src="services.png" alt="Opinion" class="menu-icon"> Opinion</a>
+    <a href="#" class="menu-right"><img src="home.png" alt="About Us" class="menu-icon"> About Us</a>
+    <a href="#" class="menu-right"><img src="about.png" alt="Contact" class="menu-icon"> Contact</a>
+</div>
 
 </body>
 </html>
-```
-
-This code creates a responsive navigation menu using Bootstrap 4.3.1. The Font Awesome icons are used in conjunction with the menu items. The JavaScript dependencies (jQuery and Popper.js) are included at the bottom for better performance. Make sure to include the Bootstrap CSS, Font Awesome CSS, jQuery, and Popper.js in your HTML file for this code to work properly.
