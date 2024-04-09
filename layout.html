@@ -1,4 +1,6 @@
+Sure, here's how you can modify the HTML to create horizontal blog cards arranged two by two:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,37 +9,36 @@
   <title>Horizontal Blog Cards</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    .blog-card-horizontal {
-      display: flex;
+    .blog-card {
       border: 1px solid #ccc;
       border-radius: 8px;
       overflow: hidden;
       margin-bottom: 20px;
     }
 
-    .blog-card-horizontal img {
-      width: 200px;
+    .blog-card img {
+      width: 100%;
       height: auto;
     }
 
-    .blog-card-horizontal .blog-card-body {
+    .blog-card-body {
       padding: 20px;
-      flex-grow: 1;
     }
 
-    .blog-card-horizontal .blog-card-title {
+    .blog-card-title {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 10px;
     }
 
-    .blog-card-horizontal .blog-card-text {
+    .blog-card-text {
       font-size: 1rem;
       color: #666;
     }
 
-    .blog-card-horizontal .blog-card-link {
-      display: inline-block;
+    .blog-card-link {
+      display: block;
+      text-align: right;
       text-decoration: none;
       color: #007bff;
       font-weight: bold;
@@ -49,82 +50,50 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6">
-      <div class="blog-card-horizontal">
-        <img src="https://via.placeholder.com/300" alt="Blog Image">
-        <div class="blog-card-body">
-          <h5 class="blog-card-title">Blog Title 1</h5>
-          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
-          <a href="#" class="blog-card-link">Read More</a>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blog-card">
+            <img src="https://via.placeholder.com/300" alt="Blog Image">
+            <div class="blog-card-body">
+              <h5 class="blog-card-title">Blog Title 1</h5>
+              <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+              <a href="#" class="blog-card-link">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="blog-card">
+            <img src="https://via.placeholder.com/300" alt="Blog Image">
+            <div class="blog-card-body">
+              <h5 class="blog-card-title">Blog Title 2</h5>
+              <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+              <a href="#" class="blog-card-link">Read More</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="blog-card-horizontal">
-        <img src="https://via.placeholder.com/300" alt="Blog Image">
-        <div class="blog-card-body">
-          <h5 class="blog-card-title">Blog Title 2</h5>
-          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
-          <a href="#" class="blog-card-link">Read More</a>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blog-card">
+            <img src="https://via.placeholder.com/300" alt="Blog Image">
+            <div class="blog-card-body">
+              <h5 class="blog-card-title">Blog Title 3</h5>
+              <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+              <a href="#" class="blog-card-link">Read More</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="blog-card-horizontal">
-        <img src="https://via.placeholder.com/300" alt="Blog Image">
-        <div class="blog-card-body">
-          <h5 class="blog-card-title">Blog Title 3</h5>
-          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
-          <a href="#" class="blog-card-link">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="blog-card-horizontal">
-        <img src="https://via.placeholder.com/300" alt="Blog Image">
-        <div class="blog-card-body">
-          <h5 class="blog-card-title">Blog Title 4</h5>
-          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
-          <a href="#" class="blog-card-link">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="blog-card-horizontal">
-        <img src="https://via.placeholder.com/300" alt="Blog Image">
-        <div class="blog-card-body">
-          <h5 class="blog-card-title">Blog Title 5</h5>
-          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
-          <a href="#" class="blog-card-link">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="blog-card-horizontal">
-        <img src="https://via.placeholder.com/300" alt="Blog Image">
-        <div class="blog-card-body">
-          <h5 class="blog-card-title">Blog Title 6</h5>
-          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
-          <a href="#" class="blog-card-link">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="blog-card-horizontal">
-        <img src="https://via.placeholder.com/300" alt="Blog Image">
-        <div class="blog-card-body">
-          <h5 class="blog-card-title">Blog Title 7</h5>
-          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
-          <a href="#" class="blog-card-link">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="blog-card-horizontal">
-        <img src="https://via.placeholder.com/300" alt="Blog Image">
-        <div class="blog-card-body">
-          <h5 class="blog-card-title">Blog Title 8</h5>
-          <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
-          <a href="#" class="blog-card-link">Read More</a>
+        <div class="col-md-12">
+          <div class="blog-card">
+            <img src="https://via.placeholder.com/300" alt="Blog Image">
+            <div class="blog-card-body">
+              <h5 class="blog-card-title">Blog Title 4</h5>
+              <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pretium turpis non ligula vestibulum, a mattis justo condimentum. Fusce non felis massa.</p>
+              <a href="#" class="blog-card-link">Read More</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -133,3 +102,6 @@
 
 </body>
 </html>
+```
+
+In this code, each column (`.col-md-6`) contains two blog cards arranged horizontally using Bootstrap's grid system. Adjust the content and styling as needed.
