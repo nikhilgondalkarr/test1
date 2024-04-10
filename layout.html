@@ -1,109 +1,147 @@
-To decrease the size of the entire blog card, including the image, title, text, and link, you can adjust the CSS styles accordingly. Here's the modified HTML with decreased blog card size:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Horizontal Blog Cards</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Blog Card Carousel</title>
   <style>
-    .blog-card {
-      border: 1px solid #ccc;
-      border-radius: 8px;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .carousel {
+      width: 90%;
+      margin: 50px auto;
       overflow: hidden;
-      margin-bottom: 10px;
+    }
+    .carousel-inner {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+    .card {
+      flex: 0 0 auto;
+      width: 280px; /* Adjusted width for mobile */
+      margin-right: 20px;
+      scroll-snap-align: start;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card .content {
+      padding: 20px;
+    }
+    .card h2 {
+      margin: 0 0 10px;
     }
 
-    .blog-card img {
-      width: 30%;
-      height: auto;
-    }
-
-    .blog-card-body {
-      padding: 10px; /* Decreased padding */
-    }
-
-    .blog-card-title {
-      font-size: 1rem; /* Decreased font size */
-      font-weight: bold;
-      margin-bottom: 5px; /* Decreased margin */
-    }
-
-    .blog-card-text {
-      font-size: 0.8rem; /* Decreased font size */
-      color: #666;
-      margin-bottom: 5px; /* Decreased margin */
-    }
-
-    .blog-card-link {
-      display: block;
-      text-align: right;
-      text-decoration: none;
-      color: #007bff;
-      font-size: 0.8rem; /* Decreased font size */
-      font-weight: bold;
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .carousel {
+        width: 100%;
+      }
+      .card {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="blog-card">
-            <img src="https://via.placeholder.com/300" alt="Blog Image">
-            <div class="blog-card-body">
-              <h5 class="blog-card-title">Blog Title 1</h5>
-              <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-              <a href="#" class="blog-card-link">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="blog-card">
-            <img src="https://via.placeholder.com/300" alt="Blog Image">
-            <div class="blog-card-body">
-              <h5 class="blog-card-title">Blog Title 2</h5>
-              <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pell.</p>
-              <a href="#" class="blog-card-link">Read More</a>
-            </div>
-          </div>
-        </div>
+  
+<div class="carousel">
+  <div class="carousel-inner">
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <div class="content">
+        <h2>Blog Post Title 1</h2>
+        <p>This is a brief description of the blog post.</p>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="blog-card">
-            <img src="https://via.placeholder.com/300" alt="Blog Image">
-            <div class="blog-card-body">
-              <h5 class="blog-card-title">Blog Title 3</h5>
-              <p class="blog-card-text">Lorem ipsum dolor sique pretium turpis non ligula vestibulum.</p>
-              <a href="#" class="blog-card-link">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="blog-card">
-            <img src="https://via.placeholder.com/300" alt="Blog Image">
-            <div class="blog-card-body">
-              <h5 class="blog-card-title">Blog Title 4</h5>
-              <p class="blog-card-text">Lorem ipsum dolor sit amet, consectetur Pellentesque pretium turpis nonattis jusa.</p>
-              <a href="#" class="blog-card-link">Read More</a>
-            </div>
-          </div>
-        </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <div class="content">
+        <h2>Blog Post Title 2</h2>
+        <p>This is a brief description of the blog post.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <div class="content">
+        <h2>Blog Post Title 3</h2>
+        <p>This is a brief description of the blog post.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <div class="content">
+        <h2>Blog Post Title 4</h2>
+        <p>This is a brief description of the blog post.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <div class="content">
+        <h2>Blog Post Title 5</h2>
+        <p>This is a brief description of the blog post.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <div class="content">
+        <h2>Blog Post Title 6</h2>
+        <p>This is a brief description of the blog post.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <div class="content">
+        <h2>Blog Post Title 7</h2>
+        <p>This is a brief description of the blog post.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <div class="content">
+        <h2>Blog Post Title 8</h2>
+        <p>This is a brief description of the blog post.</p>
       </div>
     </div>
   </div>
 </div>
 
+<script>
+  // JavaScript for carousel functionality
+  const carouselInner = document.querySelector('.carousel-inner');
+  let startX;
+  let scrollLeft;
+  let isDown = false;
+
+  carouselInner.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - carouselInner.offsetLeft;
+    scrollLeft = carouselInner.scrollLeft;
+  });
+  carouselInner.addEventListener('mouseleave', () => {
+    isDown = false;
+  });
+  carouselInner.addEventListener('mouseup', () => {
+    isDown = false;
+  });
+  carouselInner.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carouselInner.offsetLeft;
+    const walk = (x - startX) * 2;
+    carouselInner.scrollLeft = scrollLeft - walk;
+  });
+</script>
+
 </body>
 </html>
-```
-
-In this version, I've decreased the font sizes and margins for both the title, text, and link, as well as reduced the padding of the `.blog-card-body` class. You can further adjust these values to suit your design preferences.
