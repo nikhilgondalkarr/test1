@@ -1,4 +1,6 @@
+Certainly! Here's the updated code with 6 blog cards:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +50,8 @@
         width: 100%;
       }
       .card {
-        width: 100%;
+        width: calc(100% - 20px); /* Adjusted width for mobile with margin */
+        margin-right: 0; /* Remove right margin on mobile */
       }
     }
   </style>
@@ -58,21 +61,21 @@
 <div class="carousel">
   <div class="carousel-inner">
     <div class="card">
-      <img src="https://via.placeholder.com/800x600" alt="Blog Image">
+      <img src="bbc.jpg" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 1</h2>
         <p>This is a brief description of the blog post.</p>
       </div>
     </div>
     <div class="card">
-      <img src="Indian.jpg" alt="Blog Image">
+      <img src="008.jpg" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 2</h2>
         <p>This is a brief description of the blog post.</p>
       </div>
     </div>
     <div class="card">
-      <img src="008.jpg" alt="Blog Image">
+      <img src="Indian.jpg" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 3</h2>
         <p>This is a brief description of the blog post.</p>
@@ -86,14 +89,14 @@
       </div>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/800x600" alt="Blog Image">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 5</h2>
         <p>This is a brief description of the blog post.</p>
       </div>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/800x600" alt="Blog Image">
+      <img src="https://via.placeholder.com/300" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 6</h2>
         <p>This is a brief description of the blog post.</p>
@@ -119,3 +122,6 @@
 
 </body>
 </html>
+```
+
+Now, the carousel contains 6 blog cards, and the code is still responsive for mobile devices. Adjust the content and styling as necessary.
