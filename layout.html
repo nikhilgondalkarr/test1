@@ -58,28 +58,28 @@
 <div class="carousel">
   <div class="carousel-inner">
     <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <img src="008.jpg" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 1</h2>
         <p>This is a brief description of the blog post.</p>
       </div>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <img src="bbc.jpg" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 2</h2>
         <p>This is a brief description of the blog post.</p>
       </div>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <img src="bbc.jpg" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 3</h2>
         <p>This is a brief description of the blog post.</p>
       </div>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <img src="bbc.jpg" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 4</h2>
         <p>This is a brief description of the blog post.</p>
@@ -93,7 +93,7 @@
       </div>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Blog Image">
+      <img src="008.jpg" alt="Blog Image">
       <div class="content">
         <h2>Blog Post Title 6</h2>
         <p>This is a brief description of the blog post.</p>
@@ -119,28 +119,16 @@
 <script>
   // JavaScript for carousel functionality
   const carouselInner = document.querySelector('.carousel-inner');
-  let startX;
-  let scrollLeft;
-  let isDown = false;
+  let currentCardIndex = 0;
+  const cardCount = document.querySelectorAll('.card').length;
 
-  carouselInner.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - carouselInner.offsetLeft;
-    scrollLeft = carouselInner.scrollLeft;
-  });
-  carouselInner.addEventListener('mouseleave', () => {
-    isDown = false;
-  });
-  carouselInner.addEventListener('mouseup', () => {
-    isDown = false;
-  });
-  carouselInner.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carouselInner.offsetLeft;
-    const walk = (x - startX) * 2;
-    carouselInner.scrollLeft = scrollLeft - walk;
-  });
+  function slideNext() {
+    currentCardIndex = (currentCardIndex + 1) % cardCount;
+    const nextCard = document.querySelectorAll('.card')[currentCardIndex];
+    carouselInner.scrollLeft = nextCard.offsetLeft;
+  }
+
+  setInterval(slideNext, 1500);
 </script>
 
 </body>
