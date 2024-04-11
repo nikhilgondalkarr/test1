@@ -43,161 +43,134 @@
 
 
 
+
+    
+    
+    
+   
+               
+           
+          
+        
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile App Menus</title>
+  <title>News Website Menu Bar</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Custom CSS -->
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    /* Custom Styles */
-    .app-menu {
-      background-image: url('bb.jpg'); /* Add your image URL here */
+    /* Custom CSS for menu bar */
+    .menu-bar {
+      background-image: url('008.jpg'); /* Add background image */
       background-size: cover;
-      background-position: center;
-      border-bottom: 1px solid #dee2e6;
-      padding: 8px 0;
-    }
-    .logo {
+      padding: 10px 15px;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      padding: 10px;
     }
-    .logo img {
-      width: 30px; /* Adjust image width as needed */
-      height: auto;
-      margin-right: 10px;
-    }
-    .logo-name {
-      font-size: 18px;
-      font-weight: bold;
-      color: #343a40;
-    }
-    .search-form {
+
+    .menu-list {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 10px;
+      margin-left: auto; /* Push menu items to the right */
     }
-    .search-input {
-      flex-grow: 1;
-      padding: 8px;
-      border: 1px solid #ced4da;
-      border-radius: 4px;
-      margin-right: 10px;
-    }
-    .search-btn {
-      padding: 8px 20px;
-      background-color: #007bff;
+
+    .menu-item {
       color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .menu-item:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .icon {
+      margin-right: 5px;
+      height: 20px;
+      width: 20px;
+    }
+
+    .search-box {
+      margin-left: auto; /* Push search box to the right */
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      padding: 5px;
+      border-radius: 5px;
       border: none;
-      border-radius: 4px;
+      margin-right: 5px;
+      width: 200px; /* Adjust width as needed */
+    }
+
+    .search-button {
+      padding: 5px;
+      border-radius: 5px;
+      background-color: #fff;
+      border: none;
       cursor: pointer;
     }
-    .search-btn:hover {
-      background-color: #0056b3;
+
+    .search-button img {
+      height: 16px; /* Adjust icon height */
     }
-    .app-menu-item {
-      padding: 10px;
-      text-align: center;
-      border-bottom: 1px solid #dee2e6;
+
+    .search-button:hover {
+      background-color: #ccc;
     }
-    .app-menu-item:last-child {
-      border-bottom: none;
+
+    .website-name {
+      color: #fff;
+      font-size: 20px;
+      margin-right: 15px;
     }
-    .app-menu-item a {
-      color: #343a40;
-      text-decoration: none;
-      transition: background-color 0.3s ease; /* Smooth transition effect */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .app-menu-item a:hover {
-      background-color: rgba(0, 0, 0, 0.1); /* Change to desired hover background color */
-    }
-    .app-menu-item.active a {
-      font-weight: bold;
-    }
-    .menu-icon {
-      width: 24px; /* Adjust icon width as needed */
-      height: auto;
-      margin-right: 10px;
+
+    .logo-img {
+      height: 40px; /* Adjust logo height */
+      margin-right: 15px;
     }
   </style>
 </head>
 <body>
-  <!-- App Menu -->
-  <div class="app-menu">
-    <div class="container">
-      <!-- Logo -->
-      <div class="logo">
-        <img src="drawing.png" alt="Logo"> <!-- Add your logo image URL here -->
-        <span class="logo-name">Your App Name</span> <!-- Add your app name here -->
-      </div>
-      
-    
 
-      <!-- Menu Items -->
-      <div class="row">
-        <div class="col">
-          <div class="app-menu-item active">
-            <a href="#">
-                <a href="layout.html">
-              <img src="house.png" alt="Home" class="menu-icon"> </a> <!-- Add your home icon image URL here -->
-              Home
-            </a>
-          </div>
-        </div>
-        <div class="col">
-          <div class="app-menu-item">
-            <a href="#">
-                   <a href="layout.html">
-              <img src="operator.png" alt="Profile" class="menu-icon"> </a> <!-- Add your profile icon image URL here -->
-              Profile
-            </a>
-          </div>
-        </div>
-        <div class="col">
-          <div class="app-menu-item">
-            <a href="#">
-                <a href="summary.html">
-              <img src="about.png" alt="Messages" class="menu-icon"> </a> <!-- Add your messages icon image URL here -->
-              <a href="summary.html" > Messages </a>
-            </a>
-          </div>
-        </div>
-        <div class="col">
-          <div class="app-menu-item">
-            <a href="#">
-                  <a href="about1.html">
-              <img src="categories.png" alt="Settings" class="menu-icon"> </a> <!-- Add your settings icon image URL here -->
-              Settings
-            </a>
-          </div>
-        </div>
-
-
-
- <div class="search-form">
-        <input type="text" class="search-input" placeholder="Search...">
-        <button class="search-btn">Search</button>
-      </div>
-
-
-
-
-      </div>
-    </div>
+<div class="menu-bar">
+  <span class="website-name">nikhil</span>
+  <img src="active-man-thinking-avatar.png" alt="Logo" class="logo-img">
+  <div class="menu-list">
+    <a href="#" class="menu-item"><img src="home.png" alt="Home" class="icon"> Home</a>
+    <a href="#" class="menu-item"><img src="house.png" alt="World" class="icon"> World</a>
+    <a href="#" class="menu-item"><img src="operator.png" alt="Travel" class="icon"> Travel</a>
+    <a href="#" class="menu-item"><img src="categories.png" alt="Home" class="icon"> Home</a>
+    <a href="#" class="menu-item"><img src="about.png" alt="World" class="icon"> World</a>
+    <a href="#" class="menu-item"><img src="services.png" alt="Travel" class="icon"> Travel</a>
+    <!-- Add more menu items as needed -->
   </div>
+  <div class="search-box">
+    <input type="text" class="search-input" placeholder="Search...">
+    <button class="search-button"><img src="search.png" alt="Search"></button>
+  </div>
+</div>
 
-  <!-- Bootstrap JS (Optional) -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS (optional, only if you need dropdowns or other JS functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
+
+
+
 
      
 
