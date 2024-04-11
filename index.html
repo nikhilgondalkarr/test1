@@ -288,114 +288,6 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Article Card with Carousel</title>
-<style>
-  /* Basic styles */
-  .card-container {
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-  }
-
-  .card-slider {
-    display: flex;
-    animation: slide 10s linear infinite; /* Adjusted duration for faster sliding */
-  }
-
-  .card {
-    flex: 0 0 auto;
-    width: 200px;
-    height: 250px; /* Increased height to accommodate title and description */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 20px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Added transition for hover effect */
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05); /* Increase scale on hover */
-  }
-
-  .card-description {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top: 1px solid #ccc;
-  }
-
-  .card.show-description .card-description {
-    display: block;
-  }
-
-  /* Keyframe animation for card slider */
-  @keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-  }
-
-  /* Hide scrollbar in Chrome, Safari, and Opera */
-  .card-container::-webkit-scrollbar {
-    display: none;
-  }
-</style>
-</head>
-<body>
-
-<div class="card-container">
-  <div class="card-slider">
-    <div class="card" style="background-image: url('https://via.placeholder.com/400x300')" onclick="toggleDescription(this)">
-      <h3>Title of Article 1</h3>
-      <div class="card-description">
-        Description for Article 1
-      </div>
-    </div>
-    <div class="card" style="background-image: url('https://via.placeholder.com/400x300')" onclick="toggleDescription(this)">
-      <h3>Title of Article 2</h3>
-      <div class="card-description">
-        Description for Article 2
-      </div>
-    </div>
-    <div class="card" style="background-image: url('https://via.placeholder.com/400x300')" onclick="toggleDescription(this)">
-      <h3>Title of Article 3</h3>
-      <div class="card-description">
-        Description for Article 3
-      </div>
-    </div>
-    <!-- Add more cards as needed -->
-  </div>
-</div>
-
-<script>
-  function toggleDescription(card) {
-    // Remove the 'show-description' class from all cards
-    var cards = document.querySelectorAll('.card');
-    cards.forEach(function(card) {
-      card.classList.remove('show-description');
-    });
-
-    // Add the 'show-description' class to the clicked card
-    card.classList.add('show-description');
-  }
-</script>
-
-</body>
-</html>
 
 
 
@@ -562,6 +454,115 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Article Card with Carousel</title>
+<style>
+  /* Basic styles */
+  .card-container {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .card-slider {
+    display: flex;
+    animation: slide 10s linear infinite; /* Adjusted duration for faster sliding */
+  }
+
+  .card {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 250px; /* Increased height to accommodate title and description */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Added transition for hover effect */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); /* Increase scale on hover */
+  }
+
+  .card-description {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid #ccc;
+  }
+
+  .card.show-description .card-description {
+    display: block;
+  }
+
+  /* Keyframe animation for card slider */
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Hide scrollbar in Chrome, Safari, and Opera */
+  .card-container::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="card-container">
+  <div class="card-slider">
+    <div class="card" style="background-image: url('https://via.placeholder.com/400x300')" onclick="toggleDescription(this)">
+      <h3>Title of Article 1</h3>
+      <div class="card-description">
+        Description for Article 1
+      </div>
+    </div>
+    <div class="card" style="background-image: url('https://via.placeholder.com/400x300')" onclick="toggleDescription(this)">
+      <h3>Title of Article 2</h3>
+      <div class="card-description">
+        Description for Article 2
+      </div>
+    </div>
+    <div class="card" style="background-image: url('https://via.placeholder.com/400x300')" onclick="toggleDescription(this)">
+      <h3>Title of Article 3</h3>
+      <div class="card-description">
+        Description for Article 3
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+</div>
+
+<script>
+  function toggleDescription(card) {
+    // Remove the 'show-description' class from all cards
+    var cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+      card.classList.remove('show-description');
+    });
+
+    // Add the 'show-description' class to the clicked card
+    card.classList.add('show-description');
+  }
+</script>
+
+</body>
+</html>
+
 
 
 
@@ -577,77 +578,12 @@
   
   
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Small Icon Card Example</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .icon-card {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 10px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
 
-    .icon {
-      margin-bottom: 10px;
-    }
 
-    .icon img {
-      width: 50px; /* Adjust image size as needed */
-      height: 50px; /* Adjust image size as needed */
-    }
 
-    .icon h3 {
-      font-size: 14px; /* Adjust font size as needed */
-    }
+ 
 
-    .icon p {
-      font-size: 12px; /* Adjust font size as needed */
-    }
-  </style>
-</head>
-<body>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="icon-card">
-        <div class="icon">
-          <img src="man.png" alt="User Icon">
-        </div>
-        <h3>User</h3>
-        <p>This is a user icon card.</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="icon-card">
-        <div class="icon">
-          <img src="house.png" alt="Settings Icon">
-        </div>
-        <h3>Settings</h3>
-        <p>This is a settings icon card.</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="icon-card">
-        <div class="icon">
-          <img src="operator.png" alt="Message Icon">
-        </div>
-        <h3>Message</h3>
-        <p>This is a message icon card.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
+       
 
 
 
