@@ -1,143 +1,111 @@
-Certainly! Below is the code with additional blog cards added:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Card Carousel</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .carousel {
-      width: 90%;
-      margin: 50px auto;
-      overflow: hidden;
-    }
-    .carousel-inner {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-    }
-    .card {
-      flex: 0 0 auto;
-      width: 280px; /* Adjusted width for mobile */
-      margin-right: 20px;
-      scroll-snap-align: start;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border-radius: 5px;
-      overflow: hidden;
-      height: auto; /* Automatically adjust the height */
-    }
-    .card img {
-      width: 2090%;
-      height: 400%; /* Allow the height to adjust proportionally */
-      object-fit: cover;
-    }
-    .card .content {
-      padding: 20px;
-    }
-    .card h2 {
-      margin: 0 0 10px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Article Card with Carousel</title>
+<style>
+  /* Basic styles */
+  .card-container {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+    white-space: nowrap;
+  }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .carousel {
-        width: 100%;
-      }
-      .card {
-        width: calc(100% - 20px); /* Adjusted width for mobile with margin */
-        margin-right: 0; /* Remove right margin on mobile */
-      }
+  .card {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-description {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid #ccc;
+  }
+
+  .card.show-description .card-description {
+    display: block;
+  }
+
+  /* Media query for responsiveness */
+  @media screen and (max-width: 768px) {
+    .card {
+      width: 80%;
     }
-  </style>
+  }
+
+  /* Keyframe animation for carousel */
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Apply animation to card container */
+  .card-container {
+    animation: slide 20s linear infinite; /* Increased duration to accommodate more cards */
+  }
+
+  /* Hide scrollbar in Chrome, Safari, and Opera */
+  .card-container::-webkit-scrollbar {
+    display: none;
+  }
+</style>
 </head>
 <body>
-  
-<div class="carousel">
-  <div class="carousel-inner">
-    <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Blog Image">
-      <div class="content">
-        <h2>Blog Post Title 1</h2>
-        <p>This is a brief description of the blog post.</p>
-      </div>
+
+<div class="card-container">
+  <div class="card" style="background-image: url('bbc.jpg')" onclick="toggleDescription(this)">
+    <div class="card-description">
+      Description for Article 1
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/300" alt="Blog Image">
-      <div class="content">
-        <h2>Blog Post Title 2</h2>
-        <p>This is a brief description of the blog post.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="bbc.jpg" alt="Blog Image">
-      <div class="content">
-        <h2>Blog Post Title 3</h2>
-        <p>This is a brief description of the blog post.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="008.jpg" alt="Blog Image">
-      <div class="content">
-        <h2>Blog Post Title 4</h2>
-        <p>This is a brief description of the blog post.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="Indian.jpg" alt="Blog Image">
-      <div class="content">
-        <h2>Blog Post Title 5</h2>
-        <p>This is a brief description of the blog post.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="bbc.jpg" alt="Blog Image">
-      <div class="content">
-        <h2>Blog Post Title 6</h2>
-        <p>This is a brief description of the blog post.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="Indian.jpg" alt="Blog Image">
-      <div class="content">
-        <h2>Blog Post Title 7</h2>
-        <p>This is a brief description of the blog post.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="008.jpg" alt="Blog Image">
-      <div class="content">
-        <h2>Blog Post Title 8</h2>
-        <p>This is a brief description of the blog post.</p>
-      </div>
-    </div>
-    <!-- Add more cards here -->
   </div>
+  <div class="card" style="background-image: url('008.jpg')" onclick="toggleDescription(this)">
+    <div class="card-description">
+      Description for Article 2
+    </div>
+  </div>
+  <div class="card" style="background-image: url('https://via.placeholder.com/400x300')" onclick="toggleDescription(this)">
+    <div class="card-description">
+      Description for Article 3
+    </div>
+  </div>
+  <!-- Add more cards as needed -->
 </div>
 
 <script>
-  // JavaScript for carousel functionality
-  const carouselInner = document.querySelector('.carousel-inner');
-  let currentCardIndex = 0;
-  const cardCount = document.querySelectorAll('.card').length;
+  function toggleDescription(card) {
+    // Remove the 'show-description' class from all cards
+    var cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+      card.classList.remove('show-description');
+    });
 
-  function slideNext() {
-    currentCardIndex = (currentCardIndex + 1) % cardCount;
-    const nextCard = document.querySelectorAll('.card')[currentCardIndex];
-    carouselInner.scrollLeft = nextCard.offsetLeft;
+    // Add the 'show-description' class to the clicked card
+    card.classList.add('show-description');
   }
-
-  setInterval(slideNext, 1500);
 </script>
 
 </body>
 </html>
-```
-
-Now, there are 8 blog cards in the carousel. Adjust the content and styling as needed.
