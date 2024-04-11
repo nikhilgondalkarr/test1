@@ -53,6 +53,11 @@
           
         
 
+
+   
+Sure, you can replace the search button image with a Font Awesome icon. Here's the modified code with the search button replaced with a Font Awesome icon:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +71,7 @@
   <style>
     /* Custom CSS for menu bar */
     .menu-bar {
-      background-image: url('008.jpg'); /* Add background image */
+      background-image: url('menu-background.jpg'); /* Add background image */
       background-size: cover;
       padding: 10px 15px;
       position: relative;
@@ -121,10 +126,6 @@
       cursor: pointer;
     }
 
-    .search-button img {
-      height: 16px; /* Adjust icon height */
-    }
-
     .search-button:hover {
       background-color: #ccc;
     }
@@ -139,26 +140,47 @@
       height: 40px; /* Adjust logo height */
       margin-right: 15px;
     }
+
+    @media (max-width: 768px) {
+      .menu-bar {
+        padding: 5px 15px; /* Adjust padding for smaller screens */
+      }
+
+      .menu-list {
+        display: none; /* Hide menu items by default */
+      }
+
+      .search-box {
+        margin-left: 0; /* Remove margin from search box */
+      }
+
+      .search-input {
+        width: 150px; /* Adjust width for smaller screens */
+      }
+    }
   </style>
 </head>
 <body>
 
 <div class="menu-bar">
   <span class="website-name">nikhil</span>
-  <img src="active-man-thinking-avatar.png" alt="Logo" class="logo-img">
+  <img src="house.png" alt="Logo" class="logo-img">
   <div class="menu-list">
-    <a href="#" class="menu-item"><img src="home.png" alt="Home" class="icon"> Home</a>
-    <a href="#" class="menu-item"><img src="house.png" alt="World" class="icon"> World</a>
-    <a href="#" class="menu-item"><img src="operator.png" alt="Travel" class="icon"> Travel</a>
-    <a href="#" class="menu-item"><img src="categories.png" alt="Home" class="icon"> Home</a>
-    <a href="#" class="menu-item"><img src="about.png" alt="World" class="icon"> World</a>
-    <a href="#" class="menu-item"><img src="services.png" alt="Travel" class="icon"> Travel</a>
+    <a href="#" class="menu-item"><i class="fas fa-home icon"></i> Home</a>
+    <a href="#" class="menu-item"><i class="fas fa-globe icon"></i> World</a>
+    <a href="#" class="menu-item"><i class="fas fa-plane icon"></i> Travel</a>
+    <a href="#" class="menu-item"><i class="fas fa-home icon"></i> Home</a>
+    <a href="#" class="menu-item"><i class="fas fa-globe icon"></i> World</a>
+    <a href="#" class="menu-item"><i class="fas fa-plane icon"></i> Travel</a>
     <!-- Add more menu items as needed -->
   </div>
   <div class="search-box">
     <input type="text" class="search-input" placeholder="Search...">
-    <button class="search-button"><img src="search.png" alt="Search"></button>
+    <button class="search-button"><i class="fas fa-search"></i></button>
   </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 </div>
 
 <!-- Bootstrap JS (optional, only if you need dropdowns or other JS functionality) -->
@@ -168,6 +190,11 @@
 
 </body>
 </html>
+```
+
+In this code:
+- I replaced the search button image with a Font Awesome search icon using the `<i>` tag and the class `fas fa-search`.
+- Now, the search button will display the Font Awesome search icon instead of an image.
 
 
 
