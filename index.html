@@ -55,151 +55,83 @@
 
 
    
-Sure, you can replace the search button image with a Font Awesome icon. Here's the modified code with the search button replaced with a Font Awesome icon:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News Website Menu Bar</title>
-  <!-- Bootstrap CSS -->
+  <title>Navigation Menu Bar</title>
+  <!-- Link Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    /* Custom CSS for menu bar */
-    .menu-bar {
-      background-image: url('menu-background.jpg'); /* Add background image */
+    /* Custom styles */
+    .navbar-custom {
+      background-image: url('008.jpg'); /* Replace 'your-image-path.jpg' with the path to your image */
       background-size: cover;
-      padding: 10px 15px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
+      background-position: center;
     }
-
-    .menu-list {
-      display: flex;
-      margin-left: auto; /* Push menu items to the right */
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-nav .nav-link {
+      color: #ffffff; /* Change the text color */
     }
-
-    .menu-item {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 15px;
-      margin: 0 5px;
-      border-radius: 5px;
-      font-size: 16px;
+    .navbar-custom .nav-item.active .nav-link {
+      color: #ffffff; /* Change the active text color */
     }
-
-    .menu-item:hover {
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    .icon {
-      margin-right: 5px;
-      height: 20px;
-      width: 20px;
-    }
-
-    .search-box {
-      margin-left: auto; /* Push search box to the right */
-      display: flex;
-      align-items: center;
-    }
-
-    .search-input {
-      padding: 5px;
-      border-radius: 5px;
-      border: none;
-      margin-right: 5px;
-      width: 200px; /* Adjust width as needed */
-    }
-
-    .search-button {
-      padding: 5px;
-      border-radius: 5px;
-      background-color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    .search-button:hover {
-      background-color: #ccc;
-    }
-
-    .website-name {
-      color: #fff;
-      font-size: 20px;
-      margin-right: 15px;
-    }
-
-    .logo-img {
-      height: 40px; /* Adjust logo height */
-      margin-right: 15px;
-    }
-
-    @media (max-width: 768px) {
-      .menu-bar {
-        padding: 5px 15px; /* Adjust padding for smaller screens */
-      }
-
-      .menu-list {
-        display: none; /* Hide menu items by default */
-      }
-
-      .search-box {
-        margin-left: 0; /* Remove margin from search box */
-      }
-
-      .search-input {
-        width: 150px; /* Adjust width for smaller screens */
-      }
+    /* Hover effect */
+    .navbar-custom .nav-link:hover {
+      color: #ffffff; /* Change the text color on hover */
+      background-color: rgba(255, 255, 255, 0.1); /* Change the background color on hover */
     }
   </style>
 </head>
 <body>
 
-<div class="menu-bar">
-  <span class="website-name">nikhil</span>
-  <img src="house.png" alt="Logo" class="logo-img">
-  <div class="menu-list">
-    <a href="#" class="menu-item"><i class="fas fa-home icon"></i> Home</a>
-    <a href="#" class="menu-item"><i class="fas fa-globe icon"></i> World</a>
-    <a href="#" class="menu-item"><i class="fas fa-plane icon"></i> Travel</a>
-    <a href="#" class="menu-item"><i class="fas fa-home icon"></i> Home</a>
-    <a href="#" class="menu-item"><i class="fas fa-globe icon"></i> World</a>
-    <a href="#" class="menu-item"><i class="fas fa-plane icon"></i> Travel</a>
-    <!-- Add more menu items as needed -->
-  </div>
-  <div class="search-box">
-    <input type="text" class="search-input" placeholder="Search...">
-    <button class="search-button"><i class="fas fa-search"></i></button>
-  </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+  <a class="navbar-brand" href="#">
+    <img src="active-man-thinking-avatar.png" alt="Logo" style="width: 40px; height: 40px;"> <!-- Replace 'logo.png' with the path to your logo -->
+    SHIVPRATAP
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-</div>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><img src="home.png" alt="Home" style="width: 20px; height: 20px;"> Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><img src="house.png" alt="Search" style="width: 20px; height: 20px;"> Search</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><img src="contact.png" alt="Contact" style="width: 20px; height: 20px;"> Contact</a>
+      </li>
+      <a class="nav-link" href="#"><img src="categories.png" alt="Home" style="width: 20px; height: 20px;"> Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><img src="search-icon.png" alt="Search" style="width: 20px; height: 20px;"> Search</a>
+    </li>
+    <a class="nav-link" href="#"><img src="about.png" alt="Home" style="width: 20px; height: 20px;"> Home <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="#"><img src="contact.png" alt="Search" style="width: 20px; height: 20px;"> Search</a>
+</li>
+    </ul>
+    <!-- Right side search input -->
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 
-<!-- Bootstrap JS (optional, only if you need dropdowns or other JS functionality) -->
+<!-- Link Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
-```
-
-In this code:
-- I replaced the search button image with a Font Awesome search icon using the `<i>` tag and the class `fas fa-search`.
-- Now, the search button will display the Font Awesome search icon instead of an image.
-
-
-
-
-     
 
 
 
