@@ -1,6 +1,63 @@
-To add a "Make Call" icon within the contact card, you can include it next to the phone number. Here's how you can modify the previous code to achieve this:
+To add a hover effect to the contact card and give it a frame, you can use CSS. Here's how you can modify the previous code to achieve this:
 
 ```html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Example</title>
+    <style>
+        body {
+            background-image: url('download (5).jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
+            background-size: cover; /* This ensures that the image covers the entire background */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            /* You can add more CSS properties here to style the background as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your webpage content goes here -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +65,6 @@ To add a "Make Call" icon within the contact card, you can include it next to th
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,9 +78,20 @@ To add a "Make Call" icon within the contact card, you can include it next to th
         .contact-info {
             margin-top: 30px;
         }
-        .call-icon {
-            font-size: 16px;
-            color: #007bff;
+        .contact-card {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .call-icon,
+        .whatsapp-icon {
+            width: 20px;
+            height: 20px;
             cursor: pointer;
             margin-left: 5px;
         }
@@ -37,24 +104,36 @@ To add a "Make Call" icon within the contact card, you can include it next to th
         
         <div class="contact-info">
             <h3>Contact Information</h3>
-            <ul>
-                <li>Email: example@example.com</li>
-                <li>
-                    Phone: +1234567890
-                    <i class="fas fa-phone call-icon" onclick="makeCall('+1234567890')"></i>
-                </li>
-                <li>Address: 123 Street, City, Country</li>
-            </ul>
+            <div class="contact-card">
+                <ul>
+                    <li>Email: example@example.com</li>
+                    <li>
+                        Phone: +1234567890
+                        <img src="phone-call.png" class="call-icon" onclick="makeCall('+1234567890')" alt="Phone Icon">
+                    </li>
+                    <li>
+                        WhatsApp: +1234567890
+                        <img src="whatsapp.png" class="whatsapp-icon" onclick="openWhatsApp('+1234567890')" alt="WhatsApp Icon">
+                    </li>
+                    <li>Address: 123 Street, City, Country</li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
     <!-- JavaScript -->
     <script>
         function makeCall(phoneNumber) {
             window.location.href = "tel:" + phoneNumber;
+        }
+
+        function openWhatsApp(phoneNumber) {
+            // You can use either of the below approaches
+            // Approach 1: Open WhatsApp Web
+            window.open("https://web.whatsapp.com/send?phone=" + phoneNumber);
+
+            // Approach 2: Open WhatsApp app (works on mobile devices)
+            // window.location.href = "whatsapp://send?phone=" + phoneNumber;
         }
     </script>
 </body>
@@ -63,7 +142,6 @@ To add a "Make Call" icon within the contact card, you can include it next to th
 
 In this modified code:
 
-- I've added an `<i>` element with the "Make Call" icon (`<i class="fas fa-phone call-icon">`). This icon will appear next to the phone number.
-- I've added a `call-icon` class to style the icon.
-- I've added an `onclick` attribute to the icon element, calling the `makeCall()` function with the phone number as an argument when clicked.
-- The `makeCall()` function now accepts a `phoneNumber` parameter, allowing you to specify the phone number dynamically.
+- I've added CSS styles to create a frame and hover effect for the contact card. The `contact-card` class applies the styling, and the `:hover` pseudo-class defines the hover effect.
+- The hover effect includes a slight shadow and a slight translation upward to simulate elevation. Adjust these values to your preference.
+- I've wrapped the contact information inside a `<div>` element with the class `contact-card` to apply the hover effect to the entire card.
