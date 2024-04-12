@@ -51,87 +51,106 @@
                
            
           
-        
-
-
-   
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navigation Menu Bar</title>
-  <!-- Link Bootstrap CSS -->
+  <title>Footer Menu with Search Bar at Right Corner</title>
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    /* Custom styles */
-    .navbar-custom {
-      background-image: url('008.jpg'); /* Replace 'your-image-path.jpg' with the path to your image */
-      background-size: cover;
-      background-position: center;
+    /* Custom CSS for the footer */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
     }
-    .navbar-custom .navbar-brand,
-    .navbar-custom .navbar-nav .nav-link {
-      color: #ffffff; /* Change the text color */
+    .footer-logo {
+      max-width: 150px;
     }
-    .navbar-custom .nav-item.active .nav-link {
-      color: #ffffff; /* Change the active text color */
+    .footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
     }
-    /* Hover effect */
-    .navbar-custom .nav-link:hover {
-      color: #ffffff; /* Change the text color on hover */
-      background-color: rgba(255, 255, 255, 0.1); /* Change the background color on hover */
+    .footer ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    .footer ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer h3 {
+      margin-bottom: 20px;
+    }
+    .search-form {
+      margin-bottom: 20px;
+    }
+    .search-form input[type="text"] {
+      width: 200px;
+      padding: 5px;
+      border: none;
+      border-radius: 3px;
+      margin-right: 10px;
+    }
+    .search-form button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    @media (min-width: 576px) {
+      .search-form {
+        text-align: right;
+      }
     }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
-  <a class="navbar-brand" href="#">
-    <img src="active-man-thinking-avatar.png" alt="Logo" style="width: 40px; height: 40px;"> <!-- Replace 'logo.png' with the path to your logo -->
-    SHIVPRATAP
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"><img src="home.png" alt="Home" style="width: 20px; height: 20px;"> Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="house.png" alt="Search" style="width: 20px; height: 20px;"> Search</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><img src="contact.png" alt="Contact" style="width: 20px; height: 20px;"> Contact</a>
-      </li>
-      <a class="nav-link" href="#"><img src="categories.png" alt="Home" style="width: 20px; height: 20px;"> Home <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"><img src="search-icon.png" alt="Search" style="width: 20px; height: 20px;"> Search</a>
-    </li>
-    <a class="nav-link" href="#"><img src="about.png" alt="Home" style="width: 20px; height: 20px;"> Home <span class="sr-only">(current)</span></a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="#"><img src="contact.png" alt="Search" style="width: 20px; height: 20px;"> Search</a>
-</li>
-    </ul>
-    <!-- Right side search input -->
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Website Name</h3>
+          <img src="search.png" alt="Logo" class="footer-logo">
+        </div>
+        <div class="col-md-8">
+          <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form class="search-form float-md-right">
+            <input type="text" placeholder="Search...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<!-- Link Bootstrap JS and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+  
+
+
+   
 
 
 
