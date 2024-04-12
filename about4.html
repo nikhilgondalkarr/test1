@@ -1,0 +1,69 @@
+To add a "Make Call" icon within the contact card, you can include it next to the phone number. Here's how you can modify the previous code to achieve this:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            margin-top: 30px;
+        }
+        .call-icon {
+            font-size: 16px;
+            color: #007bff;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Welcome to our website! We are a dedicated team striving to provide the best services to our customers.</p>
+        
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <ul>
+                <li>Email: example@example.com</li>
+                <li>
+                    Phone: +1234567890
+                    <i class="fas fa-phone call-icon" onclick="makeCall('+1234567890')"></i>
+                </li>
+                <li>Address: 123 Street, City, Country</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        function makeCall(phoneNumber) {
+            window.location.href = "tel:" + phoneNumber;
+        }
+    </script>
+</body>
+</html>
+```
+
+In this modified code:
+
+- I've added an `<i>` element with the "Make Call" icon (`<i class="fas fa-phone call-icon">`). This icon will appear next to the phone number.
+- I've added a `call-icon` class to style the icon.
+- I've added an `onclick` attribute to the icon element, calling the `makeCall()` function with the phone number as an argument when clicked.
+- The `makeCall()` function now accepts a `phoneNumber` parameter, allowing you to specify the phone number dynamically.
