@@ -1,0 +1,73 @@
+If you want to increase the size of the list item when hovering over it, you can use the `transform` property to scale the element. Here's how you can modify the code to add a bigger hover effect:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Categories</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS */
+    .news-category {
+      list-style: none;
+      padding: 0;
+    }
+
+    .news-category li {
+      background-color: #f0f0f0;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .news-category li:hover {
+      background-color: #dcdcdc;
+      transform: scale(1.1); /* Increase size on hover */
+    }
+
+    .news-category li img {
+      width: 40px; /* Adjust the width as needed */
+      height: 40px; /* Adjust the height as needed */
+      margin-right: 10px;
+    }
+
+    /* Custom CSS for 2 by 2 grid */
+    @media (min-width: 576px) {
+      .news-category li {
+        width: calc(50% - 10px); /* Adjust margin */
+        float: left;
+        margin-right: 10px;
+      }
+      .news-category li:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>News Categories</h2>
+  <ul class="news-category">
+    <li><img src="politics-icon.png" alt="Politics Icon"> Politics</li>
+    <li><img src="man.png" alt="Sports Icon"> Sports</li>
+    <li><img src="technology-icon.png" alt="Technology Icon"> Technology</li>
+    <li><img src="entertainment-icon.png" alt="Entertainment Icon"> Entertainment</li>
+    <li><img src="health-icon.png" alt="Health Icon"> Health</li>
+    <li><img src="shopping-icon.png" alt="Shopping Icon"> Shopping</li>
+    <li><img src="education-icon.png" alt="Education Icon"> Education</li>
+    <li><img src="music-icon.png" alt="Music Icon"> Music</li>
+    <li><img src="food-icon.png" alt="Food Icon"> Food</li>
+    <li><img src="operator.png" alt="Travel Icon"> Travel</li>
+  </ul>
+</div>
+
+</body>
+</html>
