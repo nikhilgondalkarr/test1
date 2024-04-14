@@ -1,6 +1,4 @@
-To display the categories in a 4 by 4 grid vertically, you can adjust the CSS and HTML structure accordingly. Here's how you can modify the code:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,16 +14,18 @@ To display the categories in a 4 by 4 grid vertically, you can adjust the CSS an
       padding: 0;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     .news-category li {
       background-color: #f0f0f0;
-      margin: 5px;
       padding: 10px;
       border-radius: 5px;
       transition: background-color 0.3s ease, transform 0.3s ease;
       display: flex;
       align-items: center;
+      margin-bottom: 10px;
+      width: calc(25% - 10px); /* Adjust width */
     }
 
     .news-category li:hover {
@@ -48,13 +48,13 @@ To display the categories in a 4 by 4 grid vertically, you can adjust the CSS an
     <li><img src="home.png" alt="Politics Icon"> Politics</li>
     <li><img src="about.png" alt="Sports Icon"> Sports</li>
     <li><img src="contact.png" alt="Technology Icon"> Technology</li>
-    <li><img src="categories.png" alt="Entertainment Icon"> Entertainment</li>
-    <li><img src="man.png" alt="Health Icon"> Health</li>
-    <li><img src="about.png" alt="Shopping Icon"> Shopping</li>
-    <li><img src="operator.png" alt="Education Icon"> Education</li>
-    <li><img src="services.png" alt="Music Icon"> Music</li>
-    <li><img src="search.png" alt="Food Icon"> Food</li>
-    <li><img src="man.png" alt="Travel Icon"> Travel</li>
+    <li><img src="man.png" alt="Entertainment Icon"> Entertainment</li>
+    <li><img src="health-icon.png" alt="Health Icon"> Health</li>
+    <li><img src="house.png" alt="Shopping Icon"> Shopping</li>
+    <li><img src="services.png" alt="Education Icon"> Education</li>
+    <li><img src="operator.png" alt="Music Icon"> Music</li>
+    <li><img src="services.png" alt="Food Icon"> Food</li>
+    <li><img src="travel-icon.png" alt="Travel Icon"> Travel</li>
     <!-- Add more categories here -->
   </ul>
 </div>
