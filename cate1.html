@@ -355,7 +355,9 @@
 
 
 
+If you want the image to cover the entire viewport with a specific width and height, you can adjust the CSS properties accordingly. Here's how you can do it:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -364,16 +366,18 @@
     <title>Background Image Example</title>
     <style>
         body {
-            background-image: url('bbc.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
-            background-size: cover; /* This ensures that the image covers the entire background */
-            background-position: center; /* Centers the background image */
-            background-repeat: no-repeat; /* Prevents the background image from repeating */
-            /* You can add more CSS properties here to style the background as needed */
+            margin: 0;
+            padding: 0;
+            background-image: url('bbc.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center center; /* Center the image both vertically and horizontally */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            width: 100vw; /* Set the body width to the full viewport width */
+            height: 100vh; /* Set the body height to the full viewport height */
         }
     </style>
 </head>
 <body>
-    <!-- Your webpage content goes here -->
+    <!-- Your content here -->
 </body>
 </html>
-
