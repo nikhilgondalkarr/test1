@@ -1,39 +1,65 @@
-Sure, I can provide you with a basic example of how you can create a page share option using HTML, CSS (Bootstrap), and JavaScript. We'll create a share icon that, when clicked, displays a dropdown menu with various social media options for sharing the page.
 
-HTML:
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Share</title>
+
   <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    .share-icons {
+      list-style-type: none;
+      padding: 0;
+    }
+    .share-icons li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .share-icons li:last-child {
+      margin-right: 0;
+    }
+    .share-icons li a {
+      color: #555;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Page Share</h1>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="shareButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Share
-      </button>
-      <div class="dropdown-menu" aria-labelledby="shareButton" id="shareMenu">
-        <a class="dropdown-item" href="#" id="facebook">Facebook</a>
-        <a class="dropdown-item" href="#" id="twitter">Twitter</a>
-        <a class="dropdown-item" href="#" id="linkedin">LinkedIn</a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  <h1>Share This Post</h1>
+  <ul class="share-icons">
+    <li><a href="#" onclick="shareOnFacebook()"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="#" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="#" onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></a></li>
+    <!-- Add more share options here -->
+  </ul>
+</div>
 
-  <!-- Bootstrap JS and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Custom JS -->
-  <script src="script.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<!-- Custom JavaScript -->
+<script>
+  function shareOnFacebook() {
+    // Implement share on Facebook functionality here
+    alert('Shared on Facebook!');
+  }
+
+  function shareOnTwitter() {
+    // Implement share on Twitter functionality here
+    alert('Shared on Twitter!');
+  }
+
+  function shareOnWhatsApp() {
+    // Implement share on WhatsApp functionality here
+    alert('Shared on WhatsApp!');
+  }
+</script>
+
 </body>
 </html>
