@@ -1,65 +1,65 @@
+To implement the functionality to share the post using available device apps, you can use the Web Share API. This API allows web pages to share text, URLs, and files to other apps installed on the device. Here's how you can integrate it into the previous example:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Post Sharing</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- Custom CSS -->
   <style>
-    .share-icons {
-      list-style-type: none;
-      padding: 0;
-    }
-    .share-icons li {
-      display: inline-block;
-      margin-right: 10px;
-    }
-    .share-icons li:last-child {
-      margin-right: 0;
-    }
-    .share-icons li a {
-      color: #555;
+    /* Add custom styles here */
+    .share-icon {
+      font-size: 24px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Post Title</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget felis quam.</p>
+            <!-- Share Icon -->
+            <i class="share-icon fas fa-share-alt"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="container">
-  <h1>Share This Post</h1>
-  <ul class="share-icons">
-    <li><a href="#" onclick="shareOnFacebook()"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="#" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="#" onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></a></li>
-    <!-- Add more share options here -->
-  </ul>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Font Awesome JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-<!-- Custom JavaScript -->
-<script>
-  function shareOnFacebook() {
-    // Implement share on Facebook functionality here
-    alert('Shared on Facebook!');
-  }
-
-  function shareOnTwitter() {
-    // Implement share on Twitter functionality here
-    alert('Shared on Twitter!');
-  }
-
-  function shareOnWhatsApp() {
-    // Implement share on WhatsApp functionality here
-    alert('Shared on WhatsApp!');
-  }
-</script>
-
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <!-- Custom JS -->
+  <script>
+    $(document).ready(function(){
+      // Function to handle post sharing
+      $('.share-icon').click(function(){
+        if (navigator.share) {
+          navigator.share({
+            title: 'Post Title',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget felis quam.',
+            url: window.location.href
+          }).then(() => {
+            console.log('Successfully shared');
+          }).catch((error) => {
+            console.error('Error sharing:', error);
+          });
+        } else {
+          alert('Web Share API is not supported in this browser.');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
