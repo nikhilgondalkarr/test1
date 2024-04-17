@@ -1,0 +1,39 @@
+Sure, I can provide you with a basic example of how you can create a page share option using HTML, CSS (Bootstrap), and JavaScript. We'll create a share icon that, when clicked, displays a dropdown menu with various social media options for sharing the page.
+
+HTML:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Share</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Page Share</h1>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="shareButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Share
+      </button>
+      <div class="dropdown-menu" aria-labelledby="shareButton" id="shareMenu">
+        <a class="dropdown-item" href="#" id="facebook">Facebook</a>
+        <a class="dropdown-item" href="#" id="twitter">Twitter</a>
+        <a class="dropdown-item" href="#" id="linkedin">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
