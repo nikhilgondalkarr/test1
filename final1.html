@@ -945,3 +945,163 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clickable Areas</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  .pagination-container {
+    background-image: url('113.jpg'); /* Replace 'pagination-background.jpg' with your image file */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+  }
+  .pagination {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .pagination > .page-item > .page-link {
+    border-radius: 0 !important;
+  }
+  .pagination .page-link {
+    position: relative;
+    z-index: 1;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+  .pagination .page-link:hover {
+    z-index: 2;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+  }
+  .pagination .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+  }
+</style>
+</head>
+<body>
+
+<div class="pagination-container">
+  <nav aria-label="Page navigation">
+    <ul class="pagination" id="pagination">
+      <!-- Pagination items will be dynamically generated here -->
+    </ul>
+  </nav>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    var totalPages = 10; // Total number of pages (change it according to your requirement)
+    var currentPage = 1;
+    var pagesToShow = 5;
+
+    function generatePagination() {
+      var paginationHtml = '';
+      var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+      var endPage = Math.min(totalPages, startPage + pagesToShow - 1);
+      if (endPage - startPage < pagesToShow - 1) {
+        startPage = Math.max(1, endPage - pagesToShow + 1);
+      }
+
+      // First page
+      paginationHtml += '<li class="page-item ' + (currentPage === 1 ? 'active' : '') + '"><a class="page-link" href="#">1</a></li>';
+
+      // Previous page
+      if (currentPage !== 1) {
+        paginationHtml += '<li class="page-item"><a class="page-link" href="#" data-page="' + (currentPage - 1) + '">&laquo;</a></li>';
+      }
+
+      // Pages
+      for (var i = startPage; i <= endPage; i++) {
+        paginationHtml += '<li class="page-item ' + (i === currentPage ? 'active' : '') + '"><a class="page-link" href="#" data-page="' + i + '">' + i + '</a></li>';
+      }
+
+      // Next page
+      if (currentPage !== totalPages) {
+        paginationHtml += '<li class="page-item"><a class="page-link" href="#" data-page="' + (currentPage + 1) + '">&raquo;</a></li>';
+      }
+
+      // Last page
+      paginationHtml += '<li class="page-item ' + (currentPage === totalPages ? 'active' : '') + '"><a class="page-link" href="#">' + totalPages + '</a></li>';
+
+      $('#pagination').html(paginationHtml);
+    }
+
+    generatePagination();
+
+    // Handle pagination clicks
+    $(document).on('click', '.page-link', function(e) {
+      e.preventDefault();
+      var page = parseInt($(this).data('page'));
+      if (page !== currentPage) {
+        currentPage = page;
+        generatePagination();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+
