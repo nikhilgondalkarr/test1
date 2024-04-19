@@ -1,0 +1,92 @@
+To add a share option using JavaScript that allows users to share the post on available devices, you can use the Web Share API. This API allows users to invoke the native sharing capabilities of their device. Here's how you can implement it:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Blog Card</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .blog-card {
+      display: flex;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .blog-card img {
+      max-width: 200px;
+      max-height: 150px;
+      width: auto;
+      height: auto;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .blog-card .card-body {
+      flex: 1;
+      padding: 10px; /* Adjusted padding */
+      position: relative; /* Added position relative */
+    }
+
+    .blog-card .card-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .blog-card .card-text {
+      font-size: 16px;
+    }
+
+    .share-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px; /* Adjust as needed */
+      height: 30px; /* Adjust as needed */
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="blog-card">
+    <img src="008.jpg" class="card-img-top" alt="Blog Image">
+    <div class="card-body">
+      <img src="send.png" class="share-icon" alt="Share Icon" onclick="sharePost('Blog Post Title 1', 'https://example.com/post1')"> <!-- Added share icon -->
+      <h5 class="card-title">Blog Post Title 1</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+  <!-- More blog cards... -->
+</div>
+
+<script>
+  function sharePost(title, url) {
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        url: url
+      }).then(() => {
+        console.log('Post shared successfully');
+      }).catch((error) => {
+        console.error('Error sharing post:', error);
+      });
+    } else {
+      console.log('Web Share API is not supported.');
+      // Fallback or alternative action for devices that don't support Web Share API
+    }
+  }
+</script>
+
+</body>
+</html>
+```
+
+Replace `"share-icon.png"` with the path to your share icon image file. Adjust the `width`, `height`, and positioning of the share icon as needed in the CSS.
+
+The `sharePost` function is called when the share icon is clicked. It checks if the Web Share API is supported in the browser. If supported, it opens the native sharing dialog with the specified title and URL. Otherwise, you can provide a fallback or alternative action for devices that don't support the Web Share API.
