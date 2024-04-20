@@ -1,4 +1,6 @@
+To redirect the shared device to the connected page after sharing a blog post, you can modify the JavaScript code to navigate to the desired page after the sharing action is completed. Here's the updated code:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,11 +136,11 @@
   <!-- Sixth Blog Card -->
   <div class="blog-card">
     <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Blog Image">
-    <div class="card-body">
-      <h5 class="card-title">Blog Post Title 6</h5>
-      <p class="
+    <div class="
 
-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+card-body">
+      <h5 class="card-title">Blog Post Title 6</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
       <div class="share-icons">
         <a href="#" class="share-icon" data-platform="twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
@@ -174,7 +176,13 @@ card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posu
         }
         
         // Open share URL in a new window
-        window.open(shareUrl, "_blank");
+        const shareWindow = window.open(shareUrl, "_blank");
+        
+        // Redirect to connected page after sharing action is completed
+        shareWindow.addEventListener("unload", function() {
+          // Redirect to the connected page
+          window.location.href = "connected-page.html"; // Change this to your connected page URL
+        });
       });
     });
   });
@@ -182,3 +190,6 @@ card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posu
 
 </body>
 </html>
+```
+
+This script opens a new window for sharing the blog post and listens for the unload event on that window. When the sharing action is completed and the window is closed, it redirects the user to the connected page. Adjust the URL "connected-page.html" to the actual URL of your connected page.
