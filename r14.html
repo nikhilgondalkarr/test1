@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horizontal Blog Card</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Include Font Awesome CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <!-- Include Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     .blog-card {
       display: flex;
@@ -28,7 +28,6 @@
     .blog-card .card-body {
       flex: 1;
       padding: 10px; /* Adjusted padding */
-      position: relative; /* Added position relative */
     }
 
     .blog-card .card-title {
@@ -40,16 +39,16 @@
       font-size: 16px;
     }
 
+    /* Style for sharing icons */
     .share-icons {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
     }
-    
-    .share-icons i {
+
+    .share-icons a {
       margin-right: 10px;
-      font-size: 24px;
+      color: #007bff;
     }
   </style>
 </head>
@@ -59,15 +58,14 @@
   <div class="blog-card">
     <img src="008.jpg" class="card-img-top" alt="Blog Image">
     <div class="card-body">
-      <!-- Social media share icons -->
-      <div class="share-icons">
-        <i class="fab fa-whatsapp" onclick="shareWhatsApp('Blog Post Title 1', 'https://example.com/post1')" title="Share via WhatsApp"></i>
-        <i class="fab fa-facebook" onclick="shareFacebook('Blog Post Title 1', 'https://example.com/post1')" title="Share via Facebook"></i>
-        <i class="fab fa-twitter" onclick="shareTwitter('Blog Post Title 1', 'https://example.com/post1')" title="Share via Twitter"></i>
-        <!-- Add more social media icons as needed -->
-      </div>
-      <h5 class="card-title">Blog Post Title 1</h5>
+      <h5 class="card-title"><a href="summary.html">Blog Post Title 1</a></h5>
       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <div class="share-icons">
+        <!-- Font Awesome icons for sharing -->
+        <a href="#" class="share-icon" data-platform="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
+      </div>
       <a href="#" class="btn btn-primary">Read More</a>
     </div>
   </div>
@@ -75,26 +73,34 @@
 </div>
 
 <script>
-  function shareWhatsApp(title, url) {
-    // Construct the WhatsApp sharing URL
-    let whatsappURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(title)} - ${encodeURIComponent(url)}`;
-    // Open WhatsApp sharing in a new window
-    window.open(whatsappURL, '_blank');
-  }
-  
-  function shareFacebook(title, url) {
-    // Construct the Facebook sharing URL
-    let facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(title)}`;
-    // Open Facebook sharing in a new window
-    window.open(facebookURL, '_blank');
-  }
-  
-  function shareTwitter(title, url) {
-    // Construct the Twitter sharing URL
-    let twitterURL = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
-    // Open Twitter sharing in a new window
-    window.open(twitterURL, '_blank');
-  }
+  // JavaScript to handle sharing functionality
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get all share icons
+    const shareIcons = document.querySelectorAll(".share-icon");
+    
+    // Attach click event to each share icon
+    shareIcons.forEach(function(icon) {
+      icon.addEventListener("click", function(event) {
+        event.preventDefault();
+        const platform = this.getAttribute("data-platform");
+        const title = encodeURIComponent("Blog Post Title 1"); // Change to dynamically get the blog post title
+        const url = encodeURIComponent(window.location.href); // Get the current page URL
+        let shareUrl;
+        
+        // Generate share URL based on platform
+        if (platform === "twitter") {
+          shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+        } else if (platform === "facebook") {
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`;
+        } else if (platform === "whatsapp") {
+          shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+        }
+        
+        // Open share URL in a new window
+        window.open(shareUrl, "_blank");
+      });
+    });
+  });
 </script>
 
 </body>
