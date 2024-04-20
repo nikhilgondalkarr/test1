@@ -1,4 +1,6 @@
-To redirect the shared device to the connected page after sharing a blog post, you can modify the JavaScript code to navigate to the desired page after the sharing action is completed. Here's the updated code:
+To achieve this, you can modify the JavaScript code to store the URL of the shared blog post when the user clicks on a sharing icon. Then, when the user clicks on the "Read More" button of a blog post, the page will redirect to the URL of that specific blog post.
+
+Here's the modified JavaScript code:
 
 ```html
 <!DOCTYPE html>
@@ -61,7 +63,7 @@ To redirect the shared device to the connected page after sharing a blog post, y
   <div class="blog-card">
     <img src="008.jpg" class="card-img-top" alt="Blog Image">
     <div class="card-body">
-      <h5 class="card-title"><a href="summary.html">Blog Post Title 1</a></h5>
+      <h5 class="card-title"><a href="r14.html">Blog Post Title 1</a></h5>
       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
       <div class="share-icons">
         <!-- Font Awesome icons for sharing -->
@@ -69,7 +71,7 @@ To redirect the shared device to the connected page after sharing a blog post, y
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <a href="#" class="btn btn-primary">Read More</a>
+      <a href="blog_post_1.html" class="btn btn-primary">Read More</a>
     </div>
   </div>
 
@@ -84,7 +86,7 @@ To redirect the shared device to the connected page after sharing a blog post, y
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <a href="#" class="btn btn-primary">Read More</a>
+      <a href="blog_post_2.html" class="btn btn-primary">Read More</a>
     </div>
   </div>
 
@@ -99,7 +101,7 @@ To redirect the shared device to the connected page after sharing a blog post, y
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <a href="#" class="btn btn-primary">Read More</a>
+      <a href="blog_post_3.html" class="btn btn-primary">Read More</a>
     </div>
   </div>
 
@@ -114,7 +116,7 @@ To redirect the shared device to the connected page after sharing a blog post, y
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <a href="#" class="btn btn-primary">Read More</a>
+      <a href="blog_post_4.html" class="btn btn-primary">Read More</a>
     </div>
   </div>
 
@@ -129,16 +131,16 @@ To redirect the shared device to the connected page after sharing a blog post, y
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <a href="#" class="btn btn-primary">Read More</a>
+      <a href="blog_post_5.html" class="btn btn-primary">Read More
+
+</a>
     </div>
   </div>
 
   <!-- Sixth Blog Card -->
   <div class="blog-card">
     <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Blog Image">
-    <div class="
-
-card-body">
+    <div class="card-body">
       <h5 class="card-title">Blog Post Title 6</h5>
       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
       <div class="share-icons">
@@ -146,7 +148,7 @@ card-body">
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <a href="#" class="btn btn-primary">Read More</a>
+      <a href="blog_post_6.html" class="btn btn-primary">Read More</a>
     </div>
   </div>
 </div>
@@ -154,6 +156,8 @@ card-body">
 <script>
   // JavaScript to handle sharing functionality
   document.addEventListener("DOMContentLoaded", function() {
+    let sharedBlogUrl = ""; // Variable to store the shared blog post URL
+
     // Get all share icons
     const shareIcons = document.querySelectorAll(".share-icon");
     
@@ -161,6 +165,7 @@ card-body">
     shareIcons.forEach(function(icon) {
       icon.addEventListener("click", function(event) {
         event.preventDefault();
+        sharedBlogUrl = this.parentElement.nextElementSibling.getAttribute("href"); // Store the URL of the shared blog post
         const platform = this.getAttribute("data-platform");
         const title = encodeURIComponent("Blog Post Title 1"); // Change to dynamically get the blog post title
         const url = encodeURIComponent(window.location.href); // Get the current page URL
@@ -176,13 +181,16 @@ card-body">
         }
         
         // Open share URL in a new window
-        const shareWindow = window.open(shareUrl, "_blank");
-        
-        // Redirect to connected page after sharing action is completed
-        shareWindow.addEventListener("unload", function() {
-          // Redirect to the connected page
-          window.location.href = "connected-page.html"; // Change this to your connected page URL
-        });
+        window.open(shareUrl, "_blank");
+      });
+    });
+
+    // Redirect to the shared blog post when "Read More" button is clicked
+    const readMoreButtons = document.querySelectorAll(".btn-primary");
+    readMoreButtons.forEach(function(button) {
+      button.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = sharedBlogUrl; // Redirect to the URL of the shared blog post
       });
     });
   });
@@ -192,4 +200,4 @@ card-body">
 </html>
 ```
 
-This script opens a new window for sharing the blog post and listens for the unload event on that window. When the sharing action is completed and the window is closed, it redirects the user to the connected page. Adjust the URL "connected-page.html" to the actual URL of your connected page.
+This code will store the URL of the shared blog post when the user clicks on a sharing icon, and then when the user clicks on the "Read More" button of any blog post, it will redirect to the URL of that specific blog post. Make sure to replace `blog_post_1.html`, `blog_post_2.html`, etc., with the actual URLs of your blog posts.
