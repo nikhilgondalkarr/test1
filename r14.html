@@ -1,6 +1,4 @@
-To accomplish this, you can modify the JavaScript code to store the URL of the shared blog post and its title. Then, after sharing a blog post, automatically redirect the user to that specific blog post's URL.
-
-Here's the updated JavaScript code:
+To automatically trigger the "Read More" button click after the user shares a blog post, you can modify the JavaScript code to simulate a click event on the "Read More" button. Here's the updated code:
 
 ```html
 <!DOCTYPE html>
@@ -63,7 +61,7 @@ Here's the updated JavaScript code:
   <div class="blog-card">
     <img src="008.jpg" class="card-img-top" alt="Blog Image">
     <div class="card-body">
-      <h5 class="card-title"><a href="r14.html">Blog Post Title 1</a></h5>
+      <h5 class="card-title">Blog Post Title 1</h5>
       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
       <div class="share-icons">
         <!-- Font Awesome icons for sharing -->
@@ -71,7 +69,7 @@ Here's the updated JavaScript code:
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <a href="blog_post_1.html" class="btn btn-primary">Read More</a>
+      <a href="summary.html" class="btn btn-primary">Read More</a>
     </div>
   </div>
 
@@ -125,10 +123,10 @@ Here's the updated JavaScript code:
     <img src="nature.jpg" class="card-img-top" alt="Blog Image">
     <div class="card-body">
       <h5 class="card-title">Blog Post Title 5</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <div class="share-icons
 
- aliquet.</p>
-      <div class="share-icons">
+">
         <a href="#" class="share-icon" data-platform="twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="share-icon" data-platform="whatsapp"><i class="fab fa-whatsapp"></i></a>
@@ -167,7 +165,7 @@ Here's the updated JavaScript code:
         event.preventDefault();
         sharedBlogUrl = this.parentElement.nextElementSibling.getAttribute("href"); // Store the URL of the shared blog post
         const platform = this.getAttribute("data-platform");
-        const title = encodeURIComponent(this.parentElement.nextElementSibling.querySelector('.card-title').innerText); // Get the title of the shared blog post
+        const title = encodeURIComponent("Blog Post Title 1"); // Change to dynamically get the blog post title
         const url = encodeURIComponent(window.location.href); // Get the current page URL
         let shareUrl;
         
@@ -182,15 +180,10 @@ Here's the updated JavaScript code:
         
         // Open share URL in a new window
         window.open(shareUrl, "_blank");
-      });
-    });
 
-    // Redirect to the shared blog post when "Read More" button is clicked
-    const readMoreButtons = document.querySelectorAll(".btn-primary");
-    readMoreButtons.forEach(function(button) {
-      button.addEventListener("click", function(event) {
-        event.preventDefault();
-        window.location.href = sharedBlogUrl; // Redirect to the URL of the shared blog post
+        // Automatically trigger click event on "Read More" button after sharing
+        const readMoreButton = this.parentElement.nextElementSibling.nextElementSibling.querySelector(".btn-primary");
+        readMoreButton.click();
       });
     });
   });
@@ -200,4 +193,4 @@ Here's the updated JavaScript code:
 </html>
 ```
 
-In this code, I've updated the JavaScript to fetch the title of the shared blog post and store it along with the URL. When the "Read More" button is clicked, it will redirect the user to the URL of the shared blog post.
+This code will simulate a click event on the "Read More" button after the user shares a blog post. Make sure to replace `blog_post_1.html`, `blog_post_2.html`, etc., with the actual URLs of your blog posts.
