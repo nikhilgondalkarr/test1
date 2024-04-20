@@ -331,82 +331,24 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <style>
-    .share-icons {
-      list-style: none;
-      padding: 0;
-      display: flex;
-    }
-    .share-icons li {
-      margin-right: 10px;
-    }
-  </style>
-</head>
-<body>
 
-<div class="container mt-5">
-  
-  <ul class="share-icons">
-    <li><a href="#" class="share-btn" data-network="facebook"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="#" class="share-btn" data-network="twitter"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="#" class="share-btn" data-network="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-    <li><a href="#" class="share-btn" data-network="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
-  </ul>
-</div>
 
-<script>
-  // JavaScript to handle sharing
-  document.querySelectorAll('.share-btn').forEach(item => {
-    item.addEventListener('click', event => {
-      event.preventDefault();
-      const network = item.getAttribute('data-network');
-      const url = window.location.href;
-      switch(network) {
-        case 'facebook':
-          shareOnFacebook(url);
-          break;
-        case 'twitter':
-          shareOnTwitter(url);
-          break;
-        case 'linkedin':
-          shareOnLinkedIn(url);
-          break;
-        case 'whatsapp':
-          shareOnWhatsApp(url);
-          break;
-        default:
-          break;
-      }
-    });
-  });
 
-  function shareOnFacebook(url) {
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
-  }
 
-  function shareOnTwitter(url) {
-    window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url), '_blank');
-  }
 
-  function shareOnLinkedIn(url) {
-    window.open('https://www.linkedin.com/shareArticle?url=' + encodeURIComponent(url), '_blank');
-  }
 
-  function shareOnWhatsApp(url) {
-    window.open('whatsapp://send?text=' + encodeURIComponent(url), '_blank');
-  }
-</script>
 
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -457,95 +399,114 @@
 
 
       
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-          <style>
-            .share-icons {
-              list-style: none;
-              padding: 0;
-              display: flex;
-            }
-            .share-icons li {
-              margin-right: 10px;
-            }
-          </style>
-        </head>
-        <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
-        <div class="container mt-5">
-         
-          <ul class="share-icons">
-            <li><a href="#" class="share-btn" data-network="facebook"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="#" class="share-btn" data-network="twitter"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#" class="share-btn" data-network="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-            <li><a href="#" class="share-btn" data-network="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
-          </ul>
-        </div>
-        
-        <script>
-          // JavaScript to handle sharing
-          document.querySelectorAll('.share-btn').forEach(item => {
-            item.addEventListener('click', event => {
-              event.preventDefault();
-              const network = item.getAttribute('data-network');
-              const url = window.location.href;
-              switch(network) {
-                case 'facebook':
-                  shareOnFacebook(url);
-                  break;
-                case 'twitter':
-                  shareOnTwitter(url);
-                  break;
-                case 'linkedin':
-                  shareOnLinkedIn(url);
-                  break;
-                case 'whatsapp':
-                  shareOnWhatsApp(url);
-                  break;
-                default:
-                  break;
-              }
-            });
-          });
-        
-          function shareOnFacebook(url) {
-            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
-          }
-        
-          function shareOnTwitter(url) {
-            window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url), '_blank');
-          }
-        
-          function shareOnLinkedIn(url) {
-            window.open('https://www.linkedin.com/shareArticle?url=' + encodeURIComponent(url), '_blank');
-          }
-        
-          function shareOnWhatsApp(url) {
-            window.open('whatsapp://send?text=' + encodeURIComponent(url), '_blank');
-          }
-        </script>
-        
-        </body>
-        </html>
-        
-        <p class="blog-meta">Published on January 1, 2024 by John Doe</p>
-        <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed urna malesuada, tempor lectus nec, venenatis dui. Proin commodo eros vitae magna tristique, eget suscipit turpis sodales. Duis euismod dolor ut arcu tincidunt, at congue metus tincidunt. Curabitur dapibus interdum lorem, eu tempor justo commodo id. Nam ac tortor eget justo dignissim cursus sed non metus. Vestibulum et metus et turpis ultricies hendrerit et vel lorem. Cras vel risus id ex vestibulum mattis a vel tortor.</p>
-        <p class="blog-content">Sed non ex vitae libero iaculis sodales. Nullam ut augue felis. Vivamus elementum est vel diam vulputate, ac efficitur mauris ultrices. Aenean eu diam sed mi placerat interdum. Ut nec consectetur ligula. Donec vitae felis metus. In luctus leo et eros lacinia, at aliquet nunc efficitur. Fusce efficitur, tortor ac varius auctor, lacus nisi blandit est, vitae egestas sapien mi nec mi.</p>
-      </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Page Share Option</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <style>
+        .share-icons {
+          list-style: none;
+          padding: 0;
+          display: flex;
+        }
+        .share-icons li {
+          margin-right: 10px;
+        }
+        .icon-img {
+          width: 30px;
+          height: 30px;
+          margin-right: 5px;
+        }
+      </style>
+    </head>
+    <body>
+    
+    <div class="container mt-5">
+      <h2>Share This Page</h2>
+      <ul class="share-icons">
+        <li>
+          <img src="facebook1.png" alt="Facebook" class="icon-img">
+          <a href="#" class="share-btn" data-network="facebook">Facebook</a>
+        </li>
+        <li>
+          <img src="twitter1.png" alt="Twitter" class="icon-img">
+          <a href="#" class="share-btn" data-network="twitter">Twitter</a>
+        </li>
+        <li>
+          <img src="linkedin1.png" alt="LinkedIn" class="icon-img">
+          <a href="#" class="share-btn" data-network="linkedin">LinkedIn</a>
+        </li>
+        <li>
+          <img src="whatsapp1.png" alt="WhatsApp" class="icon-img">
+          <a href="#" class="share-btn" data-network="whatsapp">WhatsApp</a>
+        </li>
+      </ul>
     </div>
-  </div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</body>
-</html>
+    
+    <script>
+      // JavaScript to handle sharing
+      document.querySelectorAll('.share-btn').forEach(item => {
+        item.addEventListener('click', event => {
+          event.preventDefault();
+          const network = item.getAttribute('data-network');
+          const url = window.location.href;
+          switch(network) {
+            case 'facebook':
+              shareOnFacebook(url);
+              break;
+            case 'twitter':
+              shareOnTwitter(url);
+              break;
+            case 'linkedin':
+              shareOnLinkedIn(url);
+              break;
+            case 'whatsapp':
+              shareOnWhatsApp(url);
+              break;
+            default:
+              break;
+          }
+        });
+      });
+    
+      function shareOnFacebook(url) {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank');
+      }
+    
+      function shareOnTwitter(url) {
+        window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url), '_blank');
+      }
+    
+      function shareOnLinkedIn(url) {
+        window.open('https://www.linkedin.com/shareArticle?url=' + encodeURIComponent(url), '_blank');
+      }
+    
+      function shareOnWhatsApp(url) {
+        window.open('whatsapp://send?text=' + encodeURIComponent(url), '_blank');
+      }
+    </script>
+    
+    </body>
+    </html>
+    
