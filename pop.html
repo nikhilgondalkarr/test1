@@ -1,6 +1,4 @@
-To set the image size to 400x200 pixels while maintaining the aspect ratio and fitting it within the card body, you can use the Bootstrap class `img-fluid`. Here's the modified code:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +12,15 @@ To set the image size to 400x200 pixels while maintaining the aspect ratio and f
       border: 1px solid #ccc;
       margin-bottom: 20px;
       border-radius: 5px;
+      max-width: 300px; /* Set max width of card */
     }
     .post img {
+      width: 100%;
+      height: auto;
       border-radius: 5px 5px 0 0;
+      max-width: 300px; /* Set max width of image */
+      max-height: 350px; /* Set max height of image */
+      object-fit: cover; /* Maintain aspect ratio */
     }
     .post-content {
       padding: 15px;
@@ -41,38 +45,99 @@ To set the image size to 400x200 pixels while maintaining the aspect ratio and f
 </head>
 <body>
   <div class="container">
-    <div class="col-md-8 offset-md-2">
-      <div class="post">
-        <img src="bbc.jpg" alt="Post Image" class="img-fluid">
-        <div class="post-content">
-          <h2>Beautiful Scenery</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
-          <div class="post-meta">
-            <span>Posted by John Doe</span> |
-            <span>April 21, 2024</span> |
-            <span>Travel</span>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="post">
+          <img src="bbc.jpg" alt="Post Image">
+          <div class="post-content">
+            <h2>Beautiful Scenery</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
+            <div class="post-meta">
+              <span>Posted by John Doe</span> |
+              <span>April 21, 2024</span> |
+              <span>Travel</span>
+            </div>
+            <button class="btn btn-primary read-more-btn">Read More</button>
           </div>
-          <button class="btn btn-primary read-more-btn">Read More</button>
         </div>
       </div>
-      <div class="post">
-        <img src="dddd.jpg" alt="Post Image" class="img-fluid">
-        <div class="post-content">
-          <h2>Amazing Sunset</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
-          <div class="post-meta">
-            <span>Posted by Jane Doe</span> |
-            <span>April 22, 2024</span> |
-            <span>Nature</span>
+      <div class="col-md-4">
+        <div class="post">
+          <img src="dddd.jpg" alt="Post Image">
+          <div class="post-content">
+            <h2>Amazing Sunset</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
+            <div class="post-meta">
+              <span>Posted by Jane Doe</span> |
+              <span>April 22, 2024</span> |
+              <span>Nature</span>
+            </div>
+            <button class="btn btn-primary read-more-btn">Read More</button>
           </div>
-          <button class="btn btn-primary read-more-btn">Read More</button>
         </div>
       </div>
-      <!-- Repeat similar structure for other blog posts -->
+      <div class="col-md-4">
+        <div class="post">
+          <img src="008.jpg" alt="Post Image">
+          <div class="post-content">
+            <h2>Delicious Food</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
+            <div class="post-meta">
+              <span>Posted by Alice Smith</span> |
+              <span>April 23, 2024</span> |
+              <span>Food</span>
+            </div>
+            <button class="btn btn-primary read-more-btn">Read More</button>
+          </div>
+        </div>
+      </div>
+      <!-- Add more blog cards here -->
+      <div class="col-md-4">
+        <div class="post">
+          <img src="Indian.jpg" alt="Post Image">
+          <div class="post-content">
+            <h2>Adventurous Journey</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
+            <div class="post-meta">
+              <span>Posted by Bob Johnson</span> |
+              <span>April 24, 2024</span> |
+              <span>Adventure</span>
+            </div>
+            <button class="btn btn-primary read-more-btn">Read More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="post">
+          <img src="bb.jpg" alt="Post Image">
+          <div class="post-content">
+            <h2>Cityscape</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
+            <div class="post-meta">
+              <span>Posted by Emily Wilson</span> |
+              <span>April 25, 2024</span> |
+              <span>City</span>
+            </div>
+            <button class="btn btn-primary read-more-btn">Read More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="post">
+          <img src="dddd.jpg" alt="Post Image">
+          <div class="post-content">
+            <h2>Cute Pets</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
+            <div class="post-meta">
+              <span>Posted by Michael Brown</span> |
+              <span>April 26, 2024</span> |
+              <span>Pets</span>
+            </div>
+            <button class="btn btn-primary read-more-btn">Read More</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
 </html>
-```
-
-By adding the `img-fluid` class to the `img` tag, the image will be sized to fit within the card body while maintaining its aspect ratio. Adjust the content as needed.
