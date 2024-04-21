@@ -1,4 +1,6 @@
+To enable the functionality where clicking on a circle shape image displays the corresponding status card, and allows dragging the status card by mouse and fingers on touch devices, you can update the JavaScript code. Here's the modified version:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +44,7 @@
       position: fixed;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%); /* Center the card */
       background-color: #fff; /* White background color */
       padding: 20px;
       border-radius: 10px;
@@ -77,24 +80,7 @@
           <div class="circle-img" onclick="showStatusCard(2)">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
           </div>
-          <div class="circle-img" onclick="showStatusCard(3)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 3">
-          </div>
-          <div class="circle-img" onclick="showStatusCard(4)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 4">
-          </div>
-          <div class="circle-img" onclick="showStatusCard(5)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 5">
-          </div>
-          <div class="circle-img" onclick="showStatusCard(6)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 6">
-          </div>
-          <div class="circle-img" onclick="showStatusCard(7)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 7">
-          </div>
-          <div class="circle-img" onclick="showStatusCard(8)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 8">
-          </div>
+          <!-- Add more circle images as needed -->
         </div>
       </div>
     </div>
@@ -118,62 +104,7 @@
     <img src="https://via.placeholder.com/200x300" alt="Status Card Image 2">
     <p>This is the status card for Image 2.</p>
   </div>
-  <div id="status-card-3" class="status-card" draggable="true" ondragstart="dragStart(event)">
-    <span class="close-btn" onclick="closeStatusCard(3)">&times;</span>
-    <h5>Status Card 3</h5>
-    <div class="publisher-name">
-      Publisher Name 3
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 3">
-    <p>This is the status card for Image 3.</p>
-  </div>
-  <div id="status-card-4" class="status-card" draggable="true" ondragstart="dragStart(event)">
-    <span class="close-btn" onclick="closeStatusCard(4)">&times;</span>
-    <h5>Status Card 4</h5>
-    <div class="publisher-name">
-      Publisher Name 4
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 4">
-    <p>This is the status card for Image 4.</p>
-  </div>
-  <div id="status-card-5" class="status-card" draggable="true" ondragstart="dragStart(event)">
-    <span class="close-btn" onclick="closeStatusCard(5)">&times;</span>
-    <h5>Status Card 5</h5>
-    <div class="publisher-name">
-      Publisher Name 5
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 5">
-    <p>This is the status card for Image 5.</p>
-  </div>
-  <div id="status-card-6" class="status-card" draggable="true" ondragstart="dragStart(event)">
-    <span class="close-btn" onclick="closeStatusCard(6)">&times;</span>
-    <h
-
-5>Status Card 6</h5>
-    <div class="publisher-name">
-      Publisher Name 6
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 6">
-    <p>This is the status card for Image 6.</p>
-  </div>
-  <div id="status-card-7" class="status-card" draggable="true" ondragstart="dragStart(event)">
-    <span class="close-btn" onclick="closeStatusCard(7)">&times;</span>
-    <h5>Status Card 7</h5>
-    <div class="publisher-name">
-      Publisher Name 7
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 7">
-    <p>This is the status card for Image 7.</p>
-  </div>
-  <div id="status-card-8" class="status-card" draggable="true" ondragstart="dragStart(event)">
-    <span class="close-btn" onclick="closeStatusCard(8)">&times;</span>
-    <h5>Status Card 8</h5>
-    <div class="publisher-name">
-      Publisher Name 8
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 8">
-    <p>This is the status card for Image 8.</p>
-  </div>
+  <!-- Add more status cards as needed -->
 
   <script>
     function showStatusCard(id) {
@@ -203,6 +134,37 @@
 
       document.addEventListener('mousemove', drag);
       document.addEventListener('mouseup', stopDrag);
+    }
+
+    // For touch events
+    let x, y;
+
+    document.addEventListener('touchstart', touchStart, false);
+    document.addEventListener('touchmove', touchMove, false);
+
+    function touchStart(e) {
+      const firstTouch = e.touches[0];
+      x = firstTouch.clientX;
+      y = firstTouch.clientY;
+    }
+
+    function touchMove(e) {
+      if (!x || !y) {
+        return;
+      }
+
+      const xMove = e.touches[0].clientX;
+      const yMove = e.touches[0].clientY;
+
+      const xDiff = x - xMove;
+      const yDiff = y - yMove;
+
+      const statusCard = document.querySelector('.status-card');
+      statusCard.style.left = (statusCard.offsetLeft - xDiff) + 'px';
+      statusCard.style.top = (statusCard.offsetTop - yDiff) + 'px';
+
+      x = xMove;
+      y = yMove;
     }
   </script>
 </body>
