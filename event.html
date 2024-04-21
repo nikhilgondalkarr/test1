@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Example</title>
+    <style>
+        body {
+            background-image: url('dddd.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
+            background-size: cover; /* This ensures that the image covers the entire background */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            /* You can add more CSS properties here to style the background as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your webpage content goes here -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle Images</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .circle-container {
+      position: relative;
+      text-align: center;
+      margin-bottom: 20px; /* Add margin bottom for gap */
+    }
+    .circle-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; /* To make it circular */
+      overflow: hidden; /* Hide any overflow */
+      cursor: pointer; /* Change cursor to pointer on hover */
+      display: inline-block;
+    }
+    .circle-img img {
+      width: 100%;
+      height: auto;
+    }
+    .publisher-name {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+    }
+    .status-card {
+      width: 200px;
+      height: 350px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    .status-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .publisher-name {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="circle-container">
+          <div class="circle-img" onclick="toggleStatusCard(1)">
+            <img src="dddd.jpg" alt="Circle Image 1">
+          </div>
+          <div class="publisher-name">
+            Publisher Name 1
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="circle-container">
+          <div class="circle-img" onclick="toggleStatusCard(2)">
+            <img src="bbc.jpg" alt="Circle Image 2">
+          </div>
+          <div class="publisher-name">
+            Publisher Name 2
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="circle-container">
+          <div class="circle-img" onclick="toggleStatusCard(3)">
+            <img src="Indian.jpg" alt="Circle Image 3">
+          </div>
+          <div class="publisher-name">
+            Publisher Name 3
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="status-card-1" class="status-card">
+    <span class="close-btn" onclick="closeStatusCard(1)">&times;</span>
+    <h5>Status Card 1</h5>
+    <div class="publisher-name">
+      Publisher Name 1
+    </div>
+    <img src="008.jpg" alt="Status Card Image 1">
+    <p>कर्नाटकची राजधानी बेंगळुरूमध्ये दुहेरी हत्याकांडाची घटना उघडकीस आली आहे, जी ऐकून सर्वांनाच धक्का बसला आहे. येथे एका 44 वर्षीय व्यक्तीने 24 वर्षीय तरुणीची चाकूने वार करून निर्घृण हत्या केली. आरोपी मुलीवर चाकूने वार करत असताना मुलीच्या आईने हा सर्व प्रकार पाहिला. त्यानंतर तिने थेट..</p>
+  </div>
+  <div id="status-card-2" class="status-card">
+    <span class="close-btn" onclick="closeStatusCard(2)">&times;</span>
+    <h5>Status Card 2</h5>
+    <div class="publisher-name">
+      Publisher Name 2
+    </div>
+    <img src="bb.jpg" alt="Status Card Image 2">
+    <p>This is the status card for Image 2.</p>
+  </div>
+  <div id="status-card-3" class="status-card">
+    <span class="close-btn" onclick="closeStatusCard(3)">&times;</span>
+    <h5>Status Card 3</h5>
+    <div class="publisher-name">
+      Publisher Name 3
+    </div>
+    <img src="Indian.jpg" alt="Status Card Image 3">
+    <p>This is the status card for Image 3.</p>
+  </div>
+
+  <script>
+    function toggleStatusCard(id) {
+      var statusCard = document.getElementById('status-card-' + id);
+      var publisherName = statusCard.querySelector('.publisher-name');
+      statusCard.style.display = statusCard.style.display === 'block' ? 'none' : 'block';
+      publisherName.style.display = publisherName.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function closeStatusCard(id) {
+      var statusCard = document.getElementById('status-card-' + id);
+      var publisherName = statusCard.querySelector('.publisher-name');
+      statusCard.style.display = 'none';
+      publisherName.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
