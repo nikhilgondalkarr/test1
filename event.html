@@ -1,4 +1,4 @@
-To enable the feature where clicking on a circle shape image displays the corresponding status card with the ability to move it around the screen, you can modify the JavaScript to toggle the visibility of the status card and implement the dragging functionality. Here's the updated code:
+To add the functionality to show the status card when clicking on a circle shape image and enable dragging of the status card with touch events (for mobile devices), you can modify the JavaScript accordingly. Here's the updated code:
 
 ```html
 <!DOCTYPE html>
@@ -39,12 +39,14 @@ To enable the feature where clicking on a circle shape image displays the corres
       width: 200px;
       height: 350px;
       position: fixed;
+      top: 50%;
+      left: 50%;
       background-color: #fff; /* White background color */
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
       cursor: move;
-      display: none; /* Initially hidden */
     }
     .close-btn {
       position: absolute;
@@ -68,7 +70,7 @@ To enable the feature where clicking on a circle shape image displays the corres
     <div class="row">
       <div class="col-md-4">
         <div class="circle-container">
-          <div class="circle-img" onclick="toggleStatusCard(1)">
+          <div class="circle-img" onclick="showStatusCard(1)">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
           </div>
           <div class="publisher-name">
@@ -78,7 +80,7 @@ To enable the feature where clicking on a circle shape image displays the corres
       </div>
       <div class="col-md-4">
         <div class="circle-container">
-          <div class="circle-img" onclick="toggleStatusCard(2)">
+          <div class="circle-img" onclick="showStatusCard(2)">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
           </div>
           <div class="publisher-name">
@@ -88,7 +90,7 @@ To enable the feature where clicking on a circle shape image displays the corres
       </div>
       <div class="col-md-4">
         <div class="circle-container">
-          <div class="circle-img" onclick="toggleStatusCard(3)">
+          <div class="circle-img" onclick="showStatusCard(3)">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 3">
           </div>
           <div class="publisher-name">
@@ -128,9 +130,9 @@ To enable the feature where clicking on a circle shape image displays the corres
   </div>
 
   <script>
-    function toggleStatusCard(id) {
+    function showStatusCard(id) {
       var statusCard = document.getElementById('status-card-' + id);
-      statusCard.style.display = statusCard.style.display === 'block' ? 'none' : 'block';
+      statusCard.style.display = 'block';
     }
 
     function closeStatusCard(id) {
@@ -156,13 +158,42 @@ To enable the feature where clicking on a circle shape image displays the corres
       document.addEventListener('mousemove', drag);
       document.addEventListener('mouseup', stopDrag);
     }
+
+    // For touch events
+    let x, y;
+
+    document.addEventListener('touchstart', touchStart, false);
+    document.addEventListener('touchmove', touchMove, false);
+
+    function touchStart(e) {
+      const firstTouch = e.touches[0];
+      x = firstTouch.clientX;
+      y = firstTouch.clientY;
+    }
+
+    function touchMove(e) {
+      if
+
+ (!x || !y) {
+        return;
+      }
+
+      const xMove = e.touches[0].clientX;
+      const yMove = e.touches[0].clientY;
+
+      const xDiff = x - xMove;
+      const yDiff = y - yMove;
+
+      const statusCard = document.querySelector('.status-card');
+      statusCard.style.left = (statusCard.offsetLeft - xDiff) + 'px';
+      statusCard.style.top = (statusCard.offsetTop - yDiff) + 'px';
+
+      x = xMove;
+      y = yMove;
+    }
   </script>
 </body>
 </html>
 ```
 
-In this code:
-
-- I removed the onclick event from the circle images.
-- I modified the JavaScript function `toggleStatusCard()` to toggle the display of the corresponding status card when a circle image is clicked.
-- The `draggable="true"` attribute is added to each status card div to
+This code adds touch event listeners for touchstart and touchmove events to enable dragging of the status card on touch devices. The touchStart function records the initial touch coordinates, while the touchMove function calculates the difference in coordinates and adjusts the position of the status card accordingly.
