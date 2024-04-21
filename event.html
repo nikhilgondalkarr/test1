@@ -26,12 +26,7 @@
 
 
 
-
-
-
-
-
-To achieve smooth movement of status cards on mobile touch devices, you can update the JavaScript code to handle touch events and use CSS transitions for animation. Here's the modified code:
+Certainly! Below is the updated code with 8 circle shape images and their corresponding status cards. The status cards can be smoothly moved by finger touch on mobile devices:
 
 ```html
 <!DOCTYPE html>
@@ -118,21 +113,27 @@ To achieve smooth movement of status cards on mobile touch devices, you can upda
           <div class="circle-img" onclick="showStatusCard(1)">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
           </div>
-             <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="circle-container" id="circle-container">
           <div class="circle-img" onclick="showStatusCard(2)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
           </div>
-             <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="circle-container" id="circle-container">
           <div class="circle-img" onclick="showStatusCard(3)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 3">
           </div>
-          <!-- Add more circle images as needed -->
+          <div class="circle-img" onclick="showStatusCard(4)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 4">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(5)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 5">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(6)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 6">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(7)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 7">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(8)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 8">
+          </div>
         </div>
       </div>
     </div>
@@ -150,29 +151,92 @@ To achieve smooth movement of status cards on mobile touch devices, you can upda
       <p>This is the status card description for Image 1. It can contain multiple lines.</p>
     </div>
   </div>
-             <div id="status-card-1" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+  <!-- Add more status cards -->
+  <div id="status-card-2" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
     <span class="close-btn" onclick="closeStatusCard(2)">&times;</span>
-    <h5>Status Card 1</h5>
+    <h5>Status Card 2</h5>
     <div class="publisher-name">
-      Publisher Name 1
+      Publisher Name 2
     </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 1">
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 2">
     <div class="status-description">
-      <p>This is the status card description for Image 1. It can contain multiple lines.</p>
-    </div>
-  </div>
-             <div id="status-card-1" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
-    <span class="close-btn" onclick="closeStatusCard(3)">&times;</span>
-    <h5>Status Card 1</h5>
-    <div class="publisher-name">
-      Publisher Name 1
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 1">
-    <div class="status-description">
-      <p>This is the status card description for Image 1. It can contain multiple lines.</p>
+      <p>This is the status card description for Image 2. It can contain multiple lines.</p>
     </div>
   </div>
   <!-- Add more status cards -->
+  <div id="status-card-3" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+    <span class="close-btn" onclick="closeStatusCard(3)">&times;</span>
+    <h5>Status Card 3</h5>
+    <div class="publisher-name">
+      Publisher Name 3
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 3">
+    <div class="status-description">
+      <p>This is the status card description for Image 3. It can contain multiple lines.</p>
+    </div>
+  </div>
+  <!-- Add more status cards -->
+  <div id="status-card-4" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+    <span class="close-btn" onclick="closeStatusCard(
+
+4)">&times;</span>
+    <h5>Status Card 4</h5>
+    <div class="publisher-name">
+      Publisher Name 4
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 4">
+    <div class="status-description">
+      <p>This is the status card description for Image 4. It can contain multiple lines.</p>
+    </div>
+  </div>
+  <!-- Add more status cards -->
+  <div id="status-card-5" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+    <span class="close-btn" onclick="closeStatusCard(5)">&times;</span>
+    <h5>Status Card 5</h5>
+    <div class="publisher-name">
+      Publisher Name 5
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 5">
+    <div class="status-description">
+      <p>This is the status card description for Image 5. It can contain multiple lines.</p>
+    </div>
+  </div>
+  <!-- Add more status cards -->
+  <div id="status-card-6" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+    <span class="close-btn" onclick="closeStatusCard(6)">&times;</span>
+    <h5>Status Card 6</h5>
+    <div class="publisher-name">
+      Publisher Name 6
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 6">
+    <div class="status-description">
+      <p>This is the status card description for Image 6. It can contain multiple lines.</p>
+    </div>
+  </div>
+  <!-- Add more status cards -->
+  <div id="status-card-7" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+    <span class="close-btn" onclick="closeStatusCard(7)">&times;</span>
+    <h5>Status Card 7</h5>
+    <div class="publisher-name">
+      Publisher Name 7
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 7">
+    <div class="status-description">
+      <p>This is the status card description for Image 7. It can contain multiple lines.</p>
+    </div>
+  </div>
+  <!-- Add more status cards -->
+  <div id="status-card-8" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+    <span class="close-btn" onclick="closeStatusCard(8)">&times;</span>
+    <h5>Status Card 8</h5>
+    <div class="publisher-name">
+      Publisher Name 8
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 8">
+    <div class="status-description">
+      <p>This is the status card description for Image 8. It can contain multiple lines.</p>
+    </div>
+  </div>
 
   <!-- JavaScript -->
   <script>
@@ -218,10 +282,3 @@ To achieve smooth movement of status cards on mobile touch devices, you can upda
   </script>
 </body>
 </html>
-```
-
-In this code:
-
-- I've added a CSS transition property to `.status-card` to enable smooth movement.
-- In the JavaScript, I've updated the `dragMove` function to calculate the translate values based on the difference between the current touch position and the initial touch position. This creates a smooth dragging effect.
-- The `dragEnd` function resets the transform property to its original state when the touch ends, ensuring that the card returns to its original position smoothly.
