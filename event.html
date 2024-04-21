@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +6,7 @@
     <title>Background Image Example</title>
     <style>
         body {
-            background-image: url('bb.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
+            background-image: url('bbc.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
             background-size: cover; /* This ensures that the image covers the entire background */
             background-position: center; /* Centers the background image */
             background-repeat: no-repeat; /* Prevents the background image from repeating */
@@ -19,24 +18,6 @@
     <!-- Your webpage content goes here -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -135,6 +116,13 @@
       text-align: center;
       margin-top: 10px;
     }
+    .status-description {
+      margin-top: 20px;
+      font-size: 14px;
+      background-color: #f2f2f2; /* Background color for the description */
+      padding: 10px; /* Add padding to the description */
+      border-radius: 5px; /* Add border radius to the description */
+    }
   </style>
 </head>
 <body>
@@ -154,6 +142,7 @@
     </div>
   </div>
 
+  <!-- Status cards -->
   <div id="status-card-1" class="status-card" draggable="true" ondragstart="dragStart(event)">
     <span class="close-btn" onclick="closeStatusCard(1)">&times;</span>
     <h5>Status Card 1</h5>
@@ -161,7 +150,9 @@
       Publisher Name 1
     </div>
     <img src="https://via.placeholder.com/200x300" alt="Status Card Image 1">
-    <p>जीवंत आहे दाऊद इब्राहिमचा कर्दन ‘काळ’, 9 वर्षानंतर कसा दिसतो छोटा राजन? फोटो आलेत समोर</p>
+    <div class="status-description">
+      <p>This is the status card description for Image 1. It can contain multiple lines.</p>
+    </div>
   </div>
   <div id="status-card-2" class="status-card" draggable="true" ondragstart="dragStart(event)">
     <span class="close-btn" onclick="closeStatusCard(2)">&times;</span>
@@ -170,10 +161,13 @@
       Publisher Name 2
     </div>
     <img src="https://via.placeholder.com/200x300" alt="Status Card Image 2">
-    <p>This is the status card for Image 2.</p>
+    <div class="status-description">
+      <p>This is the status card description for Imagअंडरवर्ल्ड डॉन दाऊद इब्राहिम याचा कर्दनकाळ छोटा राजन याची आता आताची काही छायाचित्र समोर आली आहेत. वर्ष 2015 मध्ये छोटा राजनला भारतीय गुप्तहेर संघटनांनी परदेशात पकडले होते आणि नंतर त्याला भारतात आणण्यात आले. आता कसा दिसतो राजेंद्र निकाळजे उर्फ छोटा राजन?e 2. It can contain multiple lines.</p>
+    </div>
   </div>
   <!-- Add more status cards as needed -->
 
+  <!-- JavaScript -->
   <script>
     function showStatusCard(id) {
       var statusCard = document.getElementById('status-card-' + id);
@@ -203,37 +197,9 @@
       document.addEventListener('mousemove', drag);
       document.addEventListener('mouseup', stopDrag);
     }
-
-    // For touch events
-    let x, y;
-
-    document.addEventListener('touchstart', touchStart, false);
-    document.addEventListener('touchmove', touchMove, false);
-
-    function touchStart(e) {
-      const firstTouch = e.touches[0];
-      x = firstTouch.clientX;
-      y = firstTouch.clientY;
-    }
-
-    function touchMove(e) {
-      if (!x || !y) {
-        return;
-      }
-
-      const xMove = e.touches[0].clientX;
-      const yMove = e.touches[0].clientY;
-
-      const xDiff = x - xMove;
-      const yDiff = y - yMove;
-
-      const statusCard = document.querySelector('.status-card');
-      statusCard.style.left = (statusCard.offsetLeft - xDiff) + 'px';
-      statusCard.style.top = (statusCard.offsetTop - yDiff) + 'px';
-
-      x = xMove;
-      y = yMove;
-    }
   </script>
 </body>
 </html>
+```
+
+In this code, I've added a background color `#f2f2f2` to the `.status-description` class. You can adjust this color value to fit your design preferences.
