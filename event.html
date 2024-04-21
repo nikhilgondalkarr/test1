@@ -50,6 +50,9 @@
 
 
 
+To enable dragging the status card by finger on mobile devices, you can utilize touch events such as `touchstart`, `touchmove`, and `touchend`. Here's the modified JavaScript code to enable this functionality:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,71 +61,7 @@
   <title>Circle Images</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    .circle-container {
-      position: relative;
-      text-align: center;
-      margin-bottom: 20px; /* Add margin bottom for gap */
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-    .circle-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%; /* To make it circular */
-      overflow: hidden; /* Hide any overflow */
-      cursor: pointer; /* Change cursor to pointer on hover */
-      display: inline-block;
-      margin-right: 10px; /* Add margin between images */
-    }
-    .circle-img img {
-      width: 100%;
-      height: auto;
-    }
-    .publisher-name {
-      position: absolute;
-      bottom: -20px;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      font-size: 14px;
-      color: #333;
-    }
-    .status-card {
-      width: 200px;
-      height: 350px;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%); /* Center the card */
-      background-color: #fff; /* White background color */
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      display: none;
-      cursor: move;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-    }
-    .status-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-    .publisher-name {
-      text-align: center;
-      margin-top: 10px;
-    }
-    .status-description {
-      margin-top: 20px;
-      font-size: 14px;
-      background-color: #f2f2f2; /* Background color for the description */
-      padding: 10px; /* Add padding to the description */
-      border-radius: 5px; /* Add border radius to the description */
-    }
+    /* Your CSS styles here */
   </style>
 </head>
 <body>
@@ -130,76 +69,47 @@
     <div class="row">
       <div class="col-md-12">
         <div class="circle-container" id="circle-container">
-          <div class="circle-img" onclick="showStatusCard(1)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
-          </div>
-          <div class="circle-img" onclick="showStatusCard(2)">
-            <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
-          </div>
-          <!-- Add more circle images as needed -->
+          <!-- Circle images here -->
         </div>
       </div>
     </div>
   </div>
 
   <!-- Status cards -->
-  <div id="status-card-1" class="status-card" draggable="true" ondragstart="dragStart(event)">
-    <span class="close-btn" onclick="closeStatusCard(1)">&times;</span>
-    <h5>Status Card 1</h5>
-    <div class="publisher-name">
-      Publisher Name 1
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 1">
-    <div class="status-description">
-      <p>This is the status card description for Image 1. It can contain multiple lines.</p>
-    </div>
-  </div>
-  <div id="status-card-2" class="status-card" draggable="true" ondragstart="dragStart(event)">
-    <span class="close-btn" onclick="closeStatusCard(2)">&times;</span>
-    <h5>Status Card 2</h5>
-    <div class="publisher-name">
-      Publisher Name 2
-    </div>
-    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 2">
-    <div class="status-description">
-      <p>This is the status card description for Imagअंडरवर्ल्ड डॉन दाऊद इब्राहिम याचा कर्दनकाळ छोटा राजन याची आता आताची काही छायाचित्र समोर आली आहेत. वर्ष 2015 मध्ये छोटा राजनला भारतीय गुप्तहेर संघटनांनी परदेशात पकडले होते आणि नंतर त्याला भारतात आणण्यात आले. आता कसा दिसतो राजेंद्र निकाळजे उर्फ छोटा राजन?e 2. It can contain multiple lines.</p>
-    </div>
-  </div>
-  <!-- Add more status cards as needed -->
+  <!-- Status cards here -->
 
-  <!-- JavaScript -->
   <script>
-    function showStatusCard(id) {
-      var statusCard = document.getElementById('status-card-' + id);
-      statusCard.style.display = 'block';
-    }
+    // Your JavaScript code here
 
-    function closeStatusCard(id) {
-      var statusCard = document.getElementById('status-card-' + id);
-      statusCard.style.display = 'none';
-    }
+    // Function to enable dragging on touch devices
+    function touchStart(event) {
+      var statusCard = event.target.closest('.status-card');
+      if (!statusCard) return;
 
-    function dragStart(event) {
-      var statusCard = event.target;
-      var offsetX = event.clientX - statusCard.getBoundingClientRect().left;
-      var offsetY = event.clientY - statusCard.getBoundingClientRect().top;
+      var touch = event.touches[0];
+      var offsetX = touch.clientX - statusCard.getBoundingClientRect().left;
+      var offsetY = touch.clientY - statusCard.getBoundingClientRect().top;
 
-      function drag(event) {
-        statusCard.style.left = (event.clientX - offsetX) + 'px';
-        statusCard.style.top = (event.clientY - offsetY) + 'px';
+      function touchMove(event) {
+        var touch = event.touches[0];
+        statusCard.style.left = (touch.clientX - offsetX) + 'px';
+        statusCard.style.top = (touch.clientY - offsetY) + 'px';
       }
 
-      function stopDrag() {
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('mouseup', stopDrag);
+      function touchEnd() {
+        document.removeEventListener('touchmove', touchMove);
+        document.removeEventListener('touchend', touchEnd);
       }
 
-      document.addEventListener('mousemove', drag);
-      document.addEventListener('mouseup', stopDrag);
+      document.addEventListener('touchmove', touchMove);
+      document.addEventListener('touchend', touchEnd);
     }
+
+    // Attach touch event listeners to all status cards
+    var statusCards = document.querySelectorAll('.status-card');
+    statusCards.forEach(function(statusCard) {
+      statusCard.addEventListener('touchstart', touchStart);
+    });
   </script>
 </body>
 </html>
-```
-
-In this code, I've added a background color `#f2f2f2` to the `.status-description` class. You can adjust this color value to fit your design preferences.
