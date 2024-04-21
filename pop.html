@@ -1,0 +1,78 @@
+To set the image size to 400x200 pixels while maintaining the aspect ratio and fitting it within the card body, you can use the Bootstrap class `img-fluid`. Here's the modified code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Blog Post Layout</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .post {
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    .post img {
+      border-radius: 5px 5px 0 0;
+    }
+    .post-content {
+      padding: 15px;
+    }
+    .post-content h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .post-content p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .post-meta {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .read-more-btn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="col-md-8 offset-md-2">
+      <div class="post">
+        <img src="bbc.jpg" alt="Post Image" class="img-fluid">
+        <div class="post-content">
+          <h2>Beautiful Scenery</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
+          <div class="post-meta">
+            <span>Posted by John Doe</span> |
+            <span>April 21, 2024</span> |
+            <span>Travel</span>
+          </div>
+          <button class="btn btn-primary read-more-btn">Read More</button>
+        </div>
+      </div>
+      <div class="post">
+        <img src="dddd.jpg" alt="Post Image" class="img-fluid">
+        <div class="post-content">
+          <h2>Amazing Sunset</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium odio vel leo suscipit, sed vehicula mi convallis. Nulla facilisi.</p>
+          <div class="post-meta">
+            <span>Posted by Jane Doe</span> |
+            <span>April 22, 2024</span> |
+            <span>Nature</span>
+          </div>
+          <button class="btn btn-primary read-more-btn">Read More</button>
+        </div>
+      </div>
+      <!-- Repeat similar structure for other blog posts -->
+    </div>
+  </div>
+</body>
+</html>
+```
+
+By adding the `img-fluid` class to the `img` tag, the image will be sized to fit within the card body while maintaining its aspect ratio. Adjust the content as needed.
