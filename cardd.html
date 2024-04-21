@@ -1,4 +1,4 @@
-Here's the modified code with six cards:
+To create a horizontal slider for the body cards, you can modify the existing structure to accommodate the slider functionality. Here's how you can achieve this:
 
 ```html
 <!DOCTYPE html>
@@ -6,7 +6,7 @@ Here's the modified code with six cards:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Article Card with Carousel</title>
+<title>Responsive Article Card Slider</title>
 <!-- Add Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <!-- Add Hammer.js library -->
@@ -14,20 +14,20 @@ Here's the modified code with six cards:
 <style>
   /* Basic styles */
   .card-container {
-    display: flex;
+    position: relative;
+    width: 100%;
     overflow: hidden;
-    justify-content: center;
   }
 
   .card-slider {
     display: flex;
+    transition: transform 0.5s;
   }
 
   .card {
-    position: relative;
+    flex: 0 0 auto;
     width: 200px;
     height: 250px; /* Increased height to accommodate title and description */
-    perspective: 1000px;
     margin: 20px;
     cursor: pointer;
   }
@@ -65,6 +65,51 @@ Here's the modified code with six cards:
     transform: rotateY(180deg);
   }
 
+  /* Navigation arrows */
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+
+  /* Pagination */
+  .pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+  }
+
+  .active {
+    background-color: #717171;
+  }
+
   /* Hide scrollbar in Chrome, Safari, and Opera */
   .card-container::-webkit-scrollbar {
     display: none;
@@ -74,6 +119,7 @@ Here's the modified code with six cards:
 <body>
 
 <div class="card-container">
+  <button class="prev" onclick="moveSlider(-1)">❮</button>
   <div class="card-slider">
     <!-- Card 1 -->
     <div class="card">
@@ -137,26 +183,48 @@ Here's the modified code with six cards:
     </div>
     <!-- End of cards -->
   </div>
+  <button class="next" onclick="moveSlider(1)">❯</button>
+  <div class="pagination"></div>
 </div>
 
 <!-- Add Hammer.js initialization script -->
 <script>
-  // Initialize Hammer.js on the card slider
-  var slider = document.querySelector('.card-slider');
-  var hammer = new Hammer(slider);
+  var currentIndex = 0;
+  var slides = document.querySelectorAll('.card-slider .card');
+  var totalSlides = slides.length;
 
-  // Swipe left and right detection
-  hammer.on('swiperight', function() {
-    slider.scrollLeft -= 300; // Adjust the scroll distance as needed
-  });
+  function moveSlider(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (currentIndex >= totalSlides) {
+      currentIndex = 0;
+    }
+    updateSlider();
+  }
 
-  hammer.on('swipeleft', function() {
-    slider.scrollLeft += 300; // Adjust the scroll distance as needed
-  });
+  function updateSlider() {
+    var slider = document.querySelector('.card-slider');
+    slider.style.transform = 'translateX(' + (-currentIndex * 240) + 'px)'; // Adjust the slide width as needed
+
+    // Update pagination
+    var pagination = document.querySelector('.pagination');
+    pagination.innerHTML = '';
+    for (var i = 0; i < totalSlides; i++) {
+      var dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === currentIndex) {
+        dot.classList.add('active');
+      }
+      pagination.appendChild(dot);
+    }
+  }
+  
+  updateSlider(); // Initialize slider
 </script>
 
 </body>
 </html>
 ```
 
-This code includes six cards, each with its own title, description, and background image. Swipe gestures left and right on touch-enabled devices will allow users to navigate through the cards. Adjust the scroll distance as needed for your design.
+This code creates a horizontal
