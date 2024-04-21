@@ -280,6 +280,302 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle Images</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .circle-container {
+      position: relative;
+      text-align: center;
+      margin-bottom: 20px; /* Add margin bottom for gap */
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .circle-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; /* To make it circular */
+      overflow: hidden; /* Hide any overflow */
+      cursor: pointer; /* Change cursor to pointer on hover */
+      display: inline-block;
+      margin-right: 10px; /* Add margin between images */
+    }
+    .circle-img img {
+      width: 100%;
+      height: auto;
+    }
+    .publisher-name {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+    }
+    .status-card {
+      width: 200px;
+      height: 350px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the card */
+      background-color: #fff; /* White background color */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      cursor: move;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    .status-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .publisher-name {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="circle-container" id="circle-container">
+          <div class="circle-img" onclick="showStatusCard(1)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(2)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(1)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(2)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(1)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(2)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(1)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
+          </div>
+          <div class="circle-img" onclick="showStatusCard(2)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
+          </div>
+          <!-- Add more circle images as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="status-card-1" class="status-card" draggable="true" ondragstart="dragStart(event)">
+    <span class="close-btn" onclick="closeStatusCard(1)">&times;</span>
+    <h5>Status Card 1</h5>
+    <div class="publisher-name">
+      Publisher Name 1
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 1">
+    <p>जीवंत आहे दाऊद इब्राहिमचा कर्दन ‘काळ’, 9 वर्षानंतर कसा दिसतो छोटा राजन? फोटो आलेत समोर</p>
+  </div>
+  <div id="status-card-2" class="status-card" draggable="true" ondragstart="dragStart(event)">
+    <span class="close-btn" onclick="closeStatusCard(2)">&times;</span>
+    <h5>Status Card 2</h5>
+    <div class="publisher-name">
+      Publisher Name 2
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 2">
+    <p>This is the status card for Image 2.</p>
+  </div>
+  <!-- Add more status cards as needed -->
+
+  <script>
+    function showStatusCard(id) {
+      var statusCard = document.getElementById('status-card-' + id);
+      statusCard.style.display = 'block';
+    }
+
+    function closeStatusCard(id) {
+      var statusCard = document.getElementById('status-card-' + id);
+      statusCard.style.display = 'none';
+    }
+
+    function dragStart(event) {
+      var statusCard = event.target;
+      var offsetX = event.clientX - statusCard.getBoundingClientRect().left;
+      var offsetY = event.clientY - statusCard.getBoundingClientRect().top;
+
+      function drag(event) {
+        statusCard.style.left = (event.clientX - offsetX) + 'px';
+        statusCard.style.top = (event.clientY - offsetY) + 'px';
+      }
+
+      function stopDrag() {
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('mouseup', stopDrag);
+      }
+
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseup', stopDrag);
+    }
+
+    // For touch events
+    let x, y;
+
+    document.addEventListener('touchstart', touchStart, false);
+    document.addEventListener('touchmove', touchMove, false);
+
+    function touchStart(e) {
+      const firstTouch = e.touches[0];
+      x = firstTouch.clientX;
+      y = firstTouch.clientY;
+    }
+
+    function touchMove(e) {
+      if (!x || !y) {
+        return;
+      }
+
+      const xMove = e.touches[0].clientX;
+      const yMove = e.touches[0].clientY;
+
+      const xDiff = x - xMove;
+      const yDiff = y - yMove;
+
+      const statusCard = document.querySelector('.status-card');
+      statusCard.style.left = (statusCard.offsetLeft - xDiff) + 'px';
+      statusCard.style.top = (statusCard.offsetTop - yDiff) + 'px';
+
+      x = xMove;
+      y = yMove;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
