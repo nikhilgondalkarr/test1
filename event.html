@@ -1,93 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Background Image Example</title>
-    <style>
-        body {
-            background-image: url('dddd.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
-            background-size: cover; /* This ensures that the image covers the entire background */
-            background-position: center; /* Centers the background image */
-            background-repeat: no-repeat; /* Prevents the background image from repeating */
-            /* You can add more CSS properties here to style the background as needed */
-        }
-    </style>
-</head>
-<body>
-    <!-- Your webpage content goes here -->
-</body>
-</html>
+To achieve this, you can add a click event listener to the circle shape image. When clicked, it will display the corresponding status card with the move option enabled. Here's the updated code:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,12 +41,12 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
+      background-color: #fff; /* White background color */
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       display: none;
+      cursor: move;
     }
     .close-btn {
       position: absolute;
@@ -156,9 +69,9 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-4">
-        <div class="circle-container">
-          <div class="circle-img" onclick="toggleStatusCard(1)">
-            <img src="dddd.jpg" alt="Circle Image 1">
+        <div class="circle-container" onclick="showStatusCard(1)">
+          <div class="circle-img">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
           </div>
           <div class="publisher-name">
             Publisher Name 1
@@ -166,9 +79,9 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="circle-container">
-          <div class="circle-img" onclick="toggleStatusCard(2)">
-            <img src="bbc.jpg" alt="Circle Image 2">
+        <div class="circle-container" onclick="showStatusCard(2)">
+          <div class="circle-img">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
           </div>
           <div class="publisher-name">
             Publisher Name 2
@@ -176,9 +89,9 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="circle-container">
-          <div class="circle-img" onclick="toggleStatusCard(3)">
-            <img src="Indian.jpg" alt="Circle Image 3">
+        <div class="circle-container" onclick="showStatusCard(3)">
+          <div class="circle-img">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 3">
           </div>
           <div class="publisher-name">
             Publisher Name 3
@@ -188,47 +101,62 @@
     </div>
   </div>
 
-  <div id="status-card-1" class="status-card">
+  <div id="status-card-1" class="status-card" draggable="true" ondragstart="dragStart(event)">
     <span class="close-btn" onclick="closeStatusCard(1)">&times;</span>
     <h5>Status Card 1</h5>
     <div class="publisher-name">
       Publisher Name 1
     </div>
-    <img src="008.jpg" alt="Status Card Image 1">
-    <p>कर्नाटकची राजधानी बेंगळुरूमध्ये दुहेरी हत्याकांडाची घटना उघडकीस आली आहे, जी ऐकून सर्वांनाच धक्का बसला आहे. येथे एका 44 वर्षीय व्यक्तीने 24 वर्षीय तरुणीची चाकूने वार करून निर्घृण हत्या केली. आरोपी मुलीवर चाकूने वार करत असताना मुलीच्या आईने हा सर्व प्रकार पाहिला. त्यानंतर तिने थेट..</p>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 1">
+    <p>This is the status card for Image 1.</p>
   </div>
-  <div id="status-card-2" class="status-card">
+  <div id="status-card-2" class="status-card" draggable="true" ondragstart="dragStart(event)">
     <span class="close-btn" onclick="closeStatusCard(2)">&times;</span>
     <h5>Status Card 2</h5>
     <div class="publisher-name">
       Publisher Name 2
     </div>
-    <img src="bb.jpg" alt="Status Card Image 2">
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 2">
     <p>This is the status card for Image 2.</p>
   </div>
-  <div id="status-card-3" class="status-card">
+  <div id="status-card-3" class="status-card" draggable="true" ondragstart="dragStart(event)">
     <span class="close-btn" onclick="closeStatusCard(3)">&times;</span>
     <h5>Status Card 3</h5>
     <div class="publisher-name">
       Publisher Name 3
     </div>
-    <img src="Indian.jpg" alt="Status Card Image 3">
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 3">
     <p>This is the status card for Image 3.</p>
   </div>
 
   <script>
-    function toggleStatusCard(id) {
+    function showStatusCard(id) {
       var statusCard = document.getElementById('status-card-' + id);
-      var publisherName = statusCard.querySelector('.publisher-name');
-      statusCard.style.display = statusCard.style.display === 'block' ? 'none' : 'block';
-      publisherName.style.display = publisherName.style.display === 'block' ? 'none' : 'block';
+      statusCard.style.display = 'block';
     }
 
     function closeStatusCard(id) {
       var statusCard = document.getElementById('status-card-' + id);
-      var publisherName = statusCard.querySelector('.publisher-name');
       statusCard.style.display = 'none';
-      publisherName.style.display = 'none';
+    }
+
+    function dragStart(event) {
+      var statusCard = event.target;
+      var offsetX = event.clientX - statusCard.getBoundingClientRect().left;
+      var offsetY = event.clientY - statusCard.getBoundingClientRect().top;
+
+      function drag(event) {
+        statusCard.style.left = (event.clientX - offsetX) + 'px';
+        statusCard.style.top = (event.clientY - offsetY) + 'px';
+      }
+
+      function stopDrag() {
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('mouseup', stopDrag);
+      }
+
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseup', stopDrag);
     }
   </script>
 </body>
