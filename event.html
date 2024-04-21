@@ -118,6 +118,20 @@ To achieve smooth movement of status cards on mobile touch devices, you can upda
           <div class="circle-img" onclick="showStatusCard(1)">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
           </div>
+             <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="circle-container" id="circle-container">
+          <div class="circle-img" onclick="showStatusCard(2)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
+          </div>
+             <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="circle-container" id="circle-container">
+          <div class="circle-img" onclick="showStatusCard(3)">
+            <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
+          </div>
           <!-- Add more circle images as needed -->
         </div>
       </div>
@@ -127,6 +141,28 @@ To achieve smooth movement of status cards on mobile touch devices, you can upda
   <!-- Status cards -->
   <div id="status-card-1" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
     <span class="close-btn" onclick="closeStatusCard(1)">&times;</span>
+    <h5>Status Card 1</h5>
+    <div class="publisher-name">
+      Publisher Name 1
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 1">
+    <div class="status-description">
+      <p>This is the status card description for Image 1. It can contain multiple lines.</p>
+    </div>
+  </div>
+             <div id="status-card-1" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+    <span class="close-btn" onclick="closeStatusCard(2)">&times;</span>
+    <h5>Status Card 1</h5>
+    <div class="publisher-name">
+      Publisher Name 1
+    </div>
+    <img src="https://via.placeholder.com/200x300" alt="Status Card Image 1">
+    <div class="status-description">
+      <p>This is the status card description for Image 1. It can contain multiple lines.</p>
+    </div>
+  </div>
+             <div id="status-card-1" class="status-card" draggable="true" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
+    <span class="close-btn" onclick="closeStatusCard(3)">&times;</span>
     <h5>Status Card 1</h5>
     <div class="publisher-name">
       Publisher Name 1
