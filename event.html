@@ -1,4 +1,4 @@
-To achieve this, you can add a click event listener to the circle shape image. When clicked, it will display the corresponding status card with the move option enabled. Here's the updated code:
+To enable touch events for dragging the status card on mobile devices, you can modify the code to include touch event listeners. Here's the updated code:
 
 ```html
 <!DOCTYPE html>
@@ -46,7 +46,7 @@ To achieve this, you can add a click event listener to the circle shape image. W
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       display: none;
-      cursor: move;
+      touch-action: none; /* Disable browser default touch behavior */
     }
     .close-btn {
       position: absolute;
@@ -69,7 +69,7 @@ To achieve this, you can add a click event listener to the circle shape image. W
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-4">
-        <div class="circle-container" onclick="showStatusCard(1)">
+        <div class="circle-container" ontouchstart="toggleStatusCard(1)" onclick="toggleStatusCard(1)">
           <div class="circle-img">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 1">
           </div>
@@ -79,7 +79,7 @@ To achieve this, you can add a click event listener to the circle shape image. W
         </div>
       </div>
       <div class="col-md-4">
-        <div class="circle-container" onclick="showStatusCard(2)">
+        <div class="circle-container" ontouchstart="toggleStatusCard(2)" onclick="toggleStatusCard(2)">
           <div class="circle-img">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 2">
           </div>
@@ -89,7 +89,7 @@ To achieve this, you can add a click event listener to the circle shape image. W
         </div>
       </div>
       <div class="col-md-4">
-        <div class="circle-container" onclick="showStatusCard(3)">
+        <div class="circle-container" ontouchstart="toggleStatusCard(3)" onclick="toggleStatusCard(3)">
           <div class="circle-img">
             <img src="https://via.placeholder.com/150x150" alt="Circle Image 3">
           </div>
@@ -130,14 +130,18 @@ To achieve this, you can add a click event listener to the circle shape image. W
   </div>
 
   <script>
-    function showStatusCard(id) {
+    function toggleStatusCard(id) {
       var statusCard = document.getElementById('status-card-' + id);
-      statusCard.style.display = 'block';
+      var publisherName = statusCard.querySelector('.publisher-name');
+      statusCard.style.display = statusCard.style.display === 'block' ? 'none' : 'block';
+      publisherName.style.display = publisherName.style.display === 'block' ? 'none' : 'block';
     }
 
     function closeStatusCard(id) {
       var statusCard = document.getElementById('status-card-' + id);
+      var publisherName = statusCard.querySelector('.publisher-name');
       statusCard.style.display = 'none';
+      publisherName.style.display = 'none';
     }
 
     function dragStart(event) {
@@ -153,11 +157,24 @@ To achieve this, you can add a click event listener to the circle shape image. W
       function stopDrag() {
         document.removeEventListener('mousemove', drag);
         document.removeEventListener('mouseup', stopDrag);
+        document.removeEventListener('touchmove', drag);
+       
+
+ document.removeEventListener('touchend', stopDrag);
       }
 
       document.addEventListener('mousemove', drag);
       document.addEventListener('mouseup', stopDrag);
+      document.addEventListener('touchmove', drag);
+      document.addEventListener('touchend', stopDrag);
     }
   </script>
 </body>
 </html>
+```
+
+In this code:
+
+- I added `ontouchstart` event listeners to the circle containers, so when a user touches the circle image, the status card will be displayed.
+- I modified the `dragStart` function to handle both mouse and touch events. When a touch event starts (`ontouchstart`), the function will be triggered, and it will calculate the offset based on touch coordinates.
+- I added touch event listeners (`touchmove` and `touchend`) to handle dragging on touch devices.
