@@ -1,4 +1,4 @@
-To enable dragging the image card using touch events and keep its position after moving, you can modify the JavaScript code. Here's the updated code:
+To prevent the image card from moving beyond the screen area and ensure it stays in position, you can add some logic to restrict its movement. Here's the updated JavaScript code to achieve this:
 
 ```html
 <!DOCTYPE html>
@@ -155,10 +155,10 @@ To enable dragging the image card using touch events and keep its position after
     }
 
     function dragStart(event) {
-      currentImageCard = event.target.parentElement;
-      initialX
+      currentImage
 
- = event.touches[0].clientX - parseFloat(window.getComputedStyle(currentImageCard).left);
+Card = event.target.parentElement;
+      initialX = event.touches[0].clientX - parseFloat(window.getComputedStyle(currentImageCard).left);
       initialY = event.touches[0].clientY - parseFloat(window.getComputedStyle(currentImageCard).top);
       currentX = event.touches[0].clientX;
       currentY = event.touches[0].clientY;
@@ -169,8 +169,12 @@ To enable dragging the image card using touch events and keep its position after
       if (currentImageCard) {
         const x = event.touches[0].clientX - initialX;
         const y = event.touches[0].clientY - initialY;
-        const translateX = x - currentX;
-        const translateY = y - currentY;
+        const minX = 0;
+        const minY = 0;
+        const maxX = window.innerWidth - currentImageCard.offsetWidth;
+        const maxY = window.innerHeight - currentImageCard.offsetHeight;
+        const translateX = Math.min(Math.max(x, minX), maxX) - currentX;
+        const translateY = Math.min(Math.max(y, minY), maxY) - currentY;
         currentImageCard.style.transform = `translate(${translateX}px, ${translateY}px)`;
       }
     }
@@ -186,4 +190,4 @@ To enable dragging the image card using touch events and keep its position after
 </html>
 ```
 
-In this code, touch events (`ontouchstart`, `ontouchmove`, `ontouchend`) are added to enable dragging the image card on touch devices. The position of the image card is updated dynamically as it is dragged, and it remains in its position after dragging.
+This code ensures that the image card cannot be dragged beyond the screen boundaries, preventing it from moving outside the visible area.
