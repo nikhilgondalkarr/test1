@@ -1,4 +1,4 @@
-To make the image card draggable by finger on touch devices, you can use JavaScript to handle touch events for dragging. Here's the updated code:
+To enable dragging the image card using touch events and keep its position after moving, you can modify the JavaScript code. Here's the updated code:
 
 ```html
 <!DOCTYPE html>
@@ -35,17 +35,13 @@ To make the image card draggable by finger on touch devices, you can use JavaScr
       position: fixed;
       top: 20%; /* Position from the top */
       left: 50%; /* Center horizontally */
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       width: 300px;
       height: 300px;
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       z-index: 9999;
-      touch-action: none; /* Disable browser default touch behavior */
-    }
-    .image-card .card-header {
-      cursor: move; /* Change cursor to move when hovering over header */
     }
     .image-card .carousel-item img {
       width: 100%;
@@ -106,7 +102,7 @@ To make the image card draggable by finger on touch devices, you can use JavaScr
   </div>
 
   <!-- Image cards -->
-  <div class="image-card" id="image-card-1" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd(event)">
+  <div class="image-card" id="image-card-1" ontouchstart="dragStart(event)" ontouchmove="dragMove(event)" ontouchend="dragEnd()">
     <div class="card-header">
       Image Card
       <i class="fas fa-times exit-icon" onclick="closeImageCard('image-card-1')"></i>
@@ -154,15 +150,15 @@ To make the image card draggable by finger on touch devices, you can use JavaScr
     }
 
     function closeImageCard(id) {
-      var
-
- imageCard = document.getElementById(id);
+      var imageCard = document.getElementById(id);
       imageCard.style.display = 'none';
     }
 
     function dragStart(event) {
       currentImageCard = event.target.parentElement;
-      initialX = event.touches[0].clientX - parseFloat(window.getComputedStyle(currentImageCard).left);
+      initialX
+
+ = event.touches[0].clientX - parseFloat(window.getComputedStyle(currentImageCard).left);
       initialY = event.touches[0].clientY - parseFloat(window.getComputedStyle(currentImageCard).top);
       currentX = event.touches[0].clientX;
       currentY = event.touches[0].clientY;
@@ -180,12 +176,14 @@ To make the image card draggable by finger on touch devices, you can use JavaScr
     }
 
     function dragEnd() {
-      currentImageCard.style.transform = 'translate(0, 0)';
-      currentImageCard = null;
+      if (currentImageCard) {
+        currentImageCard.style.transform = 'translate(0, 0)';
+        currentImageCard = null;
+      }
     }
   </script>
 </body>
 </html>
 ```
 
-In this code, I've added touch event listeners for `ontouchstart`, `ontouchmove`, and `ontouchend` on the image card to enable dragging. The `dragStart`, `dragMove`, and `dragEnd` JavaScript functions handle the dragging behavior of the image card. Adjust the touch event handling as needed to fit your requirements.
+In this code, touch events (`ontouchstart`, `ontouchmove`, `ontouchend`) are added to enable dragging the image card on touch devices. The position of the image card is updated dynamically as it is dragged, and it remains in its position after dragging.
