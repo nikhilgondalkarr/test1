@@ -1,6 +1,4 @@
-To achieve this functionality, you can use JavaScript to create a floating modal or overlay that displays the full description, title, and image when a news card is clicked. Here's how you can implement it:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +10,7 @@ To achieve this functionality, you can use JavaScript to create a floating modal
     /* Custom CSS for the news grid */
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(10, 1fr);
       gap: 20px;
       padding: 20px;
     }
@@ -95,11 +93,16 @@ To achieve this functionality, you can use JavaScript to create a floating modal
 <script>
   // Sample news data (Replace with your own data)
   const newsData = [
-    { image: 'dddd.jpg', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'आयपीएलच्या 17 व्या मोसमातील 41 व्या सामन्यात रॉयल चॅलेंजर्स बंगळुरुने सनराजयर्स हैदराबाद विरुद्ध टॉस जिंकून बॅटिंगचा निर्णय घेतला आहे. हैदराबादमधील राजीव गांधी आंतरराष्ट्रीय स्टेडियममध्ये या सामन्याचं आयोजन करण्यात आलं आहे. या सामन्याला संध्याकाळी 7 वाजून 30 मिनिटांनी सुरुवात झाली. आरसीबीकडून कॅप्टन फाफ डु प्लेसीस आणि विराट कोहली ही सलामी जोडी मैदानात आली. आरसीबीच्या नावावर यासह मोठा विक्रम झाला आहे. आरसीबी आयपीएलच्या इतिहासात अशी कारमागिरी करणारी दुसरीच टीम ठरली आहे' },
-    { image: '008.jpg', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'Indian', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
     { image: 'https://via.placeholder.com/100x120', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
     { image: 'https://via.placeholder.com/100x120', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 10', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
   ];
 
   // Function to render news items
@@ -148,10 +151,3 @@ To achieve this functionality, you can use JavaScript to create a floating modal
 
 </body>
 </html>
-```
-
-In this code:
-
-- Each news item has a `click` event listener attached to it. When clicked, it calls the `openModal` function with the corresponding news data.
-- The `openModal` function receives the news data and updates the modal content accordingly, displaying the full description, title, and image.
-- The modal is initially hidden (`display: none`) and shown when a news item is clicked. It can be closed by clicking the close button (`×`) or clicking outside the modal.
