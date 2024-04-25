@@ -29,8 +29,8 @@
       cursor: pointer;
     }
     .news-item img {
-      width: 100%;
-      height: 120px; /* Adjusted height */
+      width: auto; /* Set width to auto */
+      height: 100%; /* Set height to 100% */
       object-fit: cover;
     }
     .news-item .card-body {
@@ -116,10 +116,10 @@
     <!-- Share buttons -->
     <div class="share-buttons">
       <a class="share-btn" href="#" onclick="shareFacebook()">
-        <img src="11.png" alt="Facebook">
+        <img src="facebook-icon.png" alt="Facebook">
       </a>
       <a class="share-btn" href="#" onclick="shareWhatsApp()">
-        <img src="man.png" alt="WhatsApp">
+        <img src="whatsapp-icon.png" alt="WhatsApp">
       </a>
       <!-- Add more share buttons for other platforms if needed -->
     </div>
@@ -134,16 +134,23 @@
 <script>
   // Sample news data (Replace with your own data)
   const newsData = [
-    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'bbc.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'dddd.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'bb.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+
     // Add more news items here...
   ];
 
   const newsGrid = document.getElementById('newsGrid');
   const loadMoreBtn = document.getElementById('loadMoreBtn');
-  let currentIndex =
-
- 0;
+  let currentIndex = 0;
   const itemsPerPage = 6;
 
   // Function to render news items
@@ -152,7 +159,9 @@
       if (i >= newsData.length) return; // Stop if all items rendered
       const news = newsData[i];
       const newsItem = document.createElement('div');
-      newsItem.classList.add('news-item', 'border');
+     
+
+ newsItem.classList.add('news-item', 'border');
       newsItem.innerHTML = `
         <img src="${news.image}" alt="${news.title}">
         <div class="card-body">
