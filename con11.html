@@ -1,4 +1,6 @@
+To display a shortened version of the title and description on the news cards, you can use CSS to truncate the text and add an ellipsis (...) to indicate that there is more content. Here's how you can modify the HTML and CSS:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,10 +55,18 @@
     .news-item h3 {
       font-size: 14px; /* Adjusted font size */
       margin-bottom: 2px;
+      overflow: hidden;
+      text-overflow: ellipsis; /* Added for truncating text */
+      white-space: nowrap; /* Added for truncating text */
     }
     .news-item p {
       font-size: 12px; /* Adjusted font size */
       margin-bottom: 0;
+      overflow: hidden;
+      text-overflow: ellipsis; /* Added for truncating text */
+      display: -webkit-box; /* Added for truncating text */
+      -webkit-line-clamp: 3; /* Added for truncating text after 3 lines */
+      -webkit-box-orient: vertical; /* Added for truncating text */
     }
     /* Modal styles */
     .modal-overlay {
@@ -117,7 +127,9 @@
 <div class="container">
   <h1 class="text-center my-4">News Portal</h1>
   <div id="newsGrid" class="news-grid"></div>
-</div>
+</
+
+div>
 
 <!-- Modal Markup -->
 <div class="modal-overlay" id="modalOverlay">
@@ -147,16 +159,8 @@
 <script>
   // Sample news data (Replace with your own data)
   const newsData = [
-    { image: '008.jpg', title: 'नूडल्सच्या पाकिटांमध्ये २ कोटींचे हिरे, अंतर्वस्त्रात सोन्याची बिस्किटे, मुंबई विमानतळावर कोट्यवधींची तस्करी उघड', description: 'मुंबई विमानतळ देशातील सर्वाधिक वर्दळीचे विमानतळ आहे. या विमानतळावरुन रोज हजारो प्रवाशी प्रवास करत असतात. सोने, हिरे याची तस्करी करण्यासाठी विविध कृप्त्या शोधून काढतात. कधी अंतर्वस्त्रातून सोने नेण्याचा प्रयत्न करतात. कधी खाण्याच्या पाकिटात हिरे टाकतात. अगदी ऑपरेशन करुन शरीरातून सोने, हिरे नेण्याचा प्रयत्न झाला आहे. परंतु मुंबई विमानतळावर असलेल्या सीमा शुल्क विभागाच्या चाणाक्ष अधिकाऱ्यांच्या नजरेतून ते काही सुटत नाही. आता मुंबई विमानतळावर दोन कोटींचे हिरे आणि सहा कोटींचे सोने जप्त करण्यात आले आहे. मुंबई विमानतळावरून बँकॉकला हिरे घेऊन जाणाऱ्या प्रवाशाला मुंबई विमानतळावरील सीमा शुल्क विभागाच्या अधिकाऱ्यांनी अटक केली आहे.' },
-    { image: 'Indian.jpg', title: 'नूडल्सच्या पाकिटांमध्ये २ कोटींचे हिरे, अंतर्वस्त्रात सोन्याची बिस्किटे, मुंबई विमानतळावर कोट्यवधींची तस्करी उघड', description: 'मुंबई विमानतळ देशातील सर्वाधिक वर्दळीचे विमानतळ आहे. या विमानतळावरुन रोज हजारो प्रवाशी प्रवास करत असतात. सोने, हिरे याची तस्करी करण्यासाठी विविध कृप्त्या शोधून काढतात. कधी अंतर्वस्त्रातून सोने नेण्याचा प्रयत्न करतात. कधी खाण्याच्या पाकिटात हिरे टाकतात. अगदी ऑपरेशन करुन शरीरातून सोने, हिरे नेण्याचा प्रयत्न झाला आहे. परंतु मुंबई विमानतळावर असलेल्या सीमा शुल्क विभागाच्या चाणाक्ष अधिकाऱ्यांच्या नजरेतून ते काही सुटत नाही. आता मुंबई विमानतळावर दोन कोटींचे हिरे आणि सहा कोटींचे सोने जप्त करण्यात आले आहे. मुंबई विमानतळावरून बँकॉकला हिरे घेऊन जाणाऱ्या प्रवाशाला मुंबई विमानतळावरील सीमा शुल्क विभागाच्या अधिकाऱ्यांनी अटक केली आहे.' },
-    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'Indian.jpg', title: 'नूडल्सच्या पाकिटांमध्ये २ कोटींचे हिरे, अंतर्वस्त्रात सोन्याची बिस्किटे, मुंबई विमानतळावर कोट्यवधींची तस्करी उघड', description: 'मुंबई विमानतळ देशातील सर्वाधिक वर्दळीचे विमानतळ आहे. या विमानतळावरुन रोज हजारो प्रवाशी प्रवास करत असतात. सोने, हिरे याची तस्करी करण्यासाठी विविध कृप्त्या शोधून काढतात. कधी अंतर्वस्त्रातून सोने नेण्याचा प्रयत्न करतात. कधी खाण्याच्या पाकिटात हिरे टाकतात. अगदी ऑपरेशन करुन शरीरातून सोने, हिरे नेण्याचा प्रयत्न झाला आहे. परंतु मुंबई विमानतळावर असलेल्या सीमा शुल्क विभागाच्या चाणाक्ष अधिकाऱ्यांच्या नजरेतून ते काही सुटत नाही. आता मुंबई विमानतळावर दोन कोटींचे हिरे आणि सहा कोटींचे सोने जप्त करण्यात आले आहे. मुंबई विमानतळावरून बँकॉकला हिरे घेऊन जाणाऱ्या प्रवाशाला मुंबई विमानतळावरील सीमा शुल्क विभागाच्या अधिकाऱ्यांनी अटक केली आहे.' },
-    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'Long News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a justo vel dolor pharetra malesuada sit amet non justo. Curabitur eu felis non lectus semper volutpat vel id ligula.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'डल्सच्या पाकिटांमध्ये २ कोटींचे हिरे, अंतर्वस्त्रात सोन्याची बिस्किटे, मुंबई विमानतळावर कोट्यवधींची तस्करी उघड', description: 'मुंबई विमानतळ देशातील सर्वाधिक वर्दळीचे विमानतळ आहे. या विमानतळावरुन रोज हजारो प्रवाशी प्रवास करत असतात. सोने, हिरे याची तस्करी करण्यासाठी विविध कृप्त्या शोधून काढतात. कधी अंतर्वस्त्रातून सोने नेण्याचा प्रयत्न करतात. कधी खाण्याच्या पाकिटात हिरे टाकतात. अगदी ऑपरेशन करुन शरीरातून सोने, हिरे नेण्याचा प्रयत्न झाला आहे. परंतु मुंबई विमानतळावर असलेल्या सीमा शुल्क विभागाच्या चाणाक्ष अधिकाऱ्यांच्या नजरेतून ते काही सुटत नाही. आता मुंबई विमानतळावर दोन कोटींचे हिरे आणि सहा कोटींचे सोने जप्त करण्यात आले आहे. मुंबई विमानतळावरून बँकॉकला हिरे घेऊन जाणाऱ्या प्रवाशाला मुंबई विमानतळावरील सीमा शुल्क विभागाच्या अधिकाऱ्यांनी अटक केली आहे.' },
     // Add more news items here...
   ];
 
@@ -241,3 +245,12 @@
 
 </body>
 </html>
+```
+
+In this code:
+
+- I added CSS styles to truncate the title and description with an ellipsis (...) if they exceed the available space.
+- For the title, I used `overflow: hidden`, `text-overflow: ellipsis`, and `white-space: nowrap` to truncate it and show an ellipsis if it overflows.
+- For the description, I used `overflow: hidden`, `-webkit-line-clamp`, and `-webkit-box-orient` to
+
+ limit it to 3 lines and show an ellipsis if it exceeds.
