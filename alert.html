@@ -16,13 +16,13 @@
     }
     @media (max-width: 992px) {
       .news-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
       }
     }
     .news-item {
       width: 100%;
-      max-width: 100px;
-      height: 140px;
+      max-width: 50px;
+      height: 90px;
       overflow: hidden;
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -30,18 +30,18 @@
     }
     .news-item img {
       width: 100%;
-      height: 100px;
+      height: 70px;
       object-fit: cover;
     }
     .news-item .card-body {
-      padding: 10px;
+      padding: 5px;
     }
     .news-item h3 {
-      font-size: 14px;
-      margin-bottom: 5px;
+      font-size: 10px;
+      margin-bottom: 2px;
     }
     .news-item p {
-      font-size: 12px;
+      font-size: 8px;
       margin-bottom: 0;
     }
     /* Modal styles */
@@ -93,16 +93,16 @@
 <script>
   // Sample news data (Replace with your own data)
   const newsData = [
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 10', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/50x70', title: 'News Title 10', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
   ];
 
   // Function to render news items
@@ -127,7 +127,9 @@
   // Function to open modal
   function openModal(news) {
     const modalOverlay = document.getElementById('modalOverlay');
-    const modalContent = document.getElementById('modalContent');
+   
+
+ const modalContent = document.getElementById('modalContent');
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
