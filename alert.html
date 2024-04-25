@@ -1,4 +1,4 @@
-Sure, here's the updated code with 15 images:
+To achieve this functionality, you can use JavaScript to create a floating modal or overlay that displays the full description, title, and image when a news card is clicked. Here's how you can implement it:
 
 ```html
 <!DOCTYPE html>
@@ -6,86 +6,152 @@ Sure, here's the updated code with 15 images:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Masonry Layout</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
+  <title>News Portal</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    .masonry-container {
-      column-count: 4; /* Number of columns */
-      column-gap: 1rem; /* Gap between columns */
+    /* Custom CSS for the news grid */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 20px;
     }
-    .masonry-item {
-      display: inline-block;
-      margin-bottom: 1rem; /* Gap between items */
-      width: 100%; /* Ensure items take full width of column */
+    @media (max-width: 992px) {
+      .news-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      }
+    }
+    .news-item {
+      width: 100%;
+      max-width: 100px;
+      height: 140px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .news-item img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+    }
+    .news-item .card-body {
+      padding: 10px;
+    }
+    .news-item h3 {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .news-item p {
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow-y: auto;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="masonry-container">
-        <!-- Masonry Items -->
-        <div class="masonry-item">
-          <img src="bbc.jpg" class="img-fluid" alt="Image 1">
-        </div>
-        <div class="masonry-item">
-          <img src="008.jpg" class="img-fluid" alt="Image 2">
-        </div>
-        <div class="masonry-item">
-          <img src="dddd.jpg" class="img-fluid" alt="Image 3">
-        </div>
-        <div class="masonry-item">
-          <img src="Indian.jpg" class="img-fluid" alt="Image 4">
-        </div>
-        <div class="masonry-item">
-          <img src="008.jpg" class="img-fluid" alt="Image 5">
-        </div>
-        <div class="masonry-item">
-          <img src="dddd.jpg" class="img-fluid" alt="Image 6">
-        </div>
-        <div class="masonry-item">
-          <img src="008.jpg" class="img-fluid" alt="Image 7">
-        </div>
-        <div class="masonry-item">
-          <img src="Indian.jpg" class="img-fluid" alt="Image 8">
-        </div>
-        <div class="masonry-item">
-          <img src="Indian.jpg" class="img-fluid" alt="Image 9">
-        </div>
-        <div class="masonry-item">
-          <img src="bbc.jpg" class="img-fluid" alt="Image 10">
-        </div>
-        <div class="masonry-item">
-          <img src="bb.jpg" class="img-fluid" alt="Image 11">
-        </div>
-        <div class="masonry-item">
-          <img src="008.jpg" class="img-fluid" alt="Image 12">
-        </div>
-        <div class="masonry-item">
-          <img src="bb.jpg" class="img-fluid" alt="Image 13">
-        </div>
-        <div class="masonry-item">
-          <img src="download (5).jpg" class="img-fluid" alt="Image 14">
-        </div>
-        <div class="masonry-item">
-          <img src="bb.jpg" class="img-fluid" alt="Image 15">
-        </div>
-        <!-- Add more masonry items as needed -->
-      </div>
-    </div>
+  <h1 class="text-center my-4">News Portal</h1>
+  <div id="newsGrid" class="news-grid"></div>
+</div>
+
+<!-- Modal Markup -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-content" id="modalContent">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <img src="" alt="" id="modalImage" style="max-width: 100%; height: auto;">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
   </div>
 </div>
 
-<!-- Bootstrap JS (Optional) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  // Sample news data (Replace with your own data)
+  const newsData = [
+    { image: 'dddd.jpg', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'आयपीएलच्या 17 व्या मोसमातील 41 व्या सामन्यात रॉयल चॅलेंजर्स बंगळुरुने सनराजयर्स हैदराबाद विरुद्ध टॉस जिंकून बॅटिंगचा निर्णय घेतला आहे. हैदराबादमधील राजीव गांधी आंतरराष्ट्रीय स्टेडियममध्ये या सामन्याचं आयोजन करण्यात आलं आहे. या सामन्याला संध्याकाळी 7 वाजून 30 मिनिटांनी सुरुवात झाली. आरसीबीकडून कॅप्टन फाफ डु प्लेसीस आणि विराट कोहली ही सलामी जोडी मैदानात आली. आरसीबीच्या नावावर यासह मोठा विक्रम झाला आहे. आरसीबी आयपीएलच्या इतिहासात अशी कारमागिरी करणारी दुसरीच टीम ठरली आहे' },
+    { image: '008.jpg', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'Indian', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/100x120', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+  ];
+
+  // Function to render news items
+  function renderNews() {
+    const newsGrid = document.getElementById('newsGrid');
+    newsData.forEach((news, index) => {
+      const newsItem = document.createElement('div');
+      newsItem.classList.add('news-item', 'border');
+      newsItem.setAttribute('data-index', index);
+      newsItem.innerHTML = `
+        <img src="${news.image}" alt="${news.title}">
+        <div class="card-body">
+          <h3>${news.title}</h3>
+          <p>${news.description}</p>
+        </div>
+      `;
+      newsItem.addEventListener('click', () => openModal(news));
+      newsGrid.appendChild(newsItem);
+    });
+  }
+
+  // Function to open modal
+  function openModal(news) {
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalContent = document.getElementById('modalContent');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+
+    modalImage.src = news.image;
+    modalTitle.textContent = news.title;
+    modalDescription.textContent = news.description;
+
+    modalOverlay.style.display = 'flex';
+  }
+
+  // Function to close modal
+  function closeModal() {
+    const modalOverlay = document.getElementById('modalOverlay');
+    modalOverlay.style.display = 'none';
+  }
+
+  // Render the news grid
+  renderNews();
+</script>
+
 </body>
 </html>
 ```
 
-This code now includes 15 images in the Masonry Layout. You can adjust the image URLs and dimensions as needed.
+In this code:
+
+- Each news item has a `click` event listener attached to it. When clicked, it calls the `openModal` function with the corresponding news data.
+- The `openModal` function receives the news data and updates the modal content accordingly, displaying the full description, title, and image.
+- The modal is initially hidden (`display: none`) and shown when a news item is clicked. It can be closed by clicking the close button (`×`) or clicking outside the modal.
