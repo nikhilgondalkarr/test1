@@ -29,9 +29,8 @@
       cursor: pointer;
     }
     .news-item img {
-      width: auto; /* Set width to auto */
-      height: 100%; /* Set height to 100% */
-      object-fit: cover;
+      width: 100%;
+      height: 100%; /* Full size */
     }
     .news-item .card-body {
       padding: 5px;
@@ -135,16 +134,24 @@
   // Sample news data (Replace with your own data)
   const newsData = [
     { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: '008.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'dddd.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
     { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
     { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'dddd.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'bb.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'dddd.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
     { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
     { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-
+    { image: 'dddd.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'dddd.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    
+    
+    
     // Add more news items here...
   ];
 
@@ -159,9 +166,9 @@
       if (i >= newsData.length) return; // Stop if all items rendered
       const news = newsData[i];
       const newsItem = document.createElement('div');
-     
+      newsItem.classList.add('news-item', 'border');
 
- newsItem.classList.add('news-item', 'border');
+
       newsItem.innerHTML = `
         <img src="${news.image}" alt="${news.title}">
         <div class="card-body">
