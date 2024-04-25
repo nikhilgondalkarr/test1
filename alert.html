@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Background Image Example</title>
-    <style>
-        body {
-            background-image: url('dddd.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
-            background-size: cover; /* This ensures that the image covers the entire background */
-            background-position: center; /* Centers the background image */
-            background-repeat: no-repeat; /* Prevents the background image from repeating */
-            /* You can add more CSS properties here to style the background as needed */
-        }
-    </style>
-</head>
-<body>
-    <!-- Your webpage content goes here -->
-</body>
-</html>
 
-
-
-
-
-
-
-
-
-
-
-Sure, here's the updated code with image and body card size set to 100x120 pixels:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,14 +10,19 @@ Sure, here's the updated code with image and body card size set to 100x120 pixel
     /* Custom CSS for the news grid */
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* Display 4 cards per row */
+      grid-template-columns: repeat(3, 1fr); /* Displaying 3 cards per row */
       gap: 20px;
       padding: 20px;
     }
+    @media (max-width: 992px) {
+      .news-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjusted min width */
+      }
+    }
     .news-item {
       width: 100%;
-      max-width: 200px; /* Adjusted width */
-      height: 260px; /* Adjusted height */
+      max-width: 100px; /* Adjusted width */
+      height: 130px; /* Adjusted height */
       overflow: hidden;
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -58,28 +30,57 @@ Sure, here's the updated code with image and body card size set to 100x120 pixel
     }
     .news-item img {
       width: 100%;
-      height: 120px; /* Adjusted height */
+      height: 100px; /* Adjusted height */
       object-fit: cover;
     }
     .news-item .card-body {
       padding: 5px;
-      background-color: white;
+      background-color: white; /* Added white background */
     }
     .news-item h3 {
-      font-size: 16px;
+      font-size: 14px; /* Adjusted font size */
       margin-bottom: 2px;
     }
     .news-item p {
-      font-size: 14px;
+      font-size: 12px; /* Adjusted font size */
       margin-bottom: 0;
     }
-    /* Button for loading more posts */
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow-y: auto;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    /* Footer styles */
+    footer {
+      text-align: center;
+      margin-top: 20px;
+    }
     .load-more-btn {
-      display: block;
-      margin: 20px auto;
       padding: 10px 20px;
       background-color: #007bff;
-      color: #fff;
+      color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -91,7 +92,6 @@ Sure, here's the updated code with image and body card size set to 100x120 pixel
 <div class="container">
   <h1 class="text-center my-4">News Portal</h1>
   <div id="newsGrid" class="news-grid"></div>
-  <button class="load-more-btn" onclick="loadMorePosts()">Load More</button>
 </div>
 
 <!-- Modal Markup -->
@@ -104,26 +104,35 @@ Sure, here's the updated code with image and body card size set to 100x120 pixel
   </div>
 </div>
 
+<!-- Load More Button -->
+<footer>
+  <button class="load-more-btn" id="loadMoreBtn">Load More</button>
+</footer>
+
 <script>
   // Sample news data (Replace with your own data)
   const newsData = [
     { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: '008.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'Indian.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: '008.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'https://via.placeholder.com/100x120', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    
-    // Add more data here...
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: '008.jpg', title: 'News Title 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'bb.jpg', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'dddd.jpg', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'bbc.jpg', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'Indian.jpg', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'bbc.jpg', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'bbc.jpg', title: 'News Title 10', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
   ];
 
-  let startIndex = 0;
-  const perPage = 8; // Number of posts per page
+  const newsGrid = document.getElementById('newsGrid');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  let currentIndex = 0;
+  const itemsPerPage = 6;
 
   // Function to render news items
-  function renderNews(start, end) {
-    const newsGrid = document.getElementById('newsGrid');
-    for (let i = start; i < end && i < newsData.length; i++) {
+  function renderNews(startIndex, endIndex) {
+    for (let i = startIndex; i < endIndex; i++) {
+      if (i >= newsData.length) return; // Stop if all items rendered
       const news = newsData[i];
       const newsItem = document.createElement('div');
       newsItem.classList.add('news-item', 'border');
@@ -139,13 +148,15 @@ Sure, here's the updated code with image and body card size set to 100x120 pixel
     }
   }
 
-  // Function to load more posts
-  function loadMorePosts() {
-    startIndex += perPage;
-    renderNews(startIndex, startIndex + perPage);
-    if (startIndex + perPage >= newsData.length) {
-      const loadMoreBtn = document.querySelector('.load-more-btn');
-      loadMoreBtn.style.display = 'none'; // Hide button when all posts are loaded
+  // Function to handle "Load More" button click
+  function loadMore() {
+    const nextIndex = currentIndex + itemsPerPage
+
+;
+    renderNews(currentIndex, nextIndex);
+    currentIndex = nextIndex;
+    if (currentIndex >= newsData.length) {
+      loadMoreBtn.style.display = 'none'; // Hide button when all items are loaded
     }
   }
 
@@ -169,12 +180,12 @@ Sure, here's the updated code with image and body card size set to 100x120 pixel
     modalOverlay.style.display = 'none';
   }
 
-  // Initial render
-  renderNews(startIndex, startIndex + perPage);
+  // Initial rendering of news items
+  renderNews(0, itemsPerPage);
+
+  // Event listener for "Load More" button click
+  loadMoreBtn.addEventListener('click', loadMore);
 </script>
 
 </body>
 </html>
-```
-
-In this code, I adjusted the image size to 100x120 pixels and the body card size to 200x260 pixels to accommodate the larger image size.
