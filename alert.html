@@ -31,7 +31,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,6 +104,19 @@
       right: 10px;
       cursor: pointer;
     }
+    /* Footer styles */
+    footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .load-more-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -124,28 +136,57 @@
   </div>
 </div>
 
+<footer>
+  <button class="load-more-btn" onclick="loadMorePosts()">Load More</button>
+</footer>
+
 <script>
-  // Sample news data (Replace with your own data)
+  let startIndex = 0;
+  const batchSize = 8;
   const newsData = [
-    { image: 'https://via.placeholder.com/80x100', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'https://via.placeholder.com/80x100', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'https://via.placeholder.com/80x100', title: 'News Title 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
-    { image: 'https://via.placeholder.com/80x100', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
-    { image: 'https://via.placeholder.com/80x100', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+   
+    { image: 'https://via.placeholder.com/80x100', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 13', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 14', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 15', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id eum.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 16', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 12', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 14', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 15', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id eum.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 16', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 12', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 13', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 15', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id eum.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 16', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
     { image: 'https://via.placeholder.com/80x100', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
     { image: 'https://via.placeholder.com/80x100', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
     { image: 'https://via.placeholder.com/80x100', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
     { image: 'https://via.placeholder.com/80x100', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
     { image: 'https://via.placeholder.com/80x100', title: 'News Title 10', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'News Title 13', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/80x100', title: 'RH vs RCB : आरसीबीचा आयपीएलमध्ये मोठा कीर्तीमान, अशी कामगिरी करणारी दुसरीच टीम', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
   ];
 
-  // Function to render news items
   function renderNews() {
     const newsGrid = document.getElementById('newsGrid');
-    newsData.forEach((news, index) => {
+    newsGrid.innerHTML = ''; // Clear existing content
+    const endIndex = Math.min(startIndex + batchSize, newsData.length);
+    for (let i = startIndex; i < endIndex; i++) {
+      const news = newsData[i];
       const newsItem = document.createElement('div');
       newsItem.classList.add('news-item', 'border');
-      newsItem.setAttribute('data-index', index);
       newsItem.innerHTML = `
         <img src="${news.image}" alt="${news.title}">
         <div class="card-body">
@@ -155,10 +196,14 @@
       `;
       newsItem.addEventListener('click', () => openModal(news));
       newsGrid.appendChild(newsItem);
-    });
+    }
   }
 
-  // Function to open modal
+  function loadMorePosts() {
+    startIndex += batchSize;
+    renderNews();
+  }
+
   function openModal(news) {
     const modalOverlay = document.getElementById('modalOverlay');
     const modalContent = document.getElementById('modalContent');
@@ -173,13 +218,11 @@
     modalOverlay.style.display = 'flex';
   }
 
-  // Function to close modal
   function closeModal() {
     const modalOverlay = document.getElementById('modalOverlay');
     modalOverlay.style.display = 'none';
   }
 
-  // Render the news grid
   renderNews();
 </script>
 
