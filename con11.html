@@ -1,6 +1,4 @@
-To add a post share feature with Font Awesome icons for sharing on various social media platforms, you can include Font Awesome icons and add share buttons with corresponding share functions for each platform. Here's the modified code:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,6 +141,311 @@ To add a post share feature with Font Awesome icons for sharing on various socia
 
 </body>
 </html>
-```
 
-This code includes Font Awesome icons for Facebook, Twitter, and WhatsApp sharing. Clicking on each icon will trigger the corresponding share function. Remember to replace `'https://example.com/your-post-url'` with the actual URL of your post in the share functions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Portal</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for the news grid */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Displaying 3 cards per row */
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (max-width: 992px) {
+      .news-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+    .news-item {
+      width: 100%;
+      max-width: 150px; /* Adjusted width */
+      height: 170px; /* Adjusted height */
+      overflow: hidden;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .news-item img {
+      width: 100%;
+      height: 100%; /* Full size */
+    }
+    .news-item .card-body {
+      padding: 5px;
+      background-color: white; /* Added white background */
+    }
+    .news-item h3 {
+      font-size: 14px; /* Adjusted font size */
+      margin-bottom: 2px;
+    }
+    .news-item p {
+      font-size: 12px; /* Adjusted font size */
+      margin-bottom: 0;
+    }
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow-y: auto;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    /* Footer styles */
+    footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .load-more-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    /* Share button styles */
+    .share-btn {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .share-btn img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="text-center my-4">News Portal</h1>
+  <div id="newsGrid" class="news-grid"></div>
+</div>
+
+<!-- Modal Markup -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-content" id="modalContent">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <img src="" alt="" id="modalImage" style="max-width: 100%; height: auto;">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
+    <!-- Share buttons -->
+    <div class="share-buttons">
+      <a class="share-btn" href="#" onclick="shareFacebook()">
+        <img src="facebook-icon.png" alt="Facebook">
+      </a>
+      <a class="share-btn" href="#" onclick="shareWhatsApp()">
+        <img src="whatsapp-icon.png" alt="WhatsApp">
+      </a>
+      <!-- Add more share buttons for other platforms if needed -->
+    </div>
+  </div>
+</div>
+
+<!-- Load More Button -->
+<footer>
+  <button class="load-more-btn" id="loadMoreBtn">Load More</button>
+</footer>
+
+<script>
+  // Sample news data (Replace with your own data)
+  const newsData = [
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'dddd.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'dddd.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'dddd.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'dddd.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    
+    
+    
+    // Add more news items here...
+  ];
+
+  const newsGrid = document.getElementById('newsGrid');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  let currentIndex = 0;
+  const itemsPerPage = 6;
+
+  // Function to render news items
+  function renderNews(startIndex, endIndex) {
+    for (let i = startIndex; i < endIndex; i++) {
+      if (i >= newsData.length) return; // Stop if all items rendered
+      const news = newsData[i];
+      const newsItem = document.createElement('div');
+      newsItem.classList.add('news-item', 'border');
+
+
+      newsItem.innerHTML = `
+        <img src="${news.image}" alt="${news.title}">
+        <div class="card-body">
+          <h3>${news.title}</h3>
+          <p>${news.description}</p>
+        </div>
+      `;
+      newsItem.addEventListener('click', () => openModal(news));
+      newsGrid.appendChild(newsItem);
+    }
+  }
+
+  // Function to handle "Load More" button click
+  function loadMore() {
+    const nextIndex = currentIndex + itemsPerPage;
+    renderNews(currentIndex, nextIndex);
+    currentIndex = nextIndex;
+    if (currentIndex >= newsData.length) {
+      loadMoreBtn.style.display = 'none'; // Hide button when all items are loaded
+    }
+  }
+
+  // Function to open modal
+  function openModal(news) {
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+
+    modalImage.src = news.image;
+    modalTitle.textContent = news.title;
+    modalDescription.textContent = news.description;
+
+    modalOverlay.style.display = 'flex';
+  }
+
+  // Function to close modal
+  function closeModal() {
+    const modalOverlay = document.getElementById('modalOverlay');
+    modalOverlay.style.display = 'none';
+  }
+
+  // Function to share on Facebook
+  function shareFacebook() {
+    // Replace example URL with your actual news article URL
+    const newsUrl = 'https://example.com/news-article';
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(newsUrl)}`;
+    window.open(facebookUrl, '_blank');
+  }
+
+  // Function to share on WhatsApp
+  function shareWhatsApp() {
+    // Replace example text and URL with your actual news article details
+    const newsTitle = 'News Title';
+    const newsUrl = 'https://example.com/news-article';
+    const whatsappMessage = `${newsTitle}: ${newsUrl}`;
+    const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+  }
+
+  // Initial rendering of news items
+  renderNews(0, itemsPerPage);
+
+  // Event listener for "Load More" button click
+  loadMoreBtn.addEventListener('click', loadMore);
+</script>
+
+</body>
+</html>
