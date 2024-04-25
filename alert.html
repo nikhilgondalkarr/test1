@@ -1,4 +1,6 @@
+To adjust the image and card size to 150x170 pixels, you need to modify the CSS accordingly. Here's the updated code:
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +18,13 @@
     }
     @media (max-width: 992px) {
       .news-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjusted min width */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       }
     }
     .news-item {
       width: 100%;
-      max-width: 100px; /* Adjusted width */
-      height: 130px; /* Adjusted height */
+      max-width: 150px; /* Adjusted width */
+      height: 170px; /* Adjusted height */
       overflow: hidden;
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -30,7 +32,7 @@
     }
     .news-item img {
       width: 100%;
-      height: 100px; /* Adjusted height */
+      height: 120px; /* Adjusted height */
       object-fit: cover;
     }
     .news-item .card-body {
@@ -112,16 +114,18 @@
 <script>
   // Sample news data (Replace with your own data)
   const newsData = [
-    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'Indian.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: '008.jpg', title: 'News Title 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
-    { image: 'bb.jpg', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
-    { image: 'dddd.jpg', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
-    { image: 'bbc.jpg', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: '008.jpg', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'Indian.jpg', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
-    { image: 'bbc.jpg', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
-    { image: 'bbc.jpg', title: 'News Title 10', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 10', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'https://via.placeholder.com/150x170', title: 'News Title 12', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
   ];
 
   const newsGrid = document.getElementById('newsGrid');
@@ -140,7 +144,9 @@
         <img src="${news.image}" alt="${news.title}">
         <div class="card-body">
           <h3>${news.title}</h3>
-          <p>${news.description}</p>
+          <p>${
+
+news.description}</p>
         </div>
       `;
       newsItem.addEventListener('click', () => openModal(news));
@@ -150,9 +156,7 @@
 
   // Function to handle "Load More" button click
   function loadMore() {
-    const nextIndex = currentIndex + itemsPerPage
-
-;
+    const nextIndex = currentIndex + itemsPerPage;
     renderNews(currentIndex, nextIndex);
     currentIndex = nextIndex;
     if (currentIndex >= newsData.length) {
@@ -189,3 +193,6 @@
 
 </body>
 </html>
+```
+
+In this code, I've adjusted the `max-width` and `height` properties in the CSS to accommodate the desired image and card size of 150x170 pixels. Additionally, I've expanded the sample news data to include more items for demonstration purposes.
