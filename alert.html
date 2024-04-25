@@ -1,6 +1,4 @@
-To adjust the image and card size to 150x170 pixels, you need to modify the CSS accordingly. Here's the updated code:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,6 +85,18 @@ To adjust the image and card size to 150x170 pixels, you need to modify the CSS 
       border-radius: 5px;
       cursor: pointer;
     }
+    /* Share button styles */
+    .share-btn {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .share-btn img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body>
@@ -103,6 +113,16 @@ To adjust the image and card size to 150x170 pixels, you need to modify the CSS 
     <img src="" alt="" id="modalImage" style="max-width: 100%; height: auto;">
     <h3 id="modalTitle"></h3>
     <p id="modalDescription"></p>
+    <!-- Share buttons -->
+    <div class="share-buttons">
+      <a class="share-btn" href="#" onclick="shareFacebook()">
+        <img src="twitter1.png" alt="Facebook">
+      </a>
+      <a class="share-btn" href="#" onclick="shareWhatsApp()">
+        <img src="whatsapp.png" alt="WhatsApp">
+      </a>
+      <!-- Add more share buttons for other platforms if needed -->
+    </div>
   </div>
 </div>
 
@@ -114,23 +134,16 @@ To adjust the image and card size to 150x170 pixels, you need to modify the CSS 
 <script>
   // Sample news data (Replace with your own data)
   const newsData = [
-    { image: 'bbc.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: '008.jpg', title: 'News Title 3', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 4', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 5', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 6', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 7', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 8', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 9', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 10', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 11', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'https://via.placeholder.com/150x170', title: 'News Title 12', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    { image: '008.jpg', title: 'News Title 1', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'bbc.jpg', title: 'News Title 2', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
+    // Add more news items here...
   ];
 
   const newsGrid = document.getElementById('newsGrid');
   const loadMoreBtn = document.getElementById('loadMoreBtn');
-  let currentIndex = 0;
+  let currentIndex =
+
+ 0;
   const itemsPerPage = 6;
 
   // Function to render news items
@@ -144,9 +157,7 @@ To adjust the image and card size to 150x170 pixels, you need to modify the CSS 
         <img src="${news.image}" alt="${news.title}">
         <div class="card-body">
           <h3>${news.title}</h3>
-          <p>${
-
-news.description}</p>
+          <p>${news.description}</p>
         </div>
       `;
       newsItem.addEventListener('click', () => openModal(news));
@@ -184,6 +195,24 @@ news.description}</p>
     modalOverlay.style.display = 'none';
   }
 
+  // Function to share on Facebook
+  function shareFacebook() {
+    // Replace example URL with your actual news article URL
+    const newsUrl = 'https://example.com/news-article';
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(newsUrl)}`;
+    window.open(facebookUrl, '_blank');
+  }
+
+  // Function to share on WhatsApp
+  function shareWhatsApp() {
+    // Replace example text and URL with your actual news article details
+    const newsTitle = 'News Title';
+    const newsUrl = 'https://example.com/news-article';
+    const whatsappMessage = `${newsTitle}: ${newsUrl}`;
+    const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+  }
+
   // Initial rendering of news items
   renderNews(0, itemsPerPage);
 
@@ -193,6 +222,3 @@ news.description}</p>
 
 </body>
 </html>
-```
-
-In this code, I've adjusted the `max-width` and `height` properties in the CSS to accommodate the desired image and card size of 150x170 pixels. Additionally, I've expanded the sample news data to include more items for demonstration purposes.
