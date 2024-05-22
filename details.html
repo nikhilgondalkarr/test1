@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .details-card {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .details-card h3 {
+      margin-top: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .details-card p {
+      color: #777;
+      font-size: 16px;
+    }
+    .details-avatar img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .map-container {
+      margin-top: 20px;
+      position: relative;
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .icon {
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="details-card" id="detailsCard">
+    <!-- Contact details will be loaded here -->
+  </div>
+</div>
+
+<script>
+  function getParameterByName(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
+
+  const contactId = getParameterByName('id');
+  
+  fetch(`fetch_contact_details.php?id=${contactId}`)
+    .then(response => response.json())
+    .then(data => {
+      const detailsCard = document.getElementById('detailsCard');
+      detailsCard.innerHTML = `
+        <div class="details-avatar"><img src="${data.image}" alt="${data.name}"></div>
+        <h3>${data.name}</h3>
+        <p>Phone: <a href="tel:${data.phone}">${data.phone}</a> <i class="bi bi-telephone-fill"></i></p>
+        <p>Email: <a href="mailto:${data.email}">${data.email}</a> <i class="bi bi-envelope-fill"></i></p>
+        <p>Address: ${data.address} <i class="bi bi-geo-alt-fill"></i></p>
+        <p>Category: ${data.category}</p>
+        <p>Description: ${data.description}</p>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps?q=${data.coordinates}&output=embed" allowfullscreen></iframe>
+        </div>
+      `;
+    });
+</script>
+
+</body>
+</html>
